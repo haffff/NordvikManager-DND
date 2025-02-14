@@ -1,0 +1,11 @@
+{
+    "name": "DnD - 5 Edition",
+    "key": "dnd5e",
+    "version": "0.0.1",
+    "description": "Dungeons and Dragons 5th Edition Support for Nordvik Manager",
+    "dependencies": [
+
+    ],
+    "author": "haffff",
+    "license": "MIT"
+}
