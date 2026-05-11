@@ -1,0 +1,8 @@
+{
+  "name": "DND 5E Installation",
+  "description": "Settings for Dungeons and Dragons 5th Edition installation.",
+  "key": "dnd5e_installation",
+  "mainResource": "dnd5e_index.html",
+  "additionalResources": [],
+  "properties": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "DND 5E Card settings",
+  "description": "Settings for Dungeons and Dragons 5th Edition character cards.",
+  "key": "character_card_settings",
+  "mainResource": "dnd5e_index.html",
+  "additionalResources": ["dnd5e-template_settings.js", "dnd5e_shared.css"],
+  "properties": []
+}

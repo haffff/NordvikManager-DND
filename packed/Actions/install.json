@@ -1,0 +1,69 @@
+{
+  "name": "Install addon",
+  "hook": 1,
+  "isEnabled": true,
+  "content": [
+    {
+      "id": "0b92f70d-31e0-4101-8a2d-5ac4872e3955",
+      "Data": {
+        "Label": "Set content property",
+        "ParentId": "%gameId%",
+        "PropertyName": "dnd5e_content_provider",
+        "PropertyValue": ""
+      },
+      "Type": "SetProperty"
+    },
+    {
+      "id": "4daf43a1-3be2-44c9-9804-7c3d5122b0b1",
+      "Data": {
+        "Label": "Set additional image content property",
+        "ParentId": "%gameId%",
+        "PropertyName": "dnd5e_image_content_provider",
+        "PropertyValue": ""
+      },
+      "Type": "SetProperty"
+    },
+    {
+      "id": "a74e3b33-1e29-4113-8d3a-a4e6f4eb0d6c",
+      "Data": {
+        "Label": "Set list of sources for data",
+        "ParentId": "%gameId%",
+        "PropertyName": "dnd5e_image_content_provider",
+        "PropertyValue": ""
+      },
+      "Type": "SetProperty"
+    },
+    {
+      "id": "2361e958-4b8a-4000-8ce8-9a3d2b86366f",
+      "Data": {
+        "Label": "set health visible",
+        "ParentId": "%gameId%",
+        "PropertyName": "dnd5e_token_hp_visible",
+        "PropertyValue": "true"
+      },
+      "Type": "SetProperty"
+    },
+    {
+      "id": "2086f825-3da5-43e5-a20b-260864020186",
+      "Data": {
+        "Label": "auto death on 0 setting",
+        "Name": "",
+        "Comment": "",
+        "ParentId": "%gameId%",
+        "PropertyName": "dnd5e_token_auto_death",
+        "PropertyValue": "true"
+      },
+      "Type": "SetProperty"
+    },
+    {
+      "id": "68397016-60e8-42e4-9bab-f9f4c39b7460",
+      "Data": {
+        "Label": "Show install screen",
+        "ViewKey": "dnd5e_installscreen",
+        "Player": "%playerId%"
+      },
+      "Type": "ShowView"
+    }
+  ],
+  "gmPermission": 31
+}

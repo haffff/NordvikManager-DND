@@ -1,0 +1,35 @@
+{
+  "name": "create_menus",
+  "hook": 5,
+  "isEnabled": true,
+  "content": [
+  {
+    "id": "487b4cd0-42d6-4b59-86f2-fd439566d10d",
+    "Data": {
+      "Label": "5E General Settings",
+      "Location": "addons",
+      "Name": "Settings",
+      "UiName": "Settings",
+      "Action": "dnd5e/open_settings",
+      "SubMenuId": "5e_settings",
+      "SubMenuName": "5E Settings",
+      "Icon": "FaGear"
+    },
+    "Type": "AddMenuItem"
+  },
+  {
+    "id": "1fec316a-aae1-4eab-8f86-faec2fea133e",
+    "Data": {
+      "Label": "5E Card settings",
+      "SubMenuId": "5e_settings",
+      "Name": "card_settings",
+      "UiName": "Card Settings",
+      "Location": "5e_settings",
+      "Action": "dnd5e/open_card_settings",
+      "Icon": "FaAddressCard"
+    },
+    "Type": "AddMenuItem"
+  }
+],
+  "gmPermission": 31
+}

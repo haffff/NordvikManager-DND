@@ -1,0 +1,11 @@
+{
+    "$schema": "https://raw.githubusercontent.com/haffff/NordvikManager-Addons/refs/heads/main/schemas/addon.json",
+    "key": "dnd5e",
+    "name": "D&D 5E Addon",
+    "description": "Dungeons and Dragons 5th Edition Support for Nordvik Manager",
+    "version": "0.0.1",
+    "author": "haffff",
+    "license": "MIT",
+    "repositoryUrl": "https://github.com/haffff/NordvikManager-Addons",
+    "releaseUrl": ""
+}

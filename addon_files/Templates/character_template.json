@@ -1,0 +1,9 @@
+{
+  "name": "DND 5E Character Template",
+  "description": "A template for Dungeons and Dragons 5th Edition characters.",
+  "key": "character",
+  "mainResource": "dnd5e_index.html",
+  "additionalResources": ["dnd5e_dnd5e-nordvikcard.js", "dnd5e_shared.css"],
+  "properties": [],
+  "token": "dnd5e_token_character.json"
+}

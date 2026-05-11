@@ -1,0 +1,35 @@
+{
+  "name": "sync_data",
+  "hook": 0,
+  "prefix": "dnd5e",
+  "isEnabled": false,
+  "content": [
+    {
+      "id": "b9f80e62-4f7c-45d4-a95e-57b672993bf9",
+      "Data": {
+        "Label": "set items var",
+        "Assignments": "url_path=/data/items.json\noutput_name=items"
+      },
+      "Type": "QueryData"
+    },
+    {
+      "id": "50b8a055-3e4a-43d7-b2b4-23e5f017a97f",
+      "Data": { "Label": "Sync Items", "Value": "dnd5e/get_data" },
+      "Type": "ExecuteAction"
+    },
+    {
+      "id": "12c39197-be46-4500-8918-d81e49f7aff5",
+      "Data": {
+        "Label": "Set languages",
+        "Assignments": "url_path=/data/languages.json\noutput_name=languages"
+      },
+      "Type": "QueryData"
+    },
+    {
+      "id": "d53848d9-62d8-4bb6-a508-f5fe05acf2d5",
+      "Data": { "Label": "Sync", "Name": "Sync", "Value": "dnd5e/get_data" },
+      "Type": "ExecuteAction"
+    }
+  ],
+  "gmPermission": 31
+}
