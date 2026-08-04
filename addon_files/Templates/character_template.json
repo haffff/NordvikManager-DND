@@ -4,6 +4,11 @@
   "key": "character",
   "mainResource": "dnd5e_index.html",
   "additionalResources": ["dnd5e_dnd5e-nordvikcard.js", "dnd5e_shared.css"],
-  "properties": [],
+  "properties": [
+    {
+      "name": "token",
+      "value": "dnd5e_token_character.json"
+    }
+  ],
   "token": "dnd5e_token_character.json"
 }

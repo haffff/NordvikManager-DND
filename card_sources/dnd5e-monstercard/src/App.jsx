@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 import { useGlobalProperty } from '../hooks/useGlobalProperty'
 import { MonsterHeader }  from './components/MonsterHeader'
@@ -9,7 +9,22 @@ import { TraitsPanel }     from './components/TraitsPanel'
 import { ActionsPanel }    from './components/ActionsPanel'
 
 function App({ Api }) {
-  const [configRaw] = useGlobalProperty([Api, 'config', null, Api.ClientMediator.sendCommand("Game","GetGameId")])
+  const [gameId, setGameId] = useState(null)
+
+  useEffect(() => {
+    const fetchGameId = async () => {
+      const id = await Api.ClientMediator.sendCommandAsync('Game', 'GetGameId')
+      setGameId(id ?? 'fallback')
+    }
+    fetchGameId()
+  }, [Api])
+
+  if (!gameId) return <div className="monster_loading">Loading…</div>
+  return <AppInner Api={Api} gameId={gameId} />
+}
+
+function AppInner({ Api, gameId }) {
+  const [configRaw] = useGlobalProperty([Api, 'dnd5e_config', null, gameId])
 
   let config = null
   if (configRaw) {

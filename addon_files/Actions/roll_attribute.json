@@ -1,0 +1,30 @@
+{
+  "name": "roll_attribute",
+  "hook": 0,
+  "prefix": "dnd5e",
+  "isEnabled": false,
+  "content": [
+    {
+      "id": "a1a1a1a1-0d00-4a00-8a00-000000000001",
+      "Data": {
+        "Label": "Read ability modifier",
+        "ParentId": "%cardId%",
+        "PropertyName": "%attribute%_mod",
+        "Output": "modifier",
+        "DefaultValue": "0"
+      },
+      "Type": "GetPropertyValue"
+    },
+    {
+      "id": "a1a1a1a1-0d00-4a00-8a00-000000000002",
+      "Data": {
+        "Label": "Roll ability check",
+        "DiceString": "1d20+(%modifier%)",
+        "PrintToChat": true,
+        "ChatTitle": "%attribute% Check"
+      },
+      "Type": "RollDice"
+    }
+  ],
+  "gmPermission": 31
+}

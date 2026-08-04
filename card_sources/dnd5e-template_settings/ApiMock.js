@@ -41,19 +41,19 @@ const MOCK_CONFIG = {
 
 export const ApiMock = {
   _properties: {
-    config: {
+    dnd5e_config: {
       id: "mock-prop-config",
-      name: "config",
+      name: "dnd5e_config",
       value: MOCK_CONFIG,
       parentId: "mock-card-id",
     },
-  },
-  _propertySubscriptions: {},
+  },  _propertySubscriptions: {},
   _globalProperties: {      // parentId → { name → { id, name, value, parentId } }
     global: {
       "5e_sources_list": { id: "mock-prop-global-sources", name: "5e_sources_list", value: ["phb"], parentId: "global" },
     },
   },
+  _globalPropertySubscriptions: {}, // "parentId:name" → callback[]
   _resources: {},
   _globalResources: {},
   _cardId: "mock-card-id",
@@ -63,11 +63,11 @@ export const ApiMock = {
   InitApi: async () => {
     console.log("ApiMock.InitApi: mock ready — config seeded with", MOCK_CONFIG.attributes.length, "attributes,", MOCK_CONFIG.skills.length, "skills");
   },
-
   destroy: () => {
     ApiMock._propertySubscriptions = {};
     ApiMock._properties = {};
     ApiMock._globalProperties = {};
+    ApiMock._globalPropertySubscriptions = {};
   },
 
   // ── Properties ──────────────────────────────────────────────────────────────
@@ -178,9 +178,7 @@ export const ApiMock = {
 
       GetProperties: async (parentId) => {
         return Object.values(ApiMock._globalProperties[parentId] ?? {});
-      },
-
-      Set: async (parentId, propertyName, value) => {
+      },      Set: async (parentId, propertyName, value) => {
         if (!ApiMock._globalProperties[parentId]) ApiMock._globalProperties[parentId] = {};
         const existing = ApiMock._globalProperties[parentId][propertyName];
         if (existing) {
@@ -195,6 +193,9 @@ export const ApiMock = {
             parentId,
           };
         }
+        const prop = ApiMock._globalProperties[parentId][propertyName];
+        const key = parentId + ':' + propertyName;
+        (ApiMock._globalPropertySubscriptions[key] ?? []).forEach((cb) => cb(prop));
       },
 
       SetMany: async (parentId, properties) => {
@@ -210,6 +211,9 @@ export const ApiMock = {
             value,
             parentId,
           };
+          const prop = ApiMock._globalProperties[parentId][propertyName];
+          const key = parentId + ':' + propertyName;
+          (ApiMock._globalPropertySubscriptions[key] ?? []).forEach((cb) => cb(prop));
         }
       },
 
@@ -219,6 +223,22 @@ export const ApiMock = {
 
       Remove: async (parentId, propertyName) => {
         delete ApiMock._globalProperties[parentId]?.[propertyName];
+      },
+
+      Subscribe: (parentId, propertyName, callback) => {
+        const key = parentId + ':' + propertyName;
+        if (!ApiMock._globalPropertySubscriptions[key]) {
+          ApiMock._globalPropertySubscriptions[key] = [];
+        }
+        ApiMock._globalPropertySubscriptions[key].push(callback);
+      },
+
+      Unsubscribe: (parentId, propertyName, callback) => {
+        const key = parentId + ':' + propertyName;
+        const subs = ApiMock._globalPropertySubscriptions[key];
+        if (!subs) return;
+        const index = subs.indexOf(callback);
+        if (index !== -1) subs.splice(index, 1);
       },
     },
   },
@@ -314,8 +334,10 @@ export const ApiMock = {
       }
       console.warn("ApiMock.ClientMediator.sendCommand", panel, command, data);
       return undefined;
-    },
-    sendCommandAsync: async (panel, command, data) => {
+    },    sendCommandAsync: async (panel, command, data) => {
+      if (panel === "Game" && command === "GetGameId") {
+        return "test-game-id";
+      }
       console.warn("ApiMock.ClientMediator.sendCommandAsync", panel, command, data);
       return undefined;
     },

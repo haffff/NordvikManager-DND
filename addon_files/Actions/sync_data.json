@@ -29,6 +29,19 @@
       "id": "d53848d9-62d8-4bb6-a508-f5fe05acf2d5",
       "Data": { "Label": "Sync", "Name": "Sync", "Value": "dnd5e/get_data" },
       "Type": "ExecuteAction"
+    },
+    {
+      "id": "6a2d1e3f-6c4a-4a3e-9b8f-2f6b8e6c9a10",
+      "Data": {
+        "Label": "Set default spell source vars",
+        "Assignments": "spell_url=https://raw.githubusercontent.com/haffff/NordvikManager-DND/refs/heads/main/data/spells_srd.json\nspell_key=dnd5e_spells_srd"
+      },
+      "Type": "QueryData"
+    },
+    {
+      "id": "8b1e2f4a-1d3c-4b5e-8f6a-3a7c9d0e1f22",
+      "Data": { "Label": "Sync SRD spells", "Name": "Sync SRD spells", "Value": "dnd5e/sync_spell_source" },
+      "Type": "ExecuteAction"
     }
   ],
   "gmPermission": 31

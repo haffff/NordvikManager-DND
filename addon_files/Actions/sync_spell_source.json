@@ -1,0 +1,30 @@
+{
+  "name": "sync_spell_source",
+  "hook": 0,
+  "prefix": "dnd5e",
+  "isEnabled": false,
+  "content": [
+    {
+      "id": "f3a1b111-0d00-4a00-8a00-000000000001",
+      "Data": {
+        "Label": "Fetch spell source",
+        "TargetUrl": "%spell_url%",
+        "HttpMethod": "GET",
+        "ParentId": "",
+        "Output": "output"
+      },
+      "Type": "SendRequest"
+    },
+    {
+      "id": "f3a1b111-0d00-4a00-8a00-000000000002",
+      "Data": {
+        "Label": "Branch on success",
+        "Condition": "%v:output.StatusCode% = 200",
+        "ActionTrue": "dnd5e/sync_spell_source_ok",
+        "ActionFalse": "dnd5e/sync_spell_source_fail"
+      },
+      "Type": "If"
+    }
+  ],
+  "gmPermission": 31
+}

@@ -1,0 +1,79 @@
+{
+  "name": "create_item_from_srd",
+  "hook": 0,
+  "prefix": "dnd5e",
+  "isEnabled": false,
+  "content": [
+    {
+      "id": "a8a8a8a8-0d00-4a00-8a00-000000000001",
+      "Data": {
+        "Label": "Create item card from template",
+        "Name": "%name%",
+        "TemplateId": "%qn:card-\"DND 5E Item Template\".id%",
+        "Owner": "%playerId%",
+        "Output": "newCardId"
+      },
+      "Type": "CreateCard"
+    },
+    {
+      "id": "a8a8a8a8-0d00-4a00-8a00-000000000002",
+      "Data": {
+        "Label": "Set item name",
+        "ParentId": "%newCardId%",
+        "PropertyName": "item_name",
+        "PropertyValue": "%name%"
+      },
+      "Type": "SetProperty"
+    },
+    {
+      "id": "a8a8a8a8-0d00-4a00-8a00-000000000003",
+      "Data": {
+        "Label": "Set item type",
+        "ParentId": "%newCardId%",
+        "PropertyName": "item_type",
+        "PropertyValue": "%itemType%"
+      },
+      "Type": "SetProperty"
+    },
+    {
+      "id": "a8a8a8a8-0d00-4a00-8a00-000000000004",
+      "Data": {
+        "Label": "Set item rarity",
+        "ParentId": "%newCardId%",
+        "PropertyName": "item_rarity",
+        "PropertyValue": "%rarity%"
+      },
+      "Type": "SetProperty"
+    },
+    {
+      "id": "a8a8a8a8-0d00-4a00-8a00-000000000005",
+      "Data": {
+        "Label": "Set item weight",
+        "ParentId": "%newCardId%",
+        "PropertyName": "item_weight",
+        "PropertyValue": "%weight%"
+      },
+      "Type": "SetProperty"
+    },
+    {
+      "id": "a8a8a8a8-0d00-4a00-8a00-000000000006",
+      "Data": {
+        "Label": "Set item value",
+        "ParentId": "%newCardId%",
+        "PropertyName": "item_value",
+        "PropertyValue": "%value%"
+      },
+      "Type": "SetProperty"
+    },
+    {
+      "id": "a8a8a8a8-0d00-4a00-8a00-000000000007",
+      "Data": {
+        "Label": "Set item description",
+        "ParentId": "%newCardId%",
+        "PropertyName": "item_description",
+        "PropertyValue": "%description%"
+      },
+      "Type": "SetProperty"
+    }
+  ]
+}

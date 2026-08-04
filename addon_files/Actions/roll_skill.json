@@ -1,0 +1,30 @@
+{
+  "name": "roll_skill",
+  "hook": 0,
+  "prefix": "dnd5e",
+  "isEnabled": false,
+  "content": [
+    {
+      "id": "a3a3a3a3-0d00-4a00-8a00-000000000001",
+      "Data": {
+        "Label": "Read skill modifier",
+        "ParentId": "%cardId%",
+        "PropertyName": "%skill%",
+        "Output": "modifier",
+        "DefaultValue": "0"
+      },
+      "Type": "GetPropertyValue"
+    },
+    {
+      "id": "a3a3a3a3-0d00-4a00-8a00-000000000002",
+      "Data": {
+        "Label": "Roll skill check",
+        "DiceString": "1d20+(%modifier%)",
+        "PrintToChat": true,
+        "ChatTitle": "%skill% Check"
+      },
+      "Type": "RollDice"
+    }
+  ],
+  "gmPermission": 31
+}

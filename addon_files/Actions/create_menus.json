@@ -29,6 +29,32 @@
       "Icon": "FaAddressCard"
     },
     "Type": "AddMenuItem"
+  },
+  {
+    "id": "2a6b8e4f-7c1d-4b3a-9e5f-8d2c1a0b3f44",
+    "Data": {
+      "Label": "5E Create item card",
+      "Location": "addons",
+      "Name": "create_item_card",
+      "UiName": "Create Item Card",
+      "Action": "dnd5e/open_item_creator",
+      "SubMenuId": "dnd5e_tools",
+      "SubMenuName": "DND5E Tools",
+      "Icon": "FaBoxOpen"
+    },
+    "Type": "AddMenuItem"
+  },
+  {
+    "id": "3b7c9f50-8d2e-4c4b-af60-9e3d2b1c4f55",
+    "Data": {
+      "Label": "5E Add DND item",
+      "Location": "battlemap_add",
+      "Name": "add_dnd_item",
+      "UiName": "DND Item",
+      "Action": "dnd5e/open_item_creator",
+      "Icon": "FaBoxOpen"
+    },
+    "Type": "AddMenuItem"
   }
 ],
   "gmPermission": 31

@@ -62,6 +62,90 @@ const ItemImage = ({ Api }) => {
   )
 }
 
+// ── Token image panel ────────────────────────────────────────────────────────
+// Ported from dnd5e-nordvikcard's Bio5E.jsx (separate micro-frontend packages
+// don't share source files in this repo) — lets the item card upload a
+// dedicated token image, distinct from the main item image, the same way the
+// character card already does.
+
+const ImageUploadPanel = ({ Api, label, propertyKey, resourceKey, isToken = false }) => {
+  const [storedKey, setStoredKey] = useProperty([Api, propertyKey, ''])
+  const [src, setSrc] = React.useState('')
+  const [uploading, setUploading] = React.useState(false)
+  const fileInputRef = React.useRef(null)
+
+  const cardId = Api.cardId || 'unknown_card'
+
+  React.useEffect(() => {
+    if (!storedKey) { setSrc(''); return }
+
+    let objectUrl = null
+
+    // by default CardAPI stores blobs under "cardId/resourceKey"
+    // Resource API wraps resource in this prefix.
+    // but we need to access it with token manager
+    // outside of card scope, so it has to be stored explicitly.
+    const preparedStoredKey = storedKey.split('/').pop()
+    Api.Resources.Read(preparedStoredKey).then((data) => {
+      if (!data) { setSrc(''); return }
+      if (data instanceof Blob) {
+        objectUrl = URL.createObjectURL(data)
+        setSrc(objectUrl)
+      } else if (data instanceof ArrayBuffer) {
+        const blob = new Blob([data])
+        objectUrl = URL.createObjectURL(blob)
+        setSrc(objectUrl)
+      } else {
+        setSrc(String(data))
+      }
+    })
+
+    return () => { if (objectUrl) URL.revokeObjectURL(objectUrl) }
+  }, [storedKey])
+
+  const handleFileChange = async (e) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    setUploading(true)
+    try {
+      const buffer = await file.arrayBuffer()
+      await Api.Resources.Upsert(resourceKey, buffer, file.name, file.type)
+      setStoredKey(`${cardId}/${resourceKey}`)
+    } catch (err) {
+      console.error('ImageUploadPanel: upload failed', err)
+    } finally {
+      setUploading(false)
+      e.target.value = ''
+    }
+  }
+
+  const imgClass = `dnd5e_bio_image${isToken ? ' dnd5e_bio_image_token' : ''}`
+  const phClass = `dnd5e_bio_image_placeholder${isToken ? ' dnd5e_bio_image_token' : ''}`
+
+  return (
+    <div className="dnd5e_bio_portrait dnd-panel">
+      <div className="dnd-panel-title">{label}</div>
+      <div className="dnd5e_bio_image_wrapper" onClick={() => fileInputRef.current?.click()}>
+        {src ? (
+          <img src={src} alt={label} className={imgClass} />
+        ) : (
+          <div className={phClass}>{uploading ? 'Uploading…' : 'No image'}</div>
+        )}
+        <div className="dnd5e_bio_image_overlay">
+          <span>{uploading ? 'Uploading…' : '📷 Upload'}</span>
+        </div>
+      </div>
+      <input
+        type="file"
+        accept="image/*"
+        ref={fileInputRef}
+        style={{ display: 'none' }}
+        onChange={handleFileChange}
+      />
+    </div>
+  )
+}
+
 // ── Meta row field ───────────────────────────────────────────────────────────
 
 const MetaField = ({ label, children }) => (
@@ -268,6 +352,7 @@ function App({ Api }) {
         <ItemImage Api={Api} />
         <ItemHeader Api={Api} />
       </div>
+      <ImageUploadPanel Api={Api} label="Token" propertyKey="tokenImage" resourceKey="tokenImage" isToken />
       <ItemDescription Api={Api} />
       <ExtraPropsPanel Api={Api} />
     </div>

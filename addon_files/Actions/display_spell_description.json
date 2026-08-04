@@ -1,0 +1,19 @@
+{
+  "name": "DisplaySpellDescription",
+  "hook": 0,
+  "prefix": "dnd5e",
+  "isEnabled": false,
+  "content": [
+    {
+      "id": "a7a7a7a7-0d00-4a00-8a00-000000000001",
+      "Data": {
+        "Label": "Show spell description in chat",
+        "Template": "Text",
+        "Title": "%name% (%levelLabel% %schoolLabel%)",
+        "Message": "Casting Time: %castingTime%   Range: %range%   Duration: %duration%\nComponents: %components%\n\n%description%"
+      },
+      "Type": "SendChat"
+    }
+  ],
+  "gmPermission": 31
+}

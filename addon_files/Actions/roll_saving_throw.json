@@ -1,0 +1,30 @@
+{
+  "name": "roll_saving_throw",
+  "hook": 0,
+  "prefix": "dnd5e",
+  "isEnabled": false,
+  "content": [
+    {
+      "id": "a2a2a2a2-0d00-4a00-8a00-000000000001",
+      "Data": {
+        "Label": "Read saving throw modifier",
+        "ParentId": "%cardId%",
+        "PropertyName": "%attribute%_save",
+        "Output": "modifier",
+        "DefaultValue": "0"
+      },
+      "Type": "GetPropertyValue"
+    },
+    {
+      "id": "a2a2a2a2-0d00-4a00-8a00-000000000002",
+      "Data": {
+        "Label": "Roll saving throw",
+        "DiceString": "1d20+(%modifier%)",
+        "PrintToChat": true,
+        "ChatTitle": "%attribute% Saving Throw"
+      },
+      "Type": "RollDice"
+    }
+  ],
+  "gmPermission": 31
+}

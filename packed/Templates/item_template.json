@@ -4,5 +4,7 @@
   "key": "item",
   "mainResource": "dnd5e_index.html",
   "additionalResources": ["dnd5e_dnd5e-itemcard.js", "dnd5e_shared.css"],
-  "properties": []
+  "properties": [
+    { "name": "token", "value": "dnd5e_token_item.json" }
+  ]
 }

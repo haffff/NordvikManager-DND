@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/haffff/NordvikManager-Addons/refs/heads/main/schemas/token.json",
+  "name": "token",
+  "prefix": "token",
+  "size": 1,
+  "object": {
+    "clipShape": "circle"
+  }
+}

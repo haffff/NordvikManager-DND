@@ -1,0 +1,22 @@
+{
+  "name": "dnd_attack",
+  "hook": 0,
+  "prefix": "dnd5e",
+  "isEnabled": false,
+  "content": [
+    {
+      "id": "a5a5a5a5-0d00-4a00-8a00-000000000001",
+      "Data": {
+        "Label": "Roll attack",
+        "DiceString": "1d20+(%attackBonus%)",
+        "PrintToChat": true,
+        "ChatTitle": "%name% — Attack",
+        "FollowUpActionName": "dnd5e/roll_damage",
+        "FollowUpActionLabel": "Roll Damage",
+        "FollowUpActionArgs": "damage=%damage%\ndamageType=%damageType%\nname=%name%"
+      },
+      "Type": "RollDice"
+    }
+  ],
+  "gmPermission": 31
+}

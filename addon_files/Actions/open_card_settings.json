@@ -1,0 +1,19 @@
+{
+  "name": "open_card_settings",
+  "hook": 0,
+  "prefix": "dnd5e",
+  "isEnabled": false,
+  "content": [
+    {
+      "id": "f93f18d6-a260-4ee3-8cbc-4858329ece21",
+      "Data": {
+        "Label": "Show card settings",
+        "ViewKey": "dnd5e_card_settings",
+        "Player": "%playerId%"
+      },
+      "Type": "ShowView"
+    }
+  ],
+  "genericPermission": 0,
+  "gmPermission": 31
+}

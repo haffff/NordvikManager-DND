@@ -1,0 +1,49 @@
+.dnd5e_itemcreator_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.dnd5e_itemcreator_title {
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(220, 220, 220);
+}
+
+.dnd5e_itemcreator_subtitle {
+  font-size: 12px;
+  color: rgb(160, 160, 160);
+  margin-top: -6px;
+}
+
+.dnd5e_itemcreator_result_create_btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+  padding: 2px 8px;
+  font-size: 11px;
+  border-radius: 4px;
+  border: 1px solid rgb(80, 100, 140);
+  background: rgb(45, 55, 75);
+  color: rgb(200, 215, 245);
+  cursor: pointer;
+}
+
+.dnd5e_itemcreator_result_create_btn:hover {
+  background: rgb(55, 68, 92);
+}
+
+.dnd5e_itemcreator_result_create_btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.dnd5e_itemcreator_status {
+  font-size: 12px;
+  color: rgb(140, 140, 140);
+}

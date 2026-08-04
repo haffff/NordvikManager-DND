@@ -1,0 +1,8 @@
+{
+  "name": "DND 5E Item Creator",
+  "description": "Search the SRD item list and create a pre-filled Item Card.",
+  "key": "item_creator",
+  "mainResource": "dnd5e_index.html",
+  "additionalResources": ["dnd5e_dnd5e-itemcreator.js", "dnd5e_shared.css"],
+  "properties": []
+}

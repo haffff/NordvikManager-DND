@@ -1,0 +1,19 @@
+{
+  "name": "roll_death_save",
+  "hook": 0,
+  "prefix": "dnd5e",
+  "isEnabled": false,
+  "content": [
+    {
+      "id": "a4a4a4a4-0d00-4a00-8a00-000000000001",
+      "Data": {
+        "Label": "Roll death save",
+        "DiceString": "1d20",
+        "PrintToChat": true,
+        "ChatTitle": "Death Save"
+      },
+      "Type": "RollDice"
+    }
+  ],
+  "gmPermission": 31
+}

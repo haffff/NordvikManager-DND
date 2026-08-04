@@ -1,0 +1,19 @@
+{
+  "name": "roll_damage",
+  "hook": 0,
+  "prefix": "dnd5e",
+  "isEnabled": false,
+  "content": [
+    {
+      "id": "a6a6a6a6-0d00-4a00-8a00-000000000001",
+      "Data": {
+        "Label": "Roll damage",
+        "DiceString": "%damage%",
+        "PrintToChat": true,
+        "ChatTitle": "%name% — Damage (%damageType%)"
+      },
+      "Type": "RollDice"
+    }
+  ],
+  "gmPermission": 31
+}

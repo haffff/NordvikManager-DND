@@ -1679,3 +1679,677 @@ button:active {
     color: var(--dnd-ink-muted);
     font-size: 12px;
 }
+
+/* ── Item Card ────────────────────────────────────────────────────────────── */
+
+.item_card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.dnd-panel {
+  background: var(--dnd-parchment-dark);
+  border: 1px solid var(--dnd-border);
+  border-radius: 4px;
+  padding: 10px 12px;
+}
+
+.dnd-panel-title {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dnd-crimson);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--dnd-border-light);
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+/* Top row: image + header */
+.item_top_row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+/* Image */
+.item_image_area {
+  flex-shrink: 0;
+  width: 130px;
+  height: 130px;
+  border: 2px dashed var(--dnd-border);
+  border-radius: 4px;
+  background: var(--dnd-parchment-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.item_image_area:hover { border-color: var(--dnd-crimson); }
+
+.item_image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.item_image_placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--dnd-ink-muted);
+}
+.item_image_icon { font-size: 28px; }
+.item_image_hint { font-family: var(--font-body); font-size: 11px; }
+
+/* Header */
+.item_header {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.item_name_input {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dnd-ink);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--dnd-border);
+  padding: 2px 4px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+.item_name_input:focus { border-bottom-color: var(--dnd-crimson); }
+
+.item_meta_grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.item_meta_field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.item_meta_label {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--dnd-crimson);
+  min-width: 72px;
+}
+
+.item_meta_input {
+  flex: 1;
+  font-size: 12px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--dnd-border-light);
+  padding: 1px 3px;
+  color: var(--dnd-ink);
+  outline: none;
+}
+.item_meta_input:focus { border-bottom-color: var(--dnd-crimson); }
+
+.item_meta_select {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 12px;
+  background: var(--dnd-parchment);
+  color: var(--dnd-ink);
+  border: 1px solid var(--dnd-border-light);
+  border-radius: 3px;
+  padding: 1px 4px;
+}
+.item_meta_select:focus { outline: none; border-color: var(--dnd-crimson); }
+
+/* Description */
+.item_description_input {
+  width: 100%;
+  min-height: 80px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--dnd-ink);
+  background: var(--dnd-parchment);
+  border: 1px solid var(--dnd-border-light);
+  border-radius: 3px;
+  padding: 6px 8px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+.item_description_input:focus { outline: none; border-color: var(--dnd-crimson); }
+
+/* Additional info panel */
+.item_panel_title_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.item_panel_toolbar { display: flex; gap: 4px; }
+
+.item_extra_row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 0;
+  border-top: 1px solid var(--dnd-border-light);
+}
+.item_extra_row:first-of-type { border-top: none; }
+
+.item_extra_key {
+  flex: 0 0 38%;
+  font-weight: 700;
+}
+.item_extra_val { flex: 1; }
+
+.item_extra_view { font-family: var(--font-body); font-size: 13px; }
+.item_extra_key_view {
+  flex: 0 0 38%;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--dnd-crimson);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.item_extra_val_view { flex: 1; color: var(--dnd-ink-light); }
+
+/* ── Monster Card ─────────────────────────────────────────────────────────── */
+
+.monster_card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.dnd-panel {
+  background: var(--dnd-parchment-dark);
+  border: 1px solid var(--dnd-border);
+  border-radius: 4px;
+  padding: 10px 12px;
+}
+
+.dnd-panel-title {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dnd-crimson);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--dnd-border-light);
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+/* Header */
+.monster_header { padding: 10px 12px; }
+
+.monster_name_row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.monster_name_input {
+  flex: 1;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dnd-ink);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--dnd-border);
+  padding: 2px 4px;
+  outline: none;
+}
+.monster_name_input:focus { border-bottom-color: var(--dnd-crimson); }
+
+.monster_cr_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 56px;
+}
+.monster_cr_box .dnd5e_text_name {
+  font-size: 10px;
+  color: var(--dnd-ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.monster_cr_box .dnd5e_attribute_value {
+  width: 52px;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.monster_meta_row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.monster_meta_select {
+  font-family: var(--font-body);
+  font-size: 13px;
+  background: var(--dnd-parchment);
+  color: var(--dnd-ink);
+  border: 1px solid var(--dnd-border);
+  border-radius: 3px;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+.monster_meta_select:focus { outline: none; border-color: var(--dnd-crimson); }
+
+.monster_subtype_input {
+  flex: 1;
+  min-width: 100px;
+  font-size: 13px;
+  background: transparent;
+  border: 1px solid var(--dnd-border-light);
+  border-radius: 3px;
+  padding: 2px 6px;
+}
+
+/* Mid row: combat + defenses side by side */
+.monster_mid_row {
+  display: flex;
+  gap: 8px;
+}
+.monster_mid_row > * { flex: 1; min-width: 0; }
+
+/* Combat stats */
+.monster_combat_stats_row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.monster_stat_wide .dnd5e_attribute_value { width: 90px; }
+
+.monster_text_row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.monster_text_label {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--dnd-crimson);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  min-width: 60px;
+}
+
+.monster_text_input {
+  flex: 1;
+  font-size: 12px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--dnd-border-light);
+  padding: 1px 3px;
+  color: var(--dnd-ink);
+  outline: none;
+}
+.monster_text_input:focus { border-bottom-color: var(--dnd-crimson); }
+
+.monster_defense_row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+/* Panel title with toolbar */
+.monster_panel_title_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.monster_panel_toolbar { display: flex; gap: 4px; }
+
+/* Traits */
+.monster_trait_item {
+  border-top: 1px solid var(--dnd-border-light);
+  padding: 6px 0;
+}
+.monster_trait_item:first-of-type { border-top: none; }
+.monster_trait_edit { display: flex; flex-direction: column; gap: 4px; }
+.monster_trait_edit_row { display: flex; gap: 6px; align-items: center; }
+.monster_trait_name_input { flex: 1; font-weight: 700; }
+.monster_trait_desc_input {
+  width: 100%;
+  min-height: 56px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--dnd-ink);
+  background: var(--dnd-parchment);
+  border: 1px solid var(--dnd-border-light);
+  border-radius: 3px;
+  padding: 4px 6px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+.monster_trait_desc_input:focus { outline: none; border-color: var(--dnd-crimson); }
+.monster_trait_view { font-family: var(--font-body); font-size: 13px; line-height: 1.5; }
+.monster_trait_view_name { font-weight: 700; color: var(--dnd-ink); }
+.monster_trait_view_desc { color: var(--dnd-ink-light); }
+
+/* Actions */
+.monster_action_item {
+  border-top: 1px solid var(--dnd-border-light);
+  padding: 6px 0;
+}
+.monster_action_item:first-of-type { border-top: none; }
+.monster_action_edit { display: flex; flex-direction: column; gap: 4px; }
+.monster_action_edit_row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.monster_action_name_input { flex: 2; min-width: 100px; }
+.monster_action_type_select {
+  font-family: var(--font-body);
+  font-size: 13px;
+  background: var(--dnd-parchment);
+  color: var(--dnd-ink);
+  border: 1px solid var(--dnd-border);
+  border-radius: 3px;
+  padding: 2px 4px;
+}
+.monster_action_recharge_input { flex: 1; min-width: 80px; }
+.monster_action_view { font-family: var(--font-body); font-size: 13px; }
+.monster_action_view_header { display: flex; align-items: center; gap: 6px; cursor: pointer; line-height: 1.5; }
+.monster_action_view_summary { color: var(--dnd-ink-muted); flex: 1; }
+.monster_action_expand_icon { color: var(--dnd-crimson); font-size: 11px; }
+.monster_action_view_desc {
+  color: var(--dnd-ink-light);
+  margin-top: 4px;
+  padding-left: 8px;
+  border-left: 2px solid var(--dnd-border-light);
+  line-height: 1.5;
+}
+.monster_action_roll_btn {
+  font-size: 11px;
+  padding: 1px 8px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+/* Ability scores: horizontal row in monster card */
+.monster_card .dnd5e_attribute_container {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Settings microfrontend
+   ═══════════════════════════════════════════════════════════════ */
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    background: var(--dnd-parchment);
+    color: var(--dnd-ink);
+    font-family: var(--font-body);
+}
+
+.settings-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100svh;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    color: var(--dnd-crimson);
+    letter-spacing: 0.08em;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────────── */
+
+.settings-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: var(--dnd-parchment-dark);
+    border-bottom: 2px solid var(--dnd-border);
+}
+
+.settings-header h1 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--dnd-ink);
+    margin: 0;
+}
+
+.header-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* ── Unsaved banner ─────────────────────────────────────────────────────────── */
+
+.unsaved-banner {
+    background: var(--dnd-crimson);
+    color: #f5f0e8;
+    text-align: center;
+    padding: 4px;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* ── Body ───────────────────────────────────────────────────────────────────── */
+
+.settings-body {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    flex: 1;
+    align-items: flex-start;
+}
+
+/* ── Section panel ──────────────────────────────────────────────────────────── */
+
+.settings-section {
+    flex: 1;
+    background: var(--dnd-parchment);
+    border: 1px solid var(--dnd-border);
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 6px var(--dnd-shadow);
+    padding: 12px 14px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dnd-crimson);
+    border-bottom: 1px solid var(--dnd-border-light);
+    padding-bottom: 4px;
+    margin: 0;
+    flex: 1;
+    margin-right: 12px;
+}
+
+/* ── Table ──────────────────────────────────────────────────────────────────── */
+
+.settings-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.settings-table th {
+    text-align: left;
+    padding: 4px 6px;
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dnd-ink-muted);
+    border-bottom: 1px solid var(--dnd-border-light);
+}
+
+.settings-table td {
+    padding: 2px 4px;
+    border-bottom: 1px solid var(--dnd-parchment-darker);
+}
+
+.settings-table tr:last-child td {
+    border-bottom: none;
+}
+
+.settings-table input[type="text"],
+.settings-table select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    padding: 3px 4px;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--dnd-ink);
+    transition: background 0.15s, border-color 0.15s;
+    outline: none;
+}
+
+.settings-table input[type="text"]:hover,
+.settings-table input[type="text"]:focus,
+.settings-table select:hover,
+.settings-table select:focus {
+    background: var(--dnd-parchment-dark);
+    border-bottom-color: var(--dnd-crimson);
+}
+
+.input-number {
+    width: 60px !important;
+    text-align: center;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    padding: 3px 4px;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--dnd-ink);
+    outline: none;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.input-number:hover,
+.input-number:focus {
+    background: var(--dnd-parchment-dark);
+    border-bottom-color: var(--dnd-crimson);
+}
+
+/* ── Buttons ────────────────────────────────────────────────────────────────── */
+
+.btn-primary {
+    background: var(--dnd-crimson);
+    color: var(--dnd-parchment);
+    border: 1px solid var(--dnd-crimson-hover);
+    border-radius: var(--radius-sm);
+    padding: 5px 14px;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background 0.15s;
+}
+
+.btn-primary:hover:not(:disabled) { background: var(--dnd-crimson-hover); }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-secondary {
+    background: transparent;
+    color: var(--dnd-ink-muted);
+    border: 1px solid var(--dnd-border);
+    border-radius: var(--radius-sm);
+    padding: 5px 14px;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: border-color 0.15s, color 0.15s;
+}
+
+.btn-secondary:hover:not(:disabled) { border-color: var(--dnd-border-strong); color: var(--dnd-ink); }
+.btn-secondary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-add {
+    background: transparent;
+    color: var(--dnd-crimson);
+    border: 1px solid var(--dnd-crimson-light);
+    border-radius: var(--radius-sm);
+    padding: 2px 9px;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background 0.15s;
+}
+
+.btn-add:hover { background: rgba(139, 26, 26, 0.08); }
+
+.btn-remove {
+    background: transparent;
+    color: var(--dnd-border);
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 2px 5px;
+    border-radius: var(--radius-sm);
+    transition: color 0.15s;
+    line-height: 1;
+}
+
+.btn-remove:hover { color: var(--dnd-crimson); }
