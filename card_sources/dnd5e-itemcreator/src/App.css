@@ -1,49 +1,138 @@
 .dnd5e_itemcreator_container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   padding: 12px;
   height: 100%;
   box-sizing: border-box;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .dnd5e_itemcreator_title {
+  font-family: var(--font-heading);
   font-size: 14px;
   font-weight: bold;
-  color: rgb(220, 220, 220);
+  color: var(--dnd-crimson);
 }
 
 .dnd5e_itemcreator_subtitle {
   font-size: 12px;
-  color: rgb(160, 160, 160);
-  margin-top: -6px;
+  color: var(--dnd-ink-muted);
+  margin-top: -4px;
 }
 
-.dnd5e_itemcreator_result_create_btn {
+.dnd5e_itemcreator_search_input {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--dnd-ink);
+  background: var(--dnd-parchment);
+  border: 1px solid var(--dnd-border);
+  border-radius: var(--radius-sm);
+  padding: 6px 8px;
+}
+
+.dnd5e_itemcreator_search_input:focus {
+  border-color: var(--dnd-crimson);
+  outline: none;
+}
+
+/* A plain, always-visible list in the page's own flow — deliberately NOT the
+   shared .dnd5e_item_search_results dropdown (position: absolute, floats over
+   whatever's below it) used by inline item-add search boxes elsewhere (e.g.
+   Inventory5E/Weapons5E) — that pattern didn't render reliably in this card's
+   layout, so this card gets its own persistent list + search instead. */
+.dnd5e_itemcreator_list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  background: var(--dnd-parchment);
+  border: 1px solid var(--dnd-border);
+  border-radius: var(--radius-sm);
+}
+
+.dnd5e_itemcreator_list_row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--dnd-parchment-darker);
+}
+
+.dnd5e_itemcreator_list_row:last-child {
+  border-bottom: none;
+}
+
+.dnd5e_itemcreator_row_thumb {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid var(--dnd-border);
+  flex-shrink: 0;
+  background: var(--dnd-parchment-darker);
+}
+
+.dnd5e_itemcreator_list_row:hover {
+  background: var(--dnd-parchment-dark);
+}
+
+.dnd5e_itemcreator_list_row.selected {
+  background: var(--dnd-crimson);
+}
+
+.dnd5e_itemcreator_list_row.selected .dnd5e_itemcreator_row_name,
+.dnd5e_itemcreator_list_row.selected .dnd5e_item_tag {
+  color: var(--dnd-parchment);
+}
+
+.dnd5e_itemcreator_row_name {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dnd-ink);
+  flex: 1 1 auto;
+  min-width: 80px;
+}
+
+.dnd5e_itemcreator_footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 2px;
+}
+
+.dnd5e_itemcreator_create_btn {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  margin-left: 8px;
-  padding: 2px 8px;
-  font-size: 11px;
-  border-radius: 4px;
-  border: 1px solid rgb(80, 100, 140);
-  background: rgb(45, 55, 75);
-  color: rgb(200, 215, 245);
+  gap: 6px;
+  padding: 6px 18px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--dnd-crimson-hover);
+  background: var(--dnd-crimson);
+  color: var(--dnd-parchment);
   cursor: pointer;
 }
 
-.dnd5e_itemcreator_result_create_btn:hover {
-  background: rgb(55, 68, 92);
+.dnd5e_itemcreator_create_btn:hover:not(:disabled) {
+  background: var(--dnd-crimson-hover);
 }
 
-.dnd5e_itemcreator_result_create_btn:disabled {
+.dnd5e_itemcreator_create_btn:disabled {
   opacity: 0.5;
   cursor: default;
 }
 
-.dnd5e_itemcreator_status {
+.dnd5e_itemcreator_empty {
+  padding: 12px;
+  font-family: var(--font-body);
   font-size: 12px;
-  color: rgb(140, 140, 140);
+  color: var(--dnd-ink-muted);
+  font-style: italic;
+  text-align: center;
 }

@@ -74,6 +74,25 @@
         "PropertyValue": "%description%"
       },
       "Type": "SetProperty"
+    },
+    {
+      "id": "a8a8a8a8-0d00-4a00-8a00-000000000009",
+      "Data": {
+        "Label": "Set item image reference",
+        "ParentId": "%newCardId%",
+        "PropertyName": "item_image_ref",
+        "PropertyValue": "%imageRef%"
+      },
+      "Type": "SetProperty"
+    },
+    {
+      "id": "a8a8a8a8-0d00-4a00-8a00-000000000008",
+      "Data": {
+        "Label": "Spawn token if created from the battle map's Add menu",
+        "Condition": "'%hasMapContext%' = 'true'",
+        "ActionTrue": "dnd5e/create_item_from_srd_spawn_token"
+      },
+      "Type": "If"
     }
   ]
 }

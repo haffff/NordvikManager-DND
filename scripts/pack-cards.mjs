@@ -44,11 +44,22 @@ for (const microFrontend of microFrontends) {
     const jsFile = existsSync(assetsDir)
         ? readdirSync(assetsDir).find((name) => name.endsWith('.js'))
         : undefined;
+    const cssFile = existsSync(assetsDir)
+        ? readdirSync(assetsDir).find((name) => name.endsWith('.css'))
+        : undefined;
 
     if (jsFile) {
         cpSync(path.join(assetsDir, jsFile), path.join(resourcesDir, `${microFrontend}.js`));
     } else {
         console.warn(`No JS file found for ${microFrontend}`);
+    }
+
+    // Not every microfrontend emits a separate CSS chunk (Vite only splits one out
+    // when there's component-scoped CSS beyond what's inlined) — only copy it when
+    // present. A View/Template opts in by listing `dnd5e_${microFrontend}.css` in
+    // its own additionalResources, same as the .js file above.
+    if (cssFile) {
+        cpSync(path.join(assetsDir, cssFile), path.join(resourcesDir, `${microFrontend}.css`));
     }
 }
 

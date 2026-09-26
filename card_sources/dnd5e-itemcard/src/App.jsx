@@ -2,14 +2,33 @@ import React from 'react'
 import './App.css'
 import { useProperty } from '../hooks/useProperty'
 import { usePropertyList } from '../hooks/usePropertyList'
+import { useGlobalProperty } from '../hooks/useGlobalProperty'
 
 const RARITIES = ['none', 'common', 'uncommon', 'rare', 'very rare', 'legendary', 'artifact']
 
-// ── Image panel ──────────────────────────────────────────────────────────────
+// The value stored in `item_image_ref` (see dnd5e-itemcreator's srdHelpers.js
+// getSrdImageRef) is either a path relative to dnd5e_image_content_provider,
+// or an already-full URL (a homebrew source hosting its own images) — told
+// apart by whether it starts with "http", the same convention TokenManager's
+// own _toResourceUrl already uses elsewhere in this addon for the same
+// ambiguity. The base URL is deliberately not baked in at creation time, so
+// changing dnd5e_image_content_provider later doesn't strand existing cards.
+const resolveStoredImageUrl = (ref, imageBaseUrl) => {
+  if (!ref) return null
+  if (ref.startsWith('http')) return ref
+  if (!imageBaseUrl) return null
+  return `${imageBaseUrl.replace(/\/$/, '')}/${ref.replace(/^\//, '')}`
+}
 
-const ItemImage = ({ Api }) => {
+// ── Image panel ──────────────────────────────────────────────────────────────
+// Falls back to the SRD reference image (resolved from item_image_ref, set at
+// creation time from the item creator) until/unless the GM uploads their own —
+// same visual slot, upload always takes priority once one exists.
+
+const ItemImage = ({ Api, imageBaseUrl }) => {
   const IMAGE_KEY = 'item_image_data'
   const [imageKey, setImageKey] = useProperty([Api, 'item_image_key', ''])
+  const [imageRef] = useProperty([Api, 'item_image_ref', ''])
   const [imgSrc, setImgSrc] = React.useState(null)
   const inputRef = React.useRef(null)
 
@@ -24,6 +43,9 @@ const ItemImage = ({ Api }) => {
       }
     })
   }, [imageKey])
+
+  const srdImageUrl = !imageKey ? resolveStoredImageUrl(imageRef, imageBaseUrl) : null
+  const displaySrc = imgSrc ?? srdImageUrl
 
   const handleFile = (e) => {
     const file = e.target.files?.[0]
@@ -44,8 +66,8 @@ const ItemImage = ({ Api }) => {
       onClick={() => inputRef.current?.click()}
       title="Click to upload image"
     >
-      {imgSrc
-        ? <img src={imgSrc} alt="Item" className="item_image" />
+      {displaySrc
+        ? <img src={displaySrc} alt="Item" className="item_image" />
         : <div className="item_image_placeholder">
             <span className="item_image_icon">🖼</span>
             <span className="item_image_hint">Upload image</span>
@@ -344,12 +366,35 @@ const ExtraPropRow = ({ item, index, editMode, update, remove }) => {
 }
 
 // ── Root ─────────────────────────────────────────────────────────────────────
+// gameId is fetched once, before AppInner mounts, so useGlobalProperty never
+// has to cope with its parentId changing after the fact — it only re-runs its
+// fetch/subscribe effect when propertyName changes, not parentId, so calling
+// it with a not-yet-resolved gameId would silently never refetch once the
+// real id became available. Same App/AppInner split dnd5e-nordvikcard uses.
 
 function App({ Api }) {
+  const [gameId, setGameId] = React.useState(null)
+
+  React.useEffect(() => {
+    (async () => {
+      const id = await Api.ClientMediator.sendCommandAsync('Game', 'GetGameId')
+      setGameId(id ?? 'fallback')
+    })()
+  }, [Api])
+
+  if (!gameId) {
+    return <div className="dnd5e_card item_card">Loading…</div>
+  }
+  return <AppInner Api={Api} gameId={gameId} />
+}
+
+function AppInner({ Api, gameId }) {
+  const [imageBaseUrl] = useGlobalProperty([Api, 'dnd5e_image_content_provider', '', gameId])
+
   return (
     <div className="dnd5e_card item_card">
       <div className="item_top_row">
-        <ItemImage Api={Api} />
+        <ItemImage Api={Api} imageBaseUrl={imageBaseUrl} />
         <ItemHeader Api={Api} />
       </div>
       <ImageUploadPanel Api={Api} label="Token" propertyKey="tokenImage" resourceKey="tokenImage" isToken />

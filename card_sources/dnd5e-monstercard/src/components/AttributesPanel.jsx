@@ -34,7 +34,7 @@ const AttributeBox = ({ attribute, initAttribute, initModifier, Api }) => {
     <div className="dnd5e_attribute">
       <div
         className="dnd5e_attribute_name"
-        onClick={() => Api.FireAction("dnd5e.roll_attribute", { attribute })}
+        onClick={() => Api.FireAction("dnd5e/roll_attribute", { attribute })}
       >
         {attribute.slice(0, 3).toUpperCase()}
       </div>

@@ -5,33 +5,46 @@
   "isEnabled": false,
   "content": [
     {
-      "id": "b9f80e62-4f7c-45d4-a95e-57b672993bf9",
+      "id": "b9f80e62-0000-4a00-8a00-000000000001",
       "Data": {
-        "Label": "set items var",
-        "Assignments": "url_path=/data/items.json\noutput_name=items"
+        "Label": "Set language source var",
+        "Assignments": "source_url=%q:{gameId}.dnd5e_language_source_url%\noutput_name=languages"
       },
       "Type": "QueryData"
     },
     {
-      "id": "50b8a055-3e4a-43d7-b2b4-23e5f017a97f",
-      "Data": { "Label": "Sync Items", "Value": "dnd5e/get_data" },
+      "id": "b9f80e62-0000-4a00-8a00-000000000002",
+      "Data": { "Label": "Sync languages", "Value": "dnd5e/get_data_from_url" },
       "Type": "ExecuteAction"
     },
     {
-      "id": "12c39197-be46-4500-8918-d81e49f7aff5",
+      "id": "b9f80e62-0000-4a00-8a00-000000000003",
       "Data": {
-        "Label": "Set languages",
-        "Assignments": "url_path=/data/languages.json\noutput_name=languages"
+        "Label": "Set proficiency source var",
+        "Assignments": "source_url=%q:{gameId}.dnd5e_proficiency_source_url%\noutput_name=proficiencies"
       },
       "Type": "QueryData"
     },
     {
-      "id": "d53848d9-62d8-4bb6-a508-f5fe05acf2d5",
-      "Data": { "Label": "Sync", "Name": "Sync", "Value": "dnd5e/get_data" },
+      "id": "b9f80e62-0000-4a00-8a00-000000000004",
+      "Data": { "Label": "Sync proficiencies", "Value": "dnd5e/get_data_from_url" },
       "Type": "ExecuteAction"
     },
     {
-      "id": "6a2d1e3f-6c4a-4a3e-9b8f-2f6b8e6c9a10",
+      "id": "b9f80e62-0000-4a00-8a00-000000000005",
+      "Data": {
+        "Label": "Set default SRD item source vars",
+        "Assignments": "item_url=https://raw.githubusercontent.com/haffff/NordvikManager-DND/refs/heads/main/data/items.json\nitem_key=dnd5e_items_srd"
+      },
+      "Type": "QueryData"
+    },
+    {
+      "id": "b9f80e62-0000-4a00-8a00-000000000006",
+      "Data": { "Label": "Sync SRD items", "Value": "dnd5e/sync_item_source" },
+      "Type": "ExecuteAction"
+    },
+    {
+      "id": "6a2d1e3f-0000-4a00-8a00-000000000001",
       "Data": {
         "Label": "Set default spell source vars",
         "Assignments": "spell_url=https://raw.githubusercontent.com/haffff/NordvikManager-DND/refs/heads/main/data/spells_srd.json\nspell_key=dnd5e_spells_srd"
@@ -39,8 +52,8 @@
       "Type": "QueryData"
     },
     {
-      "id": "8b1e2f4a-1d3c-4b5e-8f6a-3a7c9d0e1f22",
-      "Data": { "Label": "Sync SRD spells", "Name": "Sync SRD spells", "Value": "dnd5e/sync_spell_source" },
+      "id": "8b1e2f4a-0000-4a00-8a00-000000000001",
+      "Data": { "Label": "Sync SRD spells", "Value": "dnd5e/sync_spell_source" },
       "Type": "ExecuteAction"
     }
   ],

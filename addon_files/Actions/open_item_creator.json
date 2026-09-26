@@ -9,7 +9,8 @@
       "Data": {
         "Label": "Show item creator",
         "ViewKey": "item_creator",
-        "Player": "%playerId%"
+        "Player": "%playerId%",
+        "Data": "{\"battleMapId\": \"%battleMapId%\", \"position\": %position%}"
       },
       "Type": "ShowView"
     }

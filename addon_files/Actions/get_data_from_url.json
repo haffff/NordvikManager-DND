@@ -1,16 +1,14 @@
 {
-  "name": "get_data",
-  "path": null,
-  "description": null,
+  "name": "get_data_from_url",
   "hook": 0,
   "prefix": "dnd5e",
   "isEnabled": false,
   "content": [
     {
-      "id": "ef2fd5d2-ef75-464b-aceb-c329def32faa",
+      "id": "ef2fd5d2-ef75-464b-aceb-c329def32fbb",
       "Data": {
-        "Label": "Sync with content provider",
-        "TargetUrl": "%q:{gameId}.dnd5e_content_provider%%url_path%",
+        "Label": "Fetch from dedicated source URL",
+        "TargetUrl": "%source_url%",
         "HttpMethod": "GET",
         "ParentId": "",
         "Output": "output"
@@ -18,7 +16,7 @@
       "Type": "SendRequest"
     },
     {
-      "id": "9ad36947-9057-41d7-aff2-836f0c2eb231",
+      "id": "9ad36947-9057-41d7-aff2-836f0c2eb232",
       "Data": {
         "Label": "Save to resources",
         "Key": "dnd5e_%output_name%",

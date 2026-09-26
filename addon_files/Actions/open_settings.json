@@ -8,7 +8,7 @@
       "id": "f93f18d6-a260-4ee3-8cbc-4858329ece21",
       "Data": {
         "Label": "Show settings",
-        "ViewKey": "dnd5e_settings",
+        "ViewKey": "dnd5e_character_card_settings",
         "Player": "%playerId%"
       },
       "Type": "ShowView"

@@ -21,7 +21,7 @@ const blankAction = () => ({
   description: "",
 });
 
-const ActionItem = ({ item, index, editMode, updateItem, removeItem }) => {
+const ActionItem = ({ item, index, editMode, updateItem, removeItem, Api }) => {
   const [name, setName]           = React.useState(item.name ?? "");
   const [type, setType]           = React.useState(item.type ?? "attack");
   const [recharge, setRecharge]   = React.useState(item.recharge ?? "");
@@ -47,7 +47,7 @@ const ActionItem = ({ item, index, editMode, updateItem, removeItem }) => {
     updateItem(index, { ...item, name, type, recharge, attackBonus, damage, damageType, reach, range, saveDc, saveAbility, description: desc, ...overrides });
 
   const fireAction = () => {
-    Api?.FireAction?.("dnd5e.monster_action", { name: item.name, attackBonus: item.attackBonus, damage: item.damage, damageType: item.damageType });
+    Api?.FireAction?.("dnd5e/dnd_attack", { name: item.name, attackBonus: item.attackBonus, damage: item.damage, damageType: item.damageType });
   };
 
   const titleSuffix = type === "attack"

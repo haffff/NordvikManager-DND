@@ -47,10 +47,10 @@
   {
     "id": "3b7c9f50-8d2e-4c4b-af60-9e3d2b1c4f55",
     "Data": {
-      "Label": "5E Add DND item",
+      "Label": "5E Add Item",
       "Location": "battlemap_add",
       "Name": "add_dnd_item",
-      "UiName": "DND Item",
+      "UiName": "Item",
       "Action": "dnd5e/open_item_creator",
       "Icon": "FaBoxOpen"
     },

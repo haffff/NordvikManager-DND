@@ -46,3 +46,39 @@ export const resolveTypeLabel = (type) => {
 };
 
 export const mkId = () => Date.now().toString(36) + Math.random().toString(36).slice(2);
+
+/**
+ * Resolves a 5etools-shaped SRD entry's first image to a displayable URL.
+ * Images are hosted separately from the item/spell/monster JSON data itself
+ * (a different, much larger asset repo), so the entry only ever carries a
+ * path relative to a separately-configurable image base URL — never a full
+ * URL of its own for the common "internal" case.
+ *   { "images": [{ "href": { "type": "internal", "path": "items/DMG/Foo.webp" } }] }
+ * `href.type === "external"` (a full URL already, e.g. a homebrew source
+ * hosting its own images) is passed through as-is instead of being joined.
+ * Returns null when the entry has no image or no base URL is configured yet.
+ */
+export const resolveSrdImageUrl = (entry, imageBaseUrl) => {
+  const href = entry?.images?.[0]?.href;
+  if (!href) return null;
+  if (href.type === "external") return href.url || null;
+  if (!imageBaseUrl) return null;
+  // Base URL and path both commonly come with/without their own slash —
+  // normalize both ends rather than assuming one particular convention.
+  return `${imageBaseUrl.replace(/\/$/, "")}/${(href.path ?? "").replace(/^\//, "")}`;
+};
+
+/**
+ * The value stored on a created card's `item_image_ref` property — the base
+ * URL is deliberately NOT baked in here (unlike resolveSrdImageUrl above),
+ * so changing dnd5e_image_content_provider later doesn't strand cards created
+ * under the old one. A plain relative path for the common "internal" case, or
+ * the already-full URL for "external" — resolveStoredImageUrl (itemcard's own
+ * helper) tells them apart the same way TokenManager's _toResourceUrl already
+ * does elsewhere in this addon: whether the value starts with "http".
+ */
+export const getSrdImageRef = (entry) => {
+  const href = entry?.images?.[0]?.href;
+  if (!href) return "";
+  return href.type === "external" ? (href.url ?? "") : (href.path ?? "");
+};
