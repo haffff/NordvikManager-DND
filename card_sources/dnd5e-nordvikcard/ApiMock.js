@@ -192,6 +192,13 @@ export const ApiMock = {
         return ApiMock._globalProperties[parentId]?.[propertyName] ?? null;
       },
 
+      // The sheet subscribes to the game-wide "dnd5e_config"; the mock never changes it.
+      Subscribe: (parentId, propertyName, callback) => {
+        console.warn("ApiMock.Properties.Global.Subscribe", parentId, propertyName);
+      },
+
+      Unsubscribe: (parentId, propertyName, callback) => {},
+
       GetMany: async (parentId, propertyNames) => {
         const store = ApiMock._globalProperties[parentId] ?? {};
         return propertyNames.map((n) => store[n]).filter(Boolean);
