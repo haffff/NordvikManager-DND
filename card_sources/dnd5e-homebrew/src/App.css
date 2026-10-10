@@ -182,3 +182,29 @@
 .hb_app textarea[readonly] {
   background: #faf7f1;
 }
+
+/* Monsters: ability grid and the trait/action rows. */
+.hb_abilities {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 6px;
+}
+.hb_abilities .hb_field {
+  min-width: 0;
+}
+.hb_list_field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.hb_list_item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px 8px;
+  border: 1px solid var(--dnd-border-light, #c4a882);
+  border-radius: var(--radius-sm, 4px);
+}
+.hb_list_item > button {
+  align-self: flex-start;
+}

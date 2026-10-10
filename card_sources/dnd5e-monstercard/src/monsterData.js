@@ -72,6 +72,23 @@ export const entriesText = (entries) =>
 
 // ── Stat block fields ─────────────────────────────────────────────────────────
 
+// The card's alignment words and their codes (alignmentText reads the codes back).
+const ALIGNMENT_CODES = {
+  "unaligned": ["U"], "lawful good": ["L", "G"], "neutral good": ["N", "G"], "chaotic good": ["C", "G"],
+  "lawful neutral": ["L", "N"], "neutral": ["N"], "chaotic neutral": ["C", "N"],
+  "lawful evil": ["L", "E"], "neutral evil": ["N", "E"], "chaotic evil": ["C", "E"],
+  "any alignment": ["A"], "any non-good": ["L", "NX", "C", "NY", "E"], "any non-lawful": ["NX", "C", "G", "NY", "E"],
+  "any chaotic": ["C", "G", "NY", "E"], "any evil": ["L", "NX", "C", "E"], "any good": ["L", "NX", "C", "G"],
+  "any non-evil": ["L", "NX", "C", "NY", "G"], "any lawful": ["L", "G", "NY", "E"],
+};
+export const ALIGNMENTS = Object.keys(ALIGNMENT_CODES);
+export const alignmentCodes = (text) => ALIGNMENT_CODES[text] ?? ["A"];
+
+export const MONSTER_TYPES = [
+  "aberration", "beast", "celestial", "construct", "dragon", "elemental", "fey", "fiend",
+  "giant", "humanoid", "monstrosity", "ooze", "plant", "undead",
+];
+
 const ANY_ALIGNMENT = {
   "C,E,L,NX,NY": "any non-good", "C,E,G,NX,NY": "any non-lawful", "C,E,G,NY": "any chaotic",
   "C,E,L,NX": "any evil", "C,G,L,NX": "any good", "C,G,L,NX,NY": "any non-evil", "E,G,L,NY": "any lawful",

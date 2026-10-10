@@ -645,7 +645,7 @@ function AppInner({ Api, gameId }) {
                 <h2>About &amp; Licenses</h2>
               </div>
               <p className="settings-field-hint settings-section-intro">
-                The game data this addon offers (items, spells, feats, languages) is taken only from the
+                The game data this addon offers (items, spells, feats, languages, monsters) is taken only from the
                 System Reference Documents, converted to JSON and edited (formatting, cross-references).
                 It contains no artwork. Sources you add yourself are your own responsibility.
               </p>

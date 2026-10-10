@@ -4,17 +4,23 @@ Character, item and monster cards, actions and settings for playing fifth editio
 
 ## Game data and license
 
-The data the addon offers lives in `data/srd-5.1/` and `data/srd-5.2/` (items, spells, feats, languages). It is
-material from the System Reference Documents 5.1 and 5.2.1 by Wizards of the Coast LLC, licensed under
+The data the addon offers lives in `data/srd-5.1/` and `data/srd-5.2/` (items, spells, feats, languages,
+monsters). It is material from the System Reference Documents 5.1 and 5.2.1 by Wizards of the Coast LLC, licensed under
 [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode); see [data/SRD-LICENSE.md](data/SRD-LICENSE.md)
 for the attribution statements. No artwork and no material from other books is included. A game picks its
 edition in the addon settings (Item / Spell sources, Languages); new games start with SRD 5.2.
 
 This addon is not affiliated with or endorsed by Wizards of the Coast.
 
+## Monsters
+
+**5E Create → Create Monster Card** (or right-click the map → Add → Monster) lists the monsters of the game's
+Bestiary sources and homebrew, and creates a filled-in monster card from one; from the map it also places the
+token.
+
 ## Homebrew
 
-The GM can make the game's own items, spells, feats and languages in **5E Settings → 5E Homebrew**. They are
+The GM can make the game's own items, spells, feats, languages and monsters in **5E Settings → 5E Homebrew**. They are
 saved in the game (resources `dnd5e_<kind>_homebrew`) and always offered next to the configured sources. The view
 exports everything as one file in the addon's data format (the same shape as the files in `data/`), which can be
 imported into another game or hosted and added as a source, and imports such files.

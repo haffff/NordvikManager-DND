@@ -13,12 +13,13 @@ const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "../../..")
 const srd52 = (kind) => JSON.parse(fs.readFileSync(path.join(root, `data/srd-5.2/${kind}.json`), "utf8"));
 const stripId = ({ id, ...rest }) => rest;
 
-test("four kinds, each stored under the key the readers use", () => {
+test("five kinds, each stored under the key the readers use", () => {
   assert.deepEqual(KINDS.map((k) => [k.kind, k.listKey, k.resourceKey]), [
     ["item", "item", "dnd5e_items_homebrew"],
     ["spell", "spell", "dnd5e_spells_homebrew"],
     ["feat", "feat", "dnd5e_feats_homebrew"],
     ["language", "language", "dnd5e_languages_homebrew"],
+    ["monster", "monster", "dnd5e_bestiary_homebrew"],
   ]);
 });
 
@@ -138,15 +139,16 @@ test("exported homebrew imports back unchanged, and works as a source file for e
     spell: [toEntry("spell", { ...newForm("spell"), name: "Feather Bolt" })],
     feat: [toEntry("feat", { ...newForm("feat"), name: "Storm Born" })],
     language: [toEntry("language", { ...newForm("language"), name: "Gloomspeak" })],
+    monster: [toEntry("monster", { ...newForm("monster"), name: "Bog Lurker" })],
   };
   const file = JSON.parse(exportFile(lists));
   assert.deepEqual(file._meta.sources, [{ json: "Homebrew", full: "Homebrew" }]);
   // Each reader picks its own key out of the same file.
   assert.deepEqual([file.item, file.spell, file.feat, file.language], [lists.item, lists.spell, lists.feat, lists.language]);
 
-  const result = importFile(exportFile(lists), { item: [], spell: [], feat: [], language: [] });
+  const result = importFile(exportFile(lists), { item: [], spell: [], feat: [], language: [], monster: [] });
   assert.deepEqual(result.lists, lists);
-  assert.deepEqual([result.added, result.replaced], [4, 0]);
+  assert.deepEqual([result.added, result.replaced], [5, 0]);
 });
 
 test("importing a data file adds its entries as homebrew, replacing ones of the same name", () => {
@@ -167,5 +169,74 @@ test("importing a data file adds its entries as homebrew, replacing ones of the 
 test("a file that isn't in the data format is refused with a reason", () => {
   const empty = { item: [], spell: [], feat: [], language: [] };
   assert.throws(() => importFile("{ not json", empty), /not valid JSON/);
-  assert.throws(() => importFile('{"monster":[]}', empty), /no item, spell, feat or language/);
+  assert.throws(() => importFile('{"class":[]}', empty), /no item, spell, feat, language or monster/);
+});
+
+// ── Monsters ──────────────────────────────────────────────────────────────────
+import { monsterToProps, parseAction } from "../../dnd5e-monstercard/src/monsterData.js";
+
+const monsterForm = () => ({
+  ...newForm("monster"),
+  name: "Bog Lurker", size: "L", type: "monstrosity", subtype: "swamp", alignment: "chaotic evil", cr: "3",
+  ac: "13", hp: "45", hpFormula: "6d10 + 12", walk: "30", swim: "40", fly: "", climb: "", burrow: "",
+  str: "18", dex: "12", con: "15", int: "5", wis: "11", cha: "6", save_con: "+4", save_dex: "",
+  skills: "Stealth +3, Perception +2", senses: "darkvision 60 ft.", passive: "12", languages: "",
+  immune: "", resist: "cold, poison", vulnerable: "fire", conditionImmune: "poisoned",
+  traits: [{ name: "Swamp Camouflage", description: "Advantage on Stealth checks in swamps." }],
+  actions: [
+    { kind: "action", name: "Bite", type: "attack", recharge: "", attackBonus: "+6", damage: "2d8 + 4", damageType: "Piercing", reach: "10 ft.", range: "", saveDc: "", saveAbility: "", description: "" },
+    { kind: "action", name: "Bog Breath", type: "save", recharge: "5–6", attackBonus: "", damage: "4d6", damageType: "Poison", reach: "", range: "15 ft.", saveDc: "13", saveAbility: "CON", description: "" },
+    { kind: "reaction", name: "Submerge", type: "other", recharge: "", attackBonus: "", damage: "", damageType: "", reach: "", range: "", saveDc: "", saveAbility: "", description: "The lurker sinks out of sight." },
+  ],
+});
+
+test("monsters are a homebrew kind, read by the bestiary sources", () => {
+  assert.deepEqual(KINDS.find((k) => k.kind === "monster"), { kind: "monster", label: "Monsters", listKey: "monster", resourceKey: "dnd5e_bestiary_homebrew" });
+});
+
+test("a homebrew monster fills the monster card with what was typed in", () => {
+  const props = Object.fromEntries(monsterToProps(toEntry("monster", monsterForm())).map(({ name, value }) => [name, value]));
+
+  assert.deepEqual(
+    [props.monster_name, props.monster_size, props.monster_type, props.monster_subtype, props.monster_alignment, props.cr,
+      props.armor, props.hp, props.speed, props.strength_attribute, props.strength_mod, props.saving_throws, props.skills_text,
+      props.senses, props.resistances, props.vulnerabilities, props.condition_immunities],
+    ["Bog Lurker", "Large", "monstrosity", "swamp", "chaotic evil", "3", "13", "45", "30 ft., swim 40 ft.", "18", "4", "CON +4",
+      "Stealth +3, Perception +2", "darkvision 60 ft., passive Perception 12", "cold, poison", "fire", "poisoned"],
+  );
+
+  const actions = Array.from({ length: Number(props.actions_count) }, (_, i) => JSON.parse(props[`actions_${i}`]));
+  assert.deepEqual(actions.map((a) => a.name), ["Bite", "Bog Breath", "Submerge (Reaction)"]);
+  assert.deepEqual([actions[0].attackBonus, actions[0].damage, actions[0].damageType, actions[0].reach], ["+6", "2d8 + 4", "Piercing", "10 ft."]);
+  assert.deepEqual([actions[1].saveDc, actions[1].saveAbility, actions[1].recharge, actions[1].damage], ["13", "CON", "5–6", "4d6"]);
+  assert.equal(actions[2].description, "The lurker sinks out of sight.");
+  assert.equal(JSON.parse(props.traits_0).name, "Swamp Camouflage");
+});
+
+test("a homebrew monster's form round-trips, and an SRD monster opens in the form", () => {
+  const form = monsterForm();
+  const entry = toEntry("monster", form);
+  const back = toForm("monster", entry);
+  assert.deepEqual({ ...back, actions: back.actions.map(({ description, ...a }) => a) }, {
+    ...form, hbId: entry.hbId, actions: form.actions.map(({ description, ...a }) => a),
+  });
+  assert.equal(back.actions[2].description, "The lurker sinks out of sight.");
+
+  const warrior = srd52("monsters").monster.find((m) => m.name === "Goblin Warrior");
+  const opened = toForm("monster", warrior);
+  assert.deepEqual([opened.size, opened.type, opened.subtype, opened.alignment, opened.ac, opened.hp, opened.skills], ["S", "fey", "goblinoid", "chaotic neutral", "15", "10", "Stealth +6"]);
+  assert.deepEqual(opened.actions.map((a) => [a.kind, a.name, a.type]), [["action", "Scimitar", "attack"], ["action", "Shortbow", "attack"], ["bonus", "Nimble Escape", "other"]]);
+});
+
+test("a monster form is checked before saving", () => {
+  assert.deepEqual(validate("monster", { ...monsterForm(), name: "", ac: "x", str: "40" }), {
+    name: "Name is required.", ac: "Must be a number of 0 or more.", str: "Ability scores are 1 to 30.",
+  });
+  assert.deepEqual(validate("monster", monsterForm()), {});
+});
+
+test("monster actions written by the form are what the card reads", () => {
+  const entry = toEntry("monster", monsterForm());
+  assert.equal(parseAction(entry.action[0]).type, "attack");
+  assert.equal(entry.reaction[0].name, "Submerge");
 });

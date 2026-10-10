@@ -1,8 +1,10 @@
 import React from "react";
 import { ITEM_TYPE_LABEL, DMGTYPE_LABEL, SCHOOL_LABEL } from "../../dnd5e-nordvikcard/src/srdHelpers.js";
 import { categoryLabel } from "../../dnd5e-nordvikcard/src/feats.js";
+import { SIZE_NAME, ALIGNMENTS, MONSTER_TYPES } from "../../dnd5e-monstercard/src/monsterData.js";
 import {
-  KINDS, WEAPON_TYPES, ARMOR_TYPES, newForm, toEntry, toForm, validate, upsertEntry, removeEntry, exportFile, importFile,
+  KINDS, WEAPON_TYPES, ARMOR_TYPES, ABILITIES, SPEEDS, ACTION_KINDS, newAction,
+  newForm, toEntry, toForm, validate, upsertEntry, removeEntry, exportFile, importFile,
 } from "./homebrew.js";
 import "./App.css";
 
@@ -133,7 +135,133 @@ const LanguageForm = ({ form, set }) => (
   </>
 );
 
-const FORMS = { item: ItemForm, spell: SpellForm, feat: FeatForm, language: LanguageForm };
+// ── Monsters ──────────────────────────────────────────────────────────────────
+
+const ACTION_TYPES = { attack: "Attack", save: "Saving throw", other: "Other" };
+const SAVE_ABILITIES = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
+
+// One row of a list field (traits, actions): its own fields, edited through `change`.
+const RowText = ({ row, change, name, ...rest }) => (
+  <input type="text" value={row[name] ?? ""} onChange={(e) => change({ ...row, [name]: e.target.value })} {...rest} />
+);
+const RowSelect = ({ row, change, name, options }) => (
+  <select value={row[name] ?? ""} onChange={(e) => change({ ...row, [name]: e.target.value })}>
+    {Object.entries(options).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+  </select>
+);
+
+const ListField = ({ label, rows, onChange, newRow, renderRow }) => (
+  <div className="hb_field_wide hb_list_field">
+    <div className="hb_row">
+      <span className="hb_label">{label}</span>
+      <button onClick={() => onChange([...rows, newRow()])}>+ Add</button>
+    </div>
+    {rows.map((row, i) => (
+      <div key={i} className="hb_list_item">
+        {renderRow(row, (next) => onChange(rows.map((r, j) => (j === i ? next : r))))}
+        <button className="hb_btn_danger" onClick={() => onChange(rows.filter((_, j) => j !== i))}>Remove</button>
+      </div>
+    ))}
+  </div>
+);
+
+const ActionRow = ({ row, change }) => (
+  <>
+    <span className="hb_row">
+      <RowSelect row={row} change={change} name="kind" options={ACTION_KINDS} />
+      <RowText row={row} change={change} name="name" placeholder="Name" />
+      <RowSelect row={row} change={change} name="type" options={ACTION_TYPES} />
+      <RowText row={row} change={change} name="recharge" placeholder="Recharge (e.g. 5–6)" className="hb_short" />
+    </span>
+    {row.type === "attack" && (
+      <span className="hb_row">
+        <RowText row={row} change={change} name="attackBonus" placeholder="+4" className="hb_short" />
+        <RowText row={row} change={change} name="reach" placeholder="Reach (5 ft.)" />
+        <RowText row={row} change={change} name="range" placeholder="Range (80/320 ft.)" />
+      </span>
+    )}
+    {row.type === "save" && (
+      <span className="hb_row">
+        <RowText row={row} change={change} name="saveDc" placeholder="DC" className="hb_short" />
+        <RowSelect row={row} change={change} name="saveAbility" options={asOptions(["", ...SAVE_ABILITIES], (a) => a || "Ability")} />
+        <RowText row={row} change={change} name="range" placeholder="Range / area" />
+      </span>
+    )}
+    {row.type !== "other" && (
+      <span className="hb_row">
+        <RowText row={row} change={change} name="damage" placeholder="Damage (2d6 + 3)" />
+        <RowText row={row} change={change} name="damageType" placeholder="Damage type" />
+      </span>
+    )}
+    <textarea rows={2} value={row.description ?? ""} placeholder="Description (optional for attacks and saves)"
+      onChange={(e) => change({ ...row, description: e.target.value })} />
+  </>
+);
+
+const MonsterForm = ({ form, set, errors }) => (
+  <>
+    <Field label="Size"><Select form={form} set={set} name="size" options={SIZE_NAME} /></Field>
+    <Field label="Type"><Select form={form} set={set} name="type" options={asOptions(MONSTER_TYPES)} /></Field>
+    <Field label="Subtype / tags"><Text form={form} set={set} name="subtype" placeholder="e.g. goblinoid" /></Field>
+    <Field label="Alignment"><Select form={form} set={set} name="alignment" options={asOptions(ALIGNMENTS)} /></Field>
+    <Field label="CR"><Text form={form} set={set} name="cr" className="hb_short" placeholder="1/4" /></Field>
+    <Field label="Armor class" error={errors.ac}><Text form={form} set={set} name="ac" className="hb_short" /></Field>
+    <Field label="Hit points" error={errors.hp}>
+      <span className="hb_row">
+        <Text form={form} set={set} name="hp" className="hb_short" />
+        <Text form={form} set={set} name="hpFormula" placeholder="Formula (3d6 + 3)" />
+      </span>
+    </Field>
+    <span className="hb_row hb_field_wide">
+      <span className="hb_label">Speed (ft.)</span>
+      {SPEEDS.map((k) => (
+        <label key={k} className="hb_check">
+          {k} <Text form={form} set={set} name={k} className="hb_short" />
+          {errors[k] && <span className="hb_error">{errors[k]}</span>}
+        </label>
+      ))}
+    </span>
+    <div className="hb_field_wide hb_abilities">
+      {ABILITIES.map((a) => (
+        <label key={a} className="hb_field">
+          <span className="hb_label">{a.toUpperCase()}</span>
+          <Text form={form} set={set} name={a} className="hb_short" />
+          <Text form={form} set={set} name={`save_${a}`} className="hb_short" placeholder="save" />
+          {errors[a] && <span className="hb_error">{errors[a]}</span>}
+        </label>
+      ))}
+    </div>
+    <Field label="Skills"><Text form={form} set={set} name="skills" placeholder="Stealth +6, Perception +4" /></Field>
+    <Field label="Senses"><Text form={form} set={set} name="senses" placeholder="darkvision 60 ft." /></Field>
+    <Field label="Passive Perception" error={errors.passive}><Text form={form} set={set} name="passive" className="hb_short" /></Field>
+    <Field label="Languages"><Text form={form} set={set} name="languages" placeholder="Common, Goblin" /></Field>
+    <Field label="Damage immunities"><Text form={form} set={set} name="immune" /></Field>
+    <Field label="Damage resistances"><Text form={form} set={set} name="resist" /></Field>
+    <Field label="Damage vulnerabilities"><Text form={form} set={set} name="vulnerable" /></Field>
+    <Field label="Condition immunities"><Text form={form} set={set} name="conditionImmune" /></Field>
+    <ListField
+      label="Traits"
+      rows={form.traits}
+      onChange={(rows) => set("traits", rows)}
+      newRow={() => ({ name: "", description: "" })}
+      renderRow={(row, change) => (
+        <>
+          <RowText row={row} change={change} name="name" placeholder="Name" />
+          <textarea rows={2} value={row.description} placeholder="Description" onChange={(e) => change({ ...row, description: e.target.value })} />
+        </>
+      )}
+    />
+    <ListField
+      label="Actions"
+      rows={form.actions}
+      onChange={(rows) => set("actions", rows)}
+      newRow={newAction}
+      renderRow={(row, change) => <ActionRow row={row} change={change} />}
+    />
+  </>
+);
+
+const FORMS = { item: ItemForm, spell: SpellForm, feat: FeatForm, language: LanguageForm, monster: MonsterForm };
 
 // ── One kind: list + editor ───────────────────────────────────────────────────
 
@@ -251,7 +379,7 @@ const ExportImport = ({ lists, onImport }) => {
       <section>
         <h3>Import</h3>
         <p className="hb_hint">
-          Paste a file exported here, or choose one. Its items, spells, feats and languages are added; entries with
+          Paste a file exported here, or choose one. Its items, spells, feats, languages and monsters are added; entries with
           the same name as existing homebrew replace them.
         </p>
         <input type="file" accept=".json,application/json" onChange={(e) => readFile(e.target.files?.[0])} />
@@ -318,7 +446,7 @@ export default function App({ Api }) {
         ))}
       </div>
       <p className="hb_hint">
-        Saved in this game and always offered next to the configured sources (item creator, character sheets).
+        Saved in this game and always offered next to the configured sources (item and monster creators, character sheets).
         Sheets already open pick up changes when reopened.
       </p>
       {KINDS.map(({ kind, listKey }) => tab === kind && (
