@@ -67,6 +67,22 @@
         "Value": "dnd5e/sync_feat_source"
       },
       "Type": "ExecuteAction"
+    },
+    {
+      "id": "567eb3db-e319-403c-9c47-44cf34cbdbd5",
+      "Data": {
+        "Label": "Set default bestiary source vars",
+        "Assignments": "bestiary_url=https://raw.githubusercontent.com/haffff/NordvikManager-DND/refs/heads/main/data/srd-5.2/monsters.json\nbestiary_key=dnd5e_bestiary_srd_5_2"
+      },
+      "Type": "QueryData"
+    },
+    {
+      "id": "3f598097-29cb-4fdb-9b10-dacedd9949d7",
+      "Data": {
+        "Label": "Sync SRD monsters",
+        "Value": "dnd5e/sync_bestiary_source"
+      },
+      "Type": "ExecuteAction"
     }
   ],
   "gmPermission": 31

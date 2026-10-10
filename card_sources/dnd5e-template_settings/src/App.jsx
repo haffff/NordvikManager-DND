@@ -35,7 +35,7 @@ const DEFAULT_CONFIG = {
   spellSources: [srdSource("5.2", "spells")],
   itemSources: [srdSource("5.2", "items")],
   featSources: [srdSource("5.2", "feats")],
-  bestiarySources: [],
+  bestiarySources: [srdSource("5.2", "monsters")],
 }
 
 // Converts a GitHub "blob" viewer URL (which serves an HTML page, not raw JSON)
@@ -633,7 +633,8 @@ function AppInner({ Api, gameId }) {
 
             <SourceListSection
               title="Bestiary Sources"
-              hint="Same pattern as Items/Spells above — add your own monster sources here once a bestiary creator card is available."
+              srdKind="monsters"
+              hint="Each source is downloaded once and cached as a resource; the monster creator reads every configured source and merges their monster lists together."
               urlPlaceholder="https://github.com/<user>/<repo>/blob/<branch>/<path>.json"
               sync={bestiarySync}
             />
