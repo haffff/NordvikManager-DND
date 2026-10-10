@@ -6,6 +6,7 @@
 //              durationRounds: number | null, roundsLeft: number, featId?: string }
 // max 0 = no upper limit. durationRounds: how long one activation lasts (Rage: 10).
 // featId: the feat it counts (Feats tab); without one, a feat with the same name.
+// icon / showOnToken: its icon on the token and when it shows (see tokenIcons.js).
 import { mkId } from "./srdHelpers.js";
 
 export const COUNTERS_PROPERTY = "dnd5e_counters";
@@ -23,7 +24,7 @@ export const parseCounters = (value) => {
   }
 };
 
-export const newCounter = ({ name, max = 0, reset = "long", durationRounds = null }) => ({
+export const newCounter = ({ name, max = 0, reset = "long", durationRounds = null, icon = "" }) => ({
   id: mkId(),
   name,
   current: max,
@@ -31,6 +32,8 @@ export const newCounter = ({ name, max = 0, reset = "long", durationRounds = nul
   reset,
   durationRounds: durationRounds || null,
   roundsLeft: 0,
+  icon,
+  showOnToken: durationRounds ? "active" : "never",
 });
 
 const clamp = (counter, value) => Math.max(0, counter.max > 0 ? Math.min(counter.max, value) : value);
@@ -90,21 +93,24 @@ export const linkedCounter = (counters, feat) =>
 /** A new counter tracking a feat's uses: linked to it, named after it, set up like the preset of that name. */
 export const counterForFeat = (feat) => {
   const preset = PRESETS.find((p) => sameName(p.name, feat.name));
-  return { ...newCounter({ name: feat.name, max: 1, reset: preset?.reset ?? "long", durationRounds: preset?.durationRounds }), featId: feat.id };
+  return {
+    ...newCounter({ name: feat.name, max: 1, reset: preset?.reset ?? "long", durationRounds: preset?.durationRounds, icon: preset?.icon }),
+    featId: feat.id,
+  };
 };
 
 // SRD class resources. The player sets max (it depends on level and ability scores).
 export const PRESETS = [
-  { name: "Rage", reset: "long", durationRounds: 10 },
-  { name: "Bardic Inspiration", reset: "long" },
-  { name: "Channel Divinity", reset: "short" },
-  { name: "Wild Shape", reset: "short" },
-  { name: "Focus Points", reset: "short" },
-  { name: "Sorcery Points", reset: "long" },
-  { name: "Second Wind", reset: "short" },
-  { name: "Action Surge", reset: "short" },
-  { name: "Lay on Hands", reset: "long" },
-  { name: "Arcane Recovery", reset: "long" },
-  { name: "Reaction", reset: "round" },
-  { name: "Legendary Actions", reset: "round" },
+  { name: "Rage", reset: "long", durationRounds: 10, icon: "rage" },
+  { name: "Bardic Inspiration", reset: "long", icon: "music" },
+  { name: "Channel Divinity", reset: "short", icon: "holy" },
+  { name: "Wild Shape", reset: "short", icon: "leaf" },
+  { name: "Focus Points", reset: "short", icon: "fist" },
+  { name: "Sorcery Points", reset: "long", icon: "sparkles" },
+  { name: "Second Wind", reset: "short", icon: "heart" },
+  { name: "Action Surge", reset: "short", icon: "bolt" },
+  { name: "Lay on Hands", reset: "long", icon: "heart" },
+  { name: "Arcane Recovery", reset: "long", icon: "moon" },
+  { name: "Reaction", reset: "round", icon: "hourglass" },
+  { name: "Legendary Actions", reset: "round", icon: "skull" },
 ];

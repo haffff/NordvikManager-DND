@@ -15,6 +15,15 @@
       "Type": "SetProperty"
     },
     {
+      "id": "a9e93efb-b828-4e01-a00d-47ef5515a4c0",
+      "Data": {
+        "Label": "Show or hide the counter icons on the token",
+        "ParentId": "%tick_cardId%",
+        "Properties": "dnd5e_icon_rage=%v:tick_icon_rage%\ndnd5e_icon_flame=%v:tick_icon_flame%\ndnd5e_icon_shield=%v:tick_icon_shield%\ndnd5e_icon_bolt=%v:tick_icon_bolt%\ndnd5e_icon_skull=%v:tick_icon_skull%\ndnd5e_icon_heart=%v:tick_icon_heart%\ndnd5e_icon_eye=%v:tick_icon_eye%\ndnd5e_icon_moon=%v:tick_icon_moon%\ndnd5e_icon_sun=%v:tick_icon_sun%\ndnd5e_icon_sword=%v:tick_icon_sword%\ndnd5e_icon_fist=%v:tick_icon_fist%\ndnd5e_icon_holy=%v:tick_icon_holy%\ndnd5e_icon_music=%v:tick_icon_music%\ndnd5e_icon_leaf=%v:tick_icon_leaf%\ndnd5e_icon_hourglass=%v:tick_icon_hourglass%\ndnd5e_icon_sparkles=%v:tick_icon_sparkles%"
+      },
+      "Type": "SetProperties"
+    },
+    {
       "id": "786108f3-3d1f-4c65-b114-9884eaf7090a",
       "Data": {
         "Label": "Something ended",

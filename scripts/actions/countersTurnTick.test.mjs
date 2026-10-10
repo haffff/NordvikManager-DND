@@ -6,6 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { tickRound, newCounter } from "../../card_sources/dnd5e-nordvikcard/src/counters.js";
+import { COUNTER_ICONS, tokenIconProps, iconProperty } from "../../card_sources/dnd5e-nordvikcard/src/tokenIcons.js";
 
 const actionsDir = path.join(path.dirname(fileURLToPath(import.meta.url)), "../../addon_files/Actions");
 const action = (name) => JSON.parse(fs.readFileSync(path.join(actionsDir, `${name}.json`), "utf8"));
@@ -93,4 +94,26 @@ test("the actions are chained, write the card's counters and announce what ended
   for (const name of ["counters_turn_tick", "counters_turn_tick_token", "counters_turn_tick_card", "counters_turn_tick_apply"]) {
     assert.match(steps(name, "If")[0].Data.Condition, /^%v:tick_\w+% = 1$/, name);
   }
+});
+
+test("the token's counter icons follow the countdown, like the sheet's tokenIconProps", () => {
+  const raging = [
+    { ...newCounter({ name: "Rage", max: 3, reset: "long", durationRounds: 10, icon: "rage" }), id: "r", roundsLeft: 1 },
+    { ...newCounter({ name: "Reaction", max: 1, reset: "round", icon: "hourglass" }), id: "re", current: 0, showOnToken: "uses" },
+  ];
+  const result = runScript("counters_turn_tick_card", { tick_counters: JSON.stringify(raging) });
+  const expected = tokenIconProps(tickRound(raging).counters);
+
+  for (const { key } of COUNTER_ICONS) {
+    assert.equal(result[`tick_icon_${key}`], expected[iconProperty(key)], key);
+  }
+  // Rage ran out, the reaction came back.
+  assert.deepEqual([result.tick_icon_rage, result.tick_icon_hourglass], ["false", "true"]);
+});
+
+test("the apply action writes every counter icon's property", () => {
+  const [write] = steps("counters_turn_tick_apply", "SetProperties");
+  assert.equal(write.Data.ParentId, "%tick_cardId%");
+  const lines = write.Data.Properties.split("\n");
+  assert.deepEqual(lines, COUNTER_ICONS.map(({ key }) => `${iconProperty(key)}=%v:tick_icon_${key}%`));
 });

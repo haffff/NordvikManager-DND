@@ -2864,3 +2864,55 @@ button:active {
 .dnd5e_spell_row_wrap.focused {
   animation: dnd5e_ctr_flash 1.6s ease-out;
 }
+
+/* Token icon of a counter: on its tile, and the picker in its editor. */
+.dnd5e_ctr_name {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.dnd5e_ctr_token_icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--dnd-border-light);
+  color: var(--dnd-ink-muted);
+  font-size: 0.9rem;
+}
+.dnd5e_ctr_token_icon.on {
+  background: var(--dnd-crimson);
+  border-color: var(--dnd-crimson);
+  color: #fff;
+}
+.dnd5e_ctr_icon_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+  gap: 4px;
+}
+.dnd5e_ctr_icon_choice {
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--dnd-border-light);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--dnd-ink-light);
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+.dnd5e_ctr_icon_choice:hover {
+  border-color: var(--dnd-crimson);
+  color: var(--dnd-crimson);
+}
+.dnd5e_ctr_icon_choice.active {
+  background: var(--dnd-crimson);
+  border-color: var(--dnd-crimson);
+  color: #fff;
+}
+.dnd5e_ctr_segmented.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}

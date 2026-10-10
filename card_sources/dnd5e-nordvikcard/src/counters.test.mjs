@@ -19,7 +19,9 @@ test("stored counters are read back, and anything broken reads as none", () => {
 test("a new counter starts full and inactive", () => {
   const c = newCounter({ name: "Rage", max: 3, reset: "long", durationRounds: 10 });
   assert.equal(typeof c.id, "string");
-  assert.deepEqual({ ...c, id: undefined }, { id: undefined, name: "Rage", current: 3, max: 3, reset: "long", durationRounds: 10, roundsLeft: 0 });
+  assert.deepEqual({ ...c, id: undefined }, {
+    id: undefined, name: "Rage", current: 3, max: 3, reset: "long", durationRounds: 10, roundsLeft: 0, icon: "", showOnToken: "active",
+  });
 });
 
 test("spending and regaining stay between 0 and max", () => {

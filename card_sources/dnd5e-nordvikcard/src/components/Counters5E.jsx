@@ -2,10 +2,12 @@ import React from "react";
 import {
   FaPlus, FaMinus, FaPen, FaLink, FaTrash, FaHourglassHalf, FaCampground, FaBed, FaHandPaper, FaStopwatch, FaCheck,
 } from "react-icons/fa";
-import { useProperty } from "../../hooks/useProperty";
 import { usePropertyList } from "../../hooks/usePropertyList";
+import { useCounters } from "../../hooks/useCounters";
+import { COUNTER_ICONS, SHOW_ON_TOKEN, iconOf, tokenIconProps, iconProperty } from "../tokenIcons";
+import { counterIcon } from "../counterIcons";
 import {
-  COUNTERS_PROPERTY, RESETS, PRESETS, parseCounters, newCounter, adjust, setValue, rest, activate, deactivate,
+  RESETS, PRESETS, newCounter, adjust, setValue, rest, activate, deactivate,
   tickRound, showsPips,
 } from "../counters";
 
@@ -114,6 +116,52 @@ const CounterEditor = ({ counter, feats, onChange, onRemove, onDone }) => {
           })}
         </div>
       </div>
+      <div className="dnd5e_ctr_field">
+        <span>Token icon</span>
+        <div className="dnd5e_ctr_icon_grid" role="radiogroup" aria-label="Token icon">
+          <button
+            role="radio"
+            aria-checked={!counter.icon}
+            className={`dnd5e_ctr_icon_choice none${!counter.icon ? " active" : ""}`}
+            title="No icon"
+            onClick={() => onChange({ ...counter, icon: "" })}
+          >
+            —
+          </button>
+          {COUNTER_ICONS.map(({ key, label }) => {
+            return (
+              <button
+                key={key}
+                role="radio"
+                aria-checked={counter.icon === key}
+                className={`dnd5e_ctr_icon_choice${counter.icon === key ? " active" : ""}`}
+                title={label}
+                onClick={() => onChange({ ...counter, icon: key, showOnToken: iconOf(counter).showOnToken === "never" ? (counter.durationRounds ? "active" : "uses") : counter.showOnToken })}
+              >
+                {counterIcon(key)}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+      {counter.icon && (
+        <div className="dnd5e_ctr_field">
+          <span>Show on token</span>
+          <div className="dnd5e_ctr_segmented three" role="radiogroup">
+            {Object.entries(SHOW_ON_TOKEN).map(([value, label]) => (
+              <button
+                key={value}
+                role="radio"
+                aria-checked={iconOf(counter).showOnToken === value}
+                className={iconOf(counter).showOnToken === value ? "active" : ""}
+                onClick={() => onChange({ ...counter, showOnToken: value })}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
       <label className="dnd5e_ctr_field">
         <span>Feat</span>
         <select value={counter.featId ?? ""} onChange={(e) => onChange({ ...counter, featId: e.target.value || undefined })}>
@@ -146,11 +194,23 @@ const CounterTile = ({ counter, feat, feats, apply, focused, onShowFeat }) => {
   }, [focused]);
 
   const change = (updated) => apply((list) => list.map((c) => (c.id === counter.id ? updated : c)));
+  const tokenIcon = counterIcon(counter.icon);
+  const onToken = !!tokenIcon && tokenIconProps([counter])[iconProperty(counter.icon)] === "true";
 
   return (
     <div ref={ref} className={`dnd5e_ctr_tile${active ? " active" : ""}${focused ? " focused" : ""}`}>
       <div className="dnd5e_ctr_head">
-        <span className="dnd5e_ctr_name">{counter.name || <em>Unnamed</em>}</span>
+        <span className="dnd5e_ctr_name">
+          {tokenIcon && (
+            <span
+              className={`dnd5e_ctr_token_icon${onToken ? " on" : ""}`}
+              title={onToken ? "Showing on the token" : `On the token ${SHOW_ON_TOKEN[iconOf(counter).showOnToken].toLowerCase()}`}
+            >
+              {tokenIcon}
+            </span>
+          )}
+          {counter.name || <em>Unnamed</em>}
+        </span>
         {!editing && (
           <button className="dnd5e_ctr_icon_btn" aria-label={`Edit ${counter.name}`} title="Edit" onClick={() => setEditing(true)}>
             <FaPen />
@@ -252,13 +312,12 @@ const AddCounter = ({ onAdd, onClose }) => {
 };
 
 export const Counters5E = ({ Api, focus, onShowFeat }) => {
-  const [stored, setStored] = useProperty([Api, COUNTERS_PROPERTY, "[]"]);
-  const counters = React.useMemo(() => parseCounters(stored), [stored]);
+  // Every change goes through one function of the list (src/counters.js); the
+  // token's counter icons are updated with it.
+  const [counters, apply] = useCounters(Api);
   const [feats] = usePropertyList([Api, "feats", true]);
   const [adding, setAdding] = React.useState(false);
 
-  // Every change goes through one function of the list (src/counters.js).
-  const apply = (fn) => setStored(JSON.stringify(fn(counters)));
 
   const featOf = (counter) =>
     feats.find((f) => f.id === counter.featId) ??

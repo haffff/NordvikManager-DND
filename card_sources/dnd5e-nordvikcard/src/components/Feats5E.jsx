@@ -1,8 +1,8 @@
 import React from "react";
 import { FaSearch, FaPlus, FaMinus, FaAngleRight, FaAngleDown, FaStopwatch } from "react-icons/fa";
 import { usePropertyList } from "../../hooks/usePropertyList";
-import { useProperty } from "../../hooks/useProperty";
-import { COUNTERS_PROPERTY, parseCounters, linkedCounter, counterForFeat, showsPips } from "../counters";
+import { useCounters } from "../../hooks/useCounters";
+import { linkedCounter, counterForFeat, showsPips } from "../counters";
 import { useFeatsData } from "../../hooks/useFeatsData";
 import { featFromSrd, customFeat, searchFeats, categoryLabel, prerequisiteText } from "../feats";
 
@@ -95,13 +95,12 @@ const FeatCounterChip = ({ counter, onClick }) => (
 
 export const Feats5E = ({ Api, focus, onShowCounter }) => {
   const [feats, , addFeat, removeFeat, updateFeat] = usePropertyList([Api, "feats", true]);
-  const [storedCounters, setStoredCounters] = useProperty([Api, COUNTERS_PROPERTY, "[]"]);
-  const counters = React.useMemo(() => parseCounters(storedCounters), [storedCounters]);
+  const [counters, applyCounters] = useCounters(Api);
 
   // Starts a counter for the feat and shows it.
   const trackUses = (feat) => {
     const counter = counterForFeat(feat);
-    setStoredCounters(JSON.stringify([...counters, counter]));
+    applyCounters((list) => [...list, counter]);
     onShowCounter?.(counter.id);
   };
   const { feats: featData, loading, error, load } = useFeatsData(Api);
