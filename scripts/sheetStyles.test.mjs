@@ -26,3 +26,10 @@ test("every counters/feats class of the sheet is styled in shared.css", () => {
     }
   }
 });
+
+test("the settings card, which also loads only shared.css, has every class it uses there", () => {
+  assert.deepEqual(JSON.parse(read("addon_files/Views/settings_card.json")).additionalResources.filter((r) => r.endsWith(".css")), ["dnd5e_shared.css"]);
+  const source = read("card_sources/dnd5e-template_settings/src/App.jsx");
+  const classes = new Set(source.match(/(?:settings|ping|section|btn|unsaved|input)-[a-z-]+[a-z]/g) ?? []);
+  for (const name of classes) assert.ok(new RegExp(`\\.${name}(?![a-z-])`).test(shared), `.${name} missing from shared.css`);
+});

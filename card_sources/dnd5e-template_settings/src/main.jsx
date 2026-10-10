@@ -7,6 +7,8 @@ const root = createRoot(document.getElementById('root'))
 
 if (import.meta.env.DEV) {
   const { ApiMock } = await import('../ApiMock.js')
+  // In the game this card's styles come from the addon's shared.css (settings_card view).
+  await import('../../../addon_files/Resources/shared.css')
   root.render(
     <StrictMode>
       <App Api={ApiMock} />
