@@ -38,4 +38,4 @@ export const tickScript = () => [
 ].join("\n");
 
 /** counters_turn_tick_apply's SetProperties lines: one per palette icon. */
-export const iconPropertyLines = () => keys().map((k) => `${iconProperty(k)}=%v:tick_icon_${k}%`).join("\n");
+export const iconPropertyLines = () => keys().map((k) => `${iconProperty(k)}=%tick_icon_${k}%`).join("\n");

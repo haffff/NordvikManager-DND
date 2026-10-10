@@ -39,7 +39,7 @@
       "id": "19f3ea5a-b420-4c5e-9392-47fe9b70cbcd",
       "Data": {
         "Label": "Has a card",
-        "Condition": "%v:tick_hasCard% = 1",
+        "Condition": "%tick_hasCard% = 1",
         "ActionTrue": "dnd5e/counters_turn_tick_card",
         "ActionFalse": ""
       },

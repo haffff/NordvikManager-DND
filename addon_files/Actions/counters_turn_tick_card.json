@@ -28,7 +28,7 @@
       "id": "c2c442f9-4aec-463a-bb13-d7025e8ba895",
       "Data": {
         "Label": "Anything to update",
-        "Condition": "%v:tick_changed% = 1",
+        "Condition": "%tick_changed% = 1",
         "ActionTrue": "dnd5e/counters_turn_tick_apply",
         "ActionFalse": ""
       },

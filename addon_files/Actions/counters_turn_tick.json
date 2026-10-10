@@ -17,7 +17,7 @@
       "id": "20cbd635-274d-4098-915e-550ef871a788",
       "Data": {
         "Label": "Token: count down its card's counters",
-        "Condition": "%v:tick_hasToken% = 1",
+        "Condition": "%tick_hasToken% = 1",
         "ActionTrue": "dnd5e/counters_turn_tick_token",
         "ActionFalse": ""
       },

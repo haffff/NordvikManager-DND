@@ -90,9 +90,9 @@ test("the actions are chained, write the card's counters and announce what ended
   const [chat] = steps("counters_turn_tick_ended", "SendChat");
   assert.match(chat.Data.Message, /%tick_endedText%/);
 
-  // Every If condition compares a 1/0 flag the scripts return.
+  // Every If condition compares a 1/0 flag the scripts return (a plain variable: %name%).
   for (const name of ["counters_turn_tick", "counters_turn_tick_token", "counters_turn_tick_card", "counters_turn_tick_apply"]) {
-    assert.match(steps(name, "If")[0].Data.Condition, /^%v:tick_\w+% = 1$/, name);
+    assert.match(steps(name, "If")[0].Data.Condition, /^%tick_\w+% = 1$/, name);
   }
 });
 
@@ -115,5 +115,5 @@ test("the apply action writes every counter icon's property", () => {
   const [write] = steps("counters_turn_tick_apply", "SetProperties");
   assert.equal(write.Data.ParentId, "%tick_cardId%");
   const lines = write.Data.Properties.split("\n");
-  assert.deepEqual(lines, COUNTER_ICONS.map(({ key }) => `${iconProperty(key)}=%v:tick_icon_${key}%`));
+  assert.deepEqual(lines, COUNTER_ICONS.map(({ key }) => `${iconProperty(key)}=%tick_icon_${key}%`));
 });
