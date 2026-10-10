@@ -3105,3 +3105,26 @@ button:active {
 .settings-section-intro {
     margin: -2px 0 10px;
 }
+
+.settings-source-item input[type="text"] {
+    box-sizing: border-box;
+    padding: 5px 8px;
+    border: 1px solid var(--dnd-border-light);
+    border-radius: var(--radius-sm);
+    background: #fff;
+    color: var(--dnd-ink);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+}
+.settings-source-item input[type="text"]:focus {
+    outline: none;
+    border-color: var(--dnd-crimson);
+}
+.settings-source-item .settings-source-url {
+    color: var(--dnd-ink-light);
+}
+.settings-field > .settings-text-input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
