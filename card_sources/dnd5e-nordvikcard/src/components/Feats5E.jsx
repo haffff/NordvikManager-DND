@@ -1,6 +1,8 @@
 import React from "react";
-import { FaSearch, FaPlus, FaMinus, FaAngleRight, FaAngleDown } from "react-icons/fa";
+import { FaSearch, FaPlus, FaMinus, FaAngleRight, FaAngleDown, FaStopwatch } from "react-icons/fa";
 import { usePropertyList } from "../../hooks/usePropertyList";
+import { useProperty } from "../../hooks/useProperty";
+import { COUNTERS_PROPERTY, parseCounters, linkedCounter, counterForFeat, showsPips } from "../counters";
 import { useFeatsData } from "../../hooks/useFeatsData";
 import { featFromSrd, customFeat, searchFeats, categoryLabel, prerequisiteText } from "../feats";
 
@@ -71,8 +73,37 @@ const FeatSearchPanel = ({ featData, loading, error, onAdd, onClose }) => {
   );
 };
 
-export const Feats5E = ({ Api }) => {
+// The feat's counter (Counters tab) at a glance; clicking it shows the counter.
+const FeatCounterChip = ({ counter, onClick }) => (
+  <button
+    className={`dnd5e_feat_counter${counter.roundsLeft > 0 ? " active" : ""}`}
+    title="Show its counter"
+    onClick={(e) => { e.stopPropagation(); onClick(); }}
+  >
+    {showsPips(counter) ? (
+      <span className="dnd5e_ctr_pips" aria-hidden="true">
+        {Array.from({ length: counter.max }, (_, i) => (
+          <span key={i} className={`dnd5e_ctr_pip${i < counter.current ? " filled" : ""}`} />
+        ))}
+      </span>
+    ) : (
+      <span>{counter.current}{counter.max > 0 ? ` / ${counter.max}` : ""}</span>
+    )}
+    {counter.roundsLeft > 0 && <span><FaStopwatch /> {counter.roundsLeft}</span>}
+  </button>
+);
+
+export const Feats5E = ({ Api, focus, onShowCounter }) => {
   const [feats, , addFeat, removeFeat, updateFeat] = usePropertyList([Api, "feats", true]);
+  const [storedCounters, setStoredCounters] = useProperty([Api, COUNTERS_PROPERTY, "[]"]);
+  const counters = React.useMemo(() => parseCounters(storedCounters), [storedCounters]);
+
+  // Starts a counter for the feat and shows it.
+  const trackUses = (feat) => {
+    const counter = counterForFeat(feat);
+    setStoredCounters(JSON.stringify([...counters, counter]));
+    onShowCounter?.(counter.id);
+  };
   const { feats: featData, loading, error, load } = useFeatsData(Api);
   const [edit, setEdit] = React.useState(false);
   const [searchOpen, setSearchOpen] = React.useState(false);
@@ -124,7 +155,18 @@ export const Feats5E = ({ Api }) => {
       {feats.length > 0 && (
         <div className="dnd5e_spells_body">
           {feats.map((feat, index) => (
-            <FeatRow key={feat.id ?? "feat_" + index} feat={feat} index={index} edit={edit} removeFeat={removeFeat} updateFeat={updateFeat} />
+            <FeatRow
+              key={feat.id ?? "feat_" + index}
+              feat={feat}
+              index={index}
+              edit={edit}
+              removeFeat={removeFeat}
+              updateFeat={updateFeat}
+              counter={linkedCounter(counters, feat)}
+              focused={focus?.id === feat.id ? focus.at : null}
+              onShowCounter={onShowCounter}
+              onTrackUses={() => trackUses(feat)}
+            />
           ))}
         </div>
       )}
@@ -132,8 +174,19 @@ export const Feats5E = ({ Api }) => {
   );
 };
 
-const FeatRow = ({ feat, index, edit, removeFeat, updateFeat }) => {
+const FeatRow = ({ feat, index, edit, removeFeat, updateFeat, counter, focused, onShowCounter, onTrackUses }) => {
   const [expanded, setExpanded] = React.useState(false);
+  // Shown from its counter: opened once per jump (then it's the user's to close), and scrolled to.
+  const [openedFor, setOpenedFor] = React.useState(null);
+  if (focused && focused !== openedFor) {
+    setOpenedFor(focused);
+    setExpanded(true);
+  }
+  const ref = React.useRef(null);
+
+  React.useEffect(() => {
+    if (focused) ref.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [focused]);
   const [name, setName] = React.useState(feat.name);
   const [description, setDescription] = React.useState(feat.description ?? "");
   const [notes, setNotes] = React.useState(feat.notes ?? "");
@@ -141,7 +194,7 @@ const FeatRow = ({ feat, index, edit, removeFeat, updateFeat }) => {
   const save = (overrides = {}) => updateFeat(index, { ...feat, name, description, notes, ...overrides });
 
   return (
-    <div className="dnd5e_spell_row_wrap">
+    <div ref={ref} className={`dnd5e_spell_row_wrap${focused ? " focused" : ""}`}>
       <div className="dnd5e_spell_row">
         <div className="dnd5e_spell_col_name">
           {edit ? (
@@ -157,6 +210,15 @@ const FeatRow = ({ feat, index, edit, removeFeat, updateFeat }) => {
         <div className="dnd5e_spell_col_duration">
           <span>{feat.source}</span>
         </div>
+        {!edit && feat.id && (
+          counter ? (
+            <FeatCounterChip counter={counter} onClick={() => onShowCounter?.(counter.id)} />
+          ) : (
+            <button className="dnd5e_feat_counter ghost" title="Start a counter for this feat" onClick={onTrackUses}>
+              <FaPlus /> Track uses
+            </button>
+          )
+        )}
         {edit && (
           <button className="dnd5e_remove_btn" onClick={() => removeFeat(index)}>
             <FaMinus />

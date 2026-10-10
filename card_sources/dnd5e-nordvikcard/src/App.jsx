@@ -35,6 +35,11 @@ export default function App({ Api }) {
 function CharacterSheet({ Api, gameId }) {
   const [config, setConfig] = React.useState(undefined);
   const [tab, setTab] = React.useState("stats");
+  // Jumping between a feat and its counter: the tab to show and what to highlight there.
+  const [counterFocus, setCounterFocus] = React.useState(null);
+  const [featFocus, setFeatFocus] = React.useState(null);
+  const showCounter = (id) => { setTab("counters"); setCounterFocus({ id, at: Date.now() }); };
+  const showFeat = (id) => { setTab("feats"); setFeatFocus({ id, at: Date.now() }); };
 
   console.log("App component rendered with config:", config);
 
@@ -124,11 +129,11 @@ function CharacterSheet({ Api, gameId }) {
       </div>
 
       <div style={{ display: tab === "feats" ? "flex" : "none", flexDirection: "column", flex: 1, padding: "8px", minHeight: 0 }}>
-        <Feats5E Api={Api} />
+        <Feats5E Api={Api} focus={featFocus} onShowCounter={showCounter} />
       </div>
 
       <div style={{ display: tab === "counters" ? "flex" : "none", flexDirection: "column", flex: 1, padding: "8px", minHeight: 0 }}>
-        <Counters5E Api={Api} />
+        <Counters5E Api={Api} focus={counterFocus} onShowFeat={showFeat} />
       </div>
     </div>
   );
