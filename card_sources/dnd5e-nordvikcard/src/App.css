@@ -2469,6 +2469,8 @@ button:active {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 10px;
+  /* Each tile keeps its own height (an open editor doesn't stretch its row). */
+  align-items: start;
 }
 .dnd5e_ctr_tile {
   display: flex;
