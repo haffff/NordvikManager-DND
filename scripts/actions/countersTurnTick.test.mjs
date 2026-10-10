@@ -39,6 +39,7 @@ const counters = [
   { ...newCounter({ name: "Rage", max: 3, reset: "long", durationRounds: 10 }), id: "r", roundsLeft: 1 },
   { ...newCounter({ name: "Bless", max: 1, reset: "none", durationRounds: 10 }), id: "b", roundsLeft: 5 },
   { ...newCounter({ name: "Focus Points", max: 5, reset: "short" }), id: "k" },
+  { ...newCounter({ name: "Reaction", max: 1, reset: "round" }), id: "re", current: 0 },
 ];
 
 test("the countdown matches the sheet's tickRound, and says what ended", () => {
@@ -49,6 +50,13 @@ test("the countdown matches the sheet's tickRound, and says what ended", () => {
   assert.equal(result.tick_changed, 1);
   assert.equal(result.tick_hasEnded, 1);
   assert.equal(result.tick_endedText, "Rage");
+});
+
+test("a spent per-round counter alone is refilled and written", () => {
+  const spent = [{ ...counters[3] }];
+  const result = runScript("counters_turn_tick_card", { tick_counters: JSON.stringify(spent) });
+  assert.deepEqual(JSON.parse(result.tick_newCounters), tickRound(spent).counters);
+  assert.deepEqual([result.tick_changed, result.tick_hasEnded], [1, 0]);
 });
 
 test("nothing active, or nothing readable: nothing to write", () => {

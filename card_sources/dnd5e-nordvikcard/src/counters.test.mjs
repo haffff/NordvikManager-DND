@@ -93,6 +93,59 @@ test("presets cover the SRD class resources, each with how it resets", () => {
   for (const name of ["Rage", "Bardic Inspiration", "Channel Divinity", "Second Wind", "Action Surge"]) {
     assert.ok(names.includes(name), name);
   }
-  for (const p of PRESETS) assert.ok(["short", "long", "none"].includes(p.reset), p.name);
+  for (const p of PRESETS) assert.ok(["round", "short", "long", "none"].includes(p.reset), p.name);
   assert.equal(PRESETS.find((p) => p.name === "Rage").durationRounds, 10);
+});
+
+// ── Per-round refills, pips and feat links ────────────────────────────────────
+import { RESETS, showsPips, linkedCounter, counterForFeat } from "./counters.js";
+
+const reaction = () => ({ ...newCounter({ name: "Reaction", max: 1, reset: "round" }), id: "re" });
+
+test("refills: per round, short rest, long rest or manual", () => {
+  assert.deepEqual(Object.keys(RESETS), ["round", "short", "long", "none"]);
+});
+
+test("each of the character's turns refills per-round counters", () => {
+  const spent = [{ ...reaction(), current: 0 }, { ...ki(), current: 1 }];
+  const { counters } = tickRound(spent);
+  assert.deepEqual(counters.map((c) => c.current), [1, 1]);
+});
+
+test("a turn with only full per-round counters changes nothing", () => {
+  const counters = [reaction(), ki()];
+  assert.equal(tickRound(counters).counters[0], counters[0]);
+});
+
+test("rests refill per-round counters too", () => {
+  const spent = [{ ...reaction(), current: 0 }];
+  assert.equal(rest(spent, "short")[0].current, 1);
+  assert.equal(rest(spent, "long")[0].current, 1);
+});
+
+test("small counters show as pips, large or unlimited ones as a number", () => {
+  assert.equal(showsPips({ max: 3 }), true);
+  assert.equal(showsPips({ max: 12 }), true);
+  assert.equal(showsPips({ max: 20 }), false);
+  assert.equal(showsPips({ max: 0 }), false);
+});
+
+test("a feat finds its counter: the linked one, else one with the same name", () => {
+  const feat = { id: "f1", name: "Rage" };
+  const linked = { ...rage(), id: "c1", name: "Barbarian Rage", featId: "f1" };
+  const named = { ...rage(), id: "c2", name: " rage " };
+
+  assert.equal(linkedCounter([named, linked], feat), linked);
+  assert.equal(linkedCounter([named], feat), named);
+  assert.equal(linkedCounter([ki()], feat), undefined);
+  // A counter linked to another feat isn't taken by name.
+  assert.equal(linkedCounter([{ ...named, featId: "other" }], feat), undefined);
+});
+
+test("tracking a feat's uses starts a counter linked to it, named after it, from a preset when there is one", () => {
+  const counter = counterForFeat({ id: "f1", name: "Rage" });
+  assert.deepEqual([counter.name, counter.featId, counter.reset, counter.durationRounds], ["Rage", "f1", "long", 10]);
+
+  const other = counterForFeat({ id: "f2", name: "Lucky" });
+  assert.deepEqual([other.name, other.featId, other.reset, other.max, other.current], ["Lucky", "f2", "long", 1, 1]);
 });

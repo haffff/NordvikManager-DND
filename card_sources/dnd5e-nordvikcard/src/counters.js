@@ -2,12 +2,16 @@
 // stored together as one JSON list in the card's "dnd5e_counters" property, so an
 // action can read and write them too (the Turn Changed countdown).
 //
-// A counter: { id, name, current, max, reset: "short" | "long" | "none",
-//              durationRounds: number | null, roundsLeft: number }
+// A counter: { id, name, current, max, reset: "round" | "short" | "long" | "none",
+//              durationRounds: number | null, roundsLeft: number, featId?: string }
 // max 0 = no upper limit. durationRounds: how long one activation lasts (Rage: 10).
+// featId: the feat it counts (Feats tab); without one, a feat with the same name.
 import { mkId } from "./srdHelpers.js";
 
 export const COUNTERS_PROPERTY = "dnd5e_counters";
+
+/** When a counter refills, in the order the sheet offers them. */
+export const RESETS = { round: "Per round", short: "Short rest", long: "Long rest", none: "Manual" };
 
 /** The stored list; anything unreadable reads as no counters. */
 export const parseCounters = (value) => {
@@ -40,10 +44,10 @@ export const setValue = (counters, id, value) => {
   return Number.isNaN(n) ? counters : change(counters, id, (c) => ({ ...c, current: clamp(c, n) }));
 };
 
-/** Short rest refills "short" counters; long rest refills "short" and "long". Either ends active durations. */
+/** Short rest refills "round" and "short" counters; long rest also "long". Either ends active durations. */
 export const rest = (counters, kind) =>
   counters.map((c) => {
-    const refills = c.reset === "short" || (kind === "long" && c.reset === "long");
+    const refills = c.reset === "round" || c.reset === "short" || (kind === "long" && c.reset === "long");
     return { ...c, current: refills ? c.max : c.current, roundsLeft: 0 };
   });
 
@@ -55,19 +59,38 @@ export const activate = (counters, id) =>
 export const deactivate = (counters, id) => change(counters, id, (c) => ({ ...c, roundsLeft: 0 }));
 
 /**
- * One of the character's turns started: active durations count down by one.
- * Returns the new list and the names of what just ran out. The Turn Changed action
- * (addon_files/Actions/counters_turn_tick.json) runs the same logic in its script.
+ * One of the character's turns started: active durations count down by one and
+ * per-round counters refill. Returns the new list (unchanged counters are the same
+ * objects) and the names of what just ran out. The Turn Changed action
+ * (addon_files/Actions/counters_turn_tick_card.json) runs the same logic in its script.
  */
 export const tickRound = (counters) => {
   const ended = [];
   const next = counters.map((c) => {
-    if (!(c.roundsLeft > 0)) return c;
-    const roundsLeft = c.roundsLeft - 1;
-    if (roundsLeft === 0) ended.push(c.name);
-    return { ...c, roundsLeft };
+    let out = c;
+    if (c.roundsLeft > 0) {
+      out = { ...out, roundsLeft: c.roundsLeft - 1 };
+      if (out.roundsLeft === 0) ended.push(c.name);
+    }
+    if (c.reset === "round" && c.max > 0 && (c.current ?? 0) < c.max) out = { ...out, current: c.max };
+    return out;
   });
   return { counters: next, ended };
+};
+
+/** Small counters (max up to 12) show as pips; larger or unlimited ones as a number. */
+export const showsPips = (counter) => counter.max > 0 && counter.max <= 12;
+
+const sameName = (a, b) => (a ?? "").trim().toLowerCase() === (b ?? "").trim().toLowerCase();
+
+/** The counter of a feat: the one linked to it, else an unlinked one with the same name. */
+export const linkedCounter = (counters, feat) =>
+  counters.find((c) => c.featId === feat.id) ?? counters.find((c) => !c.featId && sameName(c.name, feat.name));
+
+/** A new counter tracking a feat's uses: linked to it, named after it, set up like the preset of that name. */
+export const counterForFeat = (feat) => {
+  const preset = PRESETS.find((p) => sameName(p.name, feat.name));
+  return { ...newCounter({ name: feat.name, max: 1, reset: preset?.reset ?? "long", durationRounds: preset?.durationRounds }), featId: feat.id };
 };
 
 // SRD class resources. The player sets max (it depends on level and ability scores).
@@ -82,4 +105,6 @@ export const PRESETS = [
   { name: "Action Surge", reset: "short" },
   { name: "Lay on Hands", reset: "long" },
   { name: "Arcane Recovery", reset: "long" },
+  { name: "Reaction", reset: "round" },
+  { name: "Legendary Actions", reset: "round" },
 ];

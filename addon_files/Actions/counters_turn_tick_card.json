@@ -18,8 +18,8 @@
     {
       "id": "8516bf55-1773-476e-bddb-c139d9a8f29e",
       "Data": {
-        "Label": "Count active durations down (counters.js tickRound)",
-        "Script": "var list;\ntry { list = typeof vars.tick_counters === \"string\" ? JSON.parse(vars.tick_counters) : vars.tick_counters; } catch (e) { list = null; }\nif (!Array.isArray(list)) list = [];\nvar ended = [];\nvar changed = 0;\nvar next = list.map(function (c) {\n  if (!(c && c.roundsLeft > 0)) return c;\n  changed = 1;\n  var copy = Object.assign({}, c, { roundsLeft: c.roundsLeft - 1 });\n  if (copy.roundsLeft === 0) ended.push(c.name);\n  return copy;\n});\nreturn { tick_newCounters: JSON.stringify(next), tick_changed: changed, tick_hasEnded: ended.length ? 1 : 0, tick_endedText: ended.join(\", \") };",
+        "Label": "Count active durations down, refill per-round counters (counters.js tickRound)",
+        "Script": "var list;\ntry { list = typeof vars.tick_counters === \"string\" ? JSON.parse(vars.tick_counters) : vars.tick_counters; } catch (e) { list = null; }\nif (!Array.isArray(list)) list = [];\nvar ended = [];\nvar changed = 0;\nvar next = list.map(function (c) {\n  if (!c) return c;\n  var out = c;\n  if (c.roundsLeft > 0) {\n    out = Object.assign({}, out, { roundsLeft: c.roundsLeft - 1 });\n    if (out.roundsLeft === 0) ended.push(c.name);\n  }\n  if (c.reset === \"round\" && c.max > 0 && (c.current || 0) < c.max) out = Object.assign({}, out, { current: c.max });\n  if (out !== c) changed = 1;\n  return out;\n});\nreturn { tick_newCounters: JSON.stringify(next), tick_changed: changed, tick_hasEnded: ended.length ? 1 : 0, tick_endedText: ended.join(\", \") };",
         "Output": ""
       },
       "Type": "RunScript"
@@ -27,7 +27,7 @@
     {
       "id": "c2c442f9-4aec-463a-bb13-d7025e8ba895",
       "Data": {
-        "Label": "Anything active",
+        "Label": "Anything to update",
         "Condition": "%v:tick_changed% = 1",
         "ActionTrue": "dnd5e/counters_turn_tick_apply",
         "ActionFalse": ""
