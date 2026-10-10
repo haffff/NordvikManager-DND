@@ -90,7 +90,15 @@ const AddChipRow = ({ placeholder, onAdd }) => {
 export const ProficienciesLanguages5E = ({ Api }) => {
   const [languages, , addLanguage, removeLanguage] = usePropertyList([Api, "languages", true]);
   const [proficiencies, , addProficiency, removeProficiency] = usePropertyList([Api, "proficiencies", true]);
-  const { items: langData, loading, load } = useResourceData(Api, "dnd5e_languages", (d) => d.language ?? d.item ?? d);
+  const sourceLangs = useResourceData(Api, "dnd5e_languages", (d) => d.language ?? d.item ?? d);
+  // The game's own languages, made in the 5E Homebrew view.
+  const homebrewLangs = useResourceData(Api, "dnd5e_languages_homebrew", (d) => d.language ?? []);
+  const langData = React.useMemo(
+    () => (sourceLangs.items || homebrewLangs.items ? [...(sourceLangs.items ?? []), ...(homebrewLangs.items ?? [])] : null),
+    [sourceLangs.items, homebrewLangs.items]
+  );
+  const loading = sourceLangs.loading || homebrewLangs.loading;
+  const load = () => { sourceLangs.load(); homebrewLangs.load(); };
   const [searchOpen, setSearchOpen] = React.useState(false);
 
   return (
@@ -100,7 +108,7 @@ export const ProficienciesLanguages5E = ({ Api }) => {
           <span className="dnd5e_profs_title">Languages</span>
           <button
             className="dnd5e_profs_search_btn"
-            title="Search SRD languages"
+            title="Search languages"
             onClick={() => {
               load();
               setSearchOpen(true);

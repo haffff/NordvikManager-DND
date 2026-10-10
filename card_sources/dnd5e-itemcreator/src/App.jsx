@@ -103,7 +103,7 @@ const AppInner = ({ Api, additionalArguments, gameId }) => {
 
   return (
     <div className="dnd5e_itemcreator_container">
-      <div className="dnd5e_itemcreator_title">DND 5E Item Creator</div>
+      <div className="dnd5e_itemcreator_title">5E Item Creator</div>
       <div className="dnd5e_itemcreator_subtitle">
         Select an item from the SRD list, then click Create.
       </div>

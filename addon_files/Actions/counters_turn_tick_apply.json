@@ -1,0 +1,29 @@
+{
+  "name": "counters_turn_tick_apply",
+  "hook": 0,
+  "prefix": "dnd5e",
+  "isEnabled": false,
+  "content": [
+    {
+      "id": "fecd7d26-6da3-40c0-877b-a422f2b56643",
+      "Data": {
+        "Label": "Save the counters",
+        "ParentId": "%tick_cardId%",
+        "PropertyName": "dnd5e_counters",
+        "PropertyValue": "%tick_newCounters%"
+      },
+      "Type": "SetProperty"
+    },
+    {
+      "id": "786108f3-3d1f-4c65-b114-9884eaf7090a",
+      "Data": {
+        "Label": "Something ended",
+        "Condition": "%v:tick_hasEnded% = 1",
+        "ActionTrue": "dnd5e/counters_turn_tick_ended",
+        "ActionFalse": ""
+      },
+      "Type": "If"
+    }
+  ],
+  "gmPermission": 31
+}

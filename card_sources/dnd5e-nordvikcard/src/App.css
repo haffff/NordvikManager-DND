@@ -2343,3 +2343,70 @@ button:active {
 .btn-remove:hover {
   color: var(--dnd-crimson);
 }
+
+/* ── Feats tab ─────────────────────────────────────────────────────────────── */
+.dnd5e_feat_desc {
+  white-space: pre-wrap;
+}
+.dnd5e_feat_textarea {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 48px;
+  margin: 2px 0 4px;
+  font-family: var(--font-body);
+  color: var(--dnd-ink);
+  background: var(--dnd-parchment);
+  border: 1px solid var(--dnd-border-light);
+  border-radius: var(--radius-sm);
+  resize: vertical;
+}
+
+/* ── Counters tab ──────────────────────────────────────────────────────────── */
+.dnd5e_counter_add,
+.dnd5e_counter_row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 4px 6px;
+  font-family: var(--font-body);
+  color: var(--dnd-ink);
+}
+.dnd5e_counter_add {
+  margin-bottom: 6px;
+  border-bottom: 1px solid var(--dnd-border-light);
+}
+.dnd5e_counter_row {
+  border-bottom: 1px solid var(--dnd-border-light);
+}
+.dnd5e_counter_active {
+  background: color-mix(in srgb, var(--dnd-parchment) 80%, #c0392b 20%);
+}
+.dnd5e_counter_name {
+  flex: 1;
+  min-width: 100px;
+  font-weight: 600;
+}
+.dnd5e_counter_name_input {
+  flex: 1;
+  min-width: 100px;
+}
+.dnd5e_counter_num {
+  width: 52px;
+  text-align: center;
+}
+.dnd5e_counter_step {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+.dnd5e_counter_max,
+.dnd5e_counter_reset,
+.dnd5e_counter_rounds {
+  font-size: 0.85em;
+  color: var(--dnd-ink-muted);
+}
+.dnd5e_counter_rounds {
+  font-weight: 600;
+  color: var(--dnd-ink);
+}

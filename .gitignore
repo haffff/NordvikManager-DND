@@ -5,3 +5,6 @@ node_modules/
 dist/
 packed/
 packed.zip
+
+# Raw source data for scripts/srd: full non-SRD content, never commit it
+tmp-data-to-process/

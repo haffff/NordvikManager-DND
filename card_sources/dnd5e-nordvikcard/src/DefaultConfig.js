@@ -30,4 +30,5 @@ export const DefaultConfig = {
     { name: "Survival", modifier: "wisdom" },
   ],
   spellSources: [],
+  featSources: [],
 };

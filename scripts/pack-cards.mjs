@@ -15,6 +15,7 @@ const cardSourcesRoot = path.join(cardsRoot, 'card_sources');
 const zipPath = path.join(cardsRoot, 'packed.zip');
 
 const microFrontends = [
+    'dnd5e-homebrew',
     'dnd5e-itemcard',
     'dnd5e-itemcreator',
     'dnd5e-monstercard',

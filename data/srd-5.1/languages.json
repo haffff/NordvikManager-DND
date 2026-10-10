@@ -1,0 +1,260 @@
+{
+  "_meta": {
+    "license": "This work includes material taken from the System Reference Document 5.1 (\"SRD 5.1\") by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode. Converted to JSON and edited (formatting, cross-references) for NordvikManager.",
+    "edition": "SRD 5.1"
+  },
+  "language": [
+    {
+      "name": "Abyssal",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "exotic",
+      "typicalSpeakers": [
+        "demons"
+      ],
+      "script": "Infernal"
+    },
+    {
+      "name": "Celestial",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "exotic",
+      "typicalSpeakers": [
+        "celestials"
+      ],
+      "script": "Celestial"
+    },
+    {
+      "name": "Common",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "standard",
+      "typicalSpeakers": [
+        "humans"
+      ],
+      "script": "Common"
+    },
+    {
+      "name": "Deep Speech",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "exotic",
+      "typicalSpeakers": [
+        "mind flayers",
+        "beholders"
+      ],
+      "script": "none"
+    },
+    {
+      "name": "Draconic",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "exotic",
+      "typicalSpeakers": [
+        "dragons",
+        "dragonborn"
+      ],
+      "script": "Draconic",
+      "entries": [
+        "Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants."
+      ]
+    },
+    {
+      "name": "Druidic",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "secret",
+      "typicalSpeakers": [
+        "druids/druids",
+        "treants"
+      ],
+      "entries": [
+        "Druidic is the secret language of druids. It can be spoken or used to leave hidden messages. Creatures who know this language automatically spot such a message. Others spot the message's presence with a successful {@dc 15} Wisdom ({@skill Perception}) check but can't decipher it without magic."
+      ]
+    },
+    {
+      "name": "Dwarvish",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "standard",
+      "typicalSpeakers": [
+        "dwarves"
+      ],
+      "script": "Dwarvish",
+      "entries": [
+        "Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak."
+      ]
+    },
+    {
+      "name": "Elvish",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "standard",
+      "typicalSpeakers": [
+        "elves"
+      ],
+      "script": "Elvish",
+      "entries": [
+        "Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires."
+      ]
+    },
+    {
+      "name": "Giant",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "standard",
+      "typicalSpeakers": [
+        "ogres",
+        "giants"
+      ],
+      "script": "Dwarvish"
+    },
+    {
+      "name": "Gnomish",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "standard",
+      "typicalSpeakers": [
+        "gnomes"
+      ],
+      "script": "Dwarvish",
+      "entries": [
+        "The Gnomish language, which uses the Dwarvish script, is renowned for its technical treatises and its catalogs of knowledge about the natural world."
+      ]
+    },
+    {
+      "name": "Goblin",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "standard",
+      "typicalSpeakers": [
+        "goblinoids"
+      ],
+      "script": "Dwarvish"
+    },
+    {
+      "name": "Halfling",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "standard",
+      "typicalSpeakers": [
+        "halflings"
+      ],
+      "script": "Common",
+      "entries": [
+        "The Halfling language isn't secret, but halflings are loath to share it with others. They write very little, so they don't have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling."
+      ]
+    },
+    {
+      "name": "Infernal",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "exotic",
+      "typicalSpeakers": [
+        "devils"
+      ],
+      "script": "Infernal"
+    },
+    {
+      "name": "Orc",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "standard",
+      "typicalSpeakers": [
+        "orcs"
+      ],
+      "script": "Dwarvish",
+      "entries": [
+        "Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script."
+      ]
+    },
+    {
+      "name": "Primordial",
+      "dialects": [
+        "Auran",
+        "Aquan",
+        "Ignan",
+        "Terran"
+      ],
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "exotic",
+      "typicalSpeakers": [
+        "elementals"
+      ],
+      "script": "Dwarvish",
+      "entries": [
+        "Primordial is a guttural language, filled with harsh syllables and hard consonants."
+      ]
+    },
+    {
+      "name": "Sylvan",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "exotic",
+      "typicalSpeakers": [
+        "fey creatures"
+      ],
+      "script": "Elvish"
+    },
+    {
+      "name": "Thieves' Cant",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "secret",
+      "typicalSpeakers": [
+        "assassins",
+        "rogues"
+      ],
+      "entries": [
+        "Thieves' cant is a secret mix of dialect, jargon, and code that allows messages to be hidden in seemingly normal conversation. Only a creature that knows thieves' cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly."
+      ]
+    },
+    {
+      "name": "Undercommon",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "type": "exotic",
+      "typicalSpeakers": [
+        "underdark traders"
+      ],
+      "script": "Elvish"
+    }
+  ]
+}

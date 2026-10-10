@@ -17,7 +17,7 @@ export const ITEM_TYPE_LABEL = {
 export const stripTags = (str) =>
   str.replace(/\{@\w+ ([^|}]+)(?:\|[^}]*)?\}/g, "$1");
 
-/** Recursively extract plain text from a 5etools entries array. */
+/** Recursively extract plain text from an `entries` array. */
 export const entriesToText = (entries) => {
   if (!entries || !Array.isArray(entries)) return "";
   const parts = [];
@@ -48,7 +48,7 @@ export const resolveTypeLabel = (type) => {
 export const mkId = () => Date.now().toString(36) + Math.random().toString(36).slice(2);
 
 /**
- * Resolves a 5etools-shaped SRD entry's first image to a displayable URL.
+ * Resolves an SRD entry's first image to a displayable URL.
  * Images are hosted separately from the item/spell/monster JSON data itself
  * (a different, much larger asset repo), so the entry only ever carries a
  * path relative to a separately-configurable image base URL — never a full

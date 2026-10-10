@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "packageManager": "pnpm@10.33.0",
   "scripts": {
-    "pack": "node scripts/pack-cards.mjs"
+    "pack": "node scripts/pack-cards.mjs",
+    "test": "node --test \"scripts/**/*.test.mjs\" \"card_sources/*/src/**/*.test.mjs\"",
+    "srd": "node scripts/srd/extract-srd.mjs",
+    "srd:build": "node scripts/srd/build-data.mjs"
   },
   "devDependencies": {
     "archiver": "^7.0.1"

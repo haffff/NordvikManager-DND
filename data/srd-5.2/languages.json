@@ -1,0 +1,186 @@
+{
+  "_meta": {
+    "license": "This work includes material from the System Reference Document 5.2.1 (\"SRD 5.2.1\") by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode. Converted to JSON and edited (formatting, cross-references) for NordvikManager.",
+    "edition": "SRD 5.2"
+  },
+  "language": [
+    {
+      "name": "Abyssal",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "rare",
+      "origin": "Demons of the Abyss"
+    },
+    {
+      "name": "Celestial",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "rare",
+      "origin": "Celestials"
+    },
+    {
+      "name": "Common",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "standard",
+      "origin": "Sigil"
+    },
+    {
+      "name": "Common Sign Language",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "standard",
+      "origin": "Sigil"
+    },
+    {
+      "name": "Deep Speech",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "rare",
+      "origin": "Aberrations"
+    },
+    {
+      "name": "Draconic",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "standard",
+      "origin": "Dragons",
+      "script": "Draconic"
+    },
+    {
+      "name": "Druidic",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "rare",
+      "origin": "Druidic circles"
+    },
+    {
+      "name": "Dwarvish",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "standard",
+      "origin": "Dwarves"
+    },
+    {
+      "name": "Elvish",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "standard",
+      "origin": "Elves"
+    },
+    {
+      "name": "Giant",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "standard",
+      "origin": "Giants"
+    },
+    {
+      "name": "Gnomish",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "standard",
+      "origin": "Gnomes"
+    },
+    {
+      "name": "Goblin",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "standard",
+      "origin": "Goblinoids"
+    },
+    {
+      "name": "Halfling",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "standard",
+      "origin": "Halflings"
+    },
+    {
+      "name": "Infernal",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "rare",
+      "origin": "Devils of the Nine Hells"
+    },
+    {
+      "name": "Orc",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "standard",
+      "origin": "Orcs"
+    },
+    {
+      "name": "Primordial",
+      "dialects": [
+        "Auran",
+        "Aquan",
+        "Ignan",
+        "Terran"
+      ],
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "rare",
+      "origin": "Elementals"
+    },
+    {
+      "name": "Sylvan",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "rare",
+      "origin": "The Feywild"
+    },
+    {
+      "name": "Thieves' Cant",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "rare",
+      "origin": "Various criminal guilds"
+    },
+    {
+      "name": "Undercommon",
+      "source": "XPHB",
+      "srdEditions": [
+        "5.2"
+      ],
+      "type": "rare",
+      "origin": "The Underdark"
+    }
+  ]
+}

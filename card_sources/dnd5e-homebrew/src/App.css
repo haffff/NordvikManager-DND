@@ -1,0 +1,157 @@
+/* 5E Homebrew view. Colours come from the addon's shared.css tokens where present. */
+.hb_app {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 14px;
+}
+.hb_header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.hb_header h1 {
+  margin: 0;
+  font-size: 18px;
+}
+.hb_tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.hb_tab.active {
+  border-color: var(--dnd-accent, #c9a227);
+  font-weight: 600;
+}
+.hb_hint {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.75;
+}
+.hb_kind {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  min-height: 0;
+}
+.hb_list {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  padding-right: 8px;
+}
+.hb_list_bar {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+.hb_list_bar input {
+  flex: 1;
+  min-width: 0;
+}
+.hb_list_row {
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.hb_list_row:hover,
+.hb_list_row.active {
+  background: rgba(255, 255, 255, 0.08);
+}
+.hb_editor {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+}
+.hb_form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: flex-start;
+}
+.hb_field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 140px;
+}
+.hb_field_wide {
+  flex-basis: 100%;
+}
+.hb_field textarea,
+.hb_transfer textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  font-family: inherit;
+}
+.hb_label {
+  font-size: 12px;
+  opacity: 0.8;
+}
+.hb_row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.hb_short {
+  width: 56px;
+}
+.hb_check {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.hb_actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+.hb_confirm {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.hb_btn_primary {
+  font-weight: 600;
+}
+.hb_btn_danger {
+  color: #ff8a80;
+}
+.hb_empty {
+  padding: 8px;
+  opacity: 0.7;
+}
+.hb_error {
+  color: #ff8a80;
+  font-size: 12px;
+}
+.hb_ok {
+  color: #9be59b;
+  font-size: 12px;
+}
+.hb_transfer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  overflow-y: auto;
+}
+.hb_transfer section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 260px;
+}
+.hb_transfer h3 {
+  margin: 0;
+}

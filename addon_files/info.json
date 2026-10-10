@@ -1,8 +1,8 @@
 {
     "$schema": "https://raw.githubusercontent.com/haffff/NordvikManager-Addons/refs/heads/main/schemas/addon.json",
     "key": "dnd5e",
-    "name": "D&D 5E Addon",
-    "description": "Dungeons and Dragons 5th Edition Support for Nordvik Manager. Still work in progress",
+    "name": "Fifth Edition (SRD)",
+    "description": "Fifth edition rules support for Nordvik Manager, with game data from the System Reference Documents 5.1 and 5.2 (CC-BY-4.0). Still work in progress.",
     "version": "0.0.2",
     "author": "haffff",
     "license": "MIT",

@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useGlobalProperty } from '../hooks/useGlobalProperty'
+import { SRD_EDITIONS, SRD_ATTRIBUTION, slugify, srdSource, srdRawUrl } from './srdSources'
 import './App.css'
 
 const DEFAULT_CONFIG = {
@@ -31,21 +32,11 @@ const DEFAULT_CONFIG = {
     { name: "Stealth",        modifier: "dexterity"    },
     { name: "Survival",       modifier: "wisdom"       },
   ],
-  spellSources: [
-    { name: "SRD", url: "https://github.com/haffff/NordvikManager-DND/blob/main/data/spells_srd.json" },
-  ],
-  itemSources: [
-    { name: "SRD", url: "https://github.com/haffff/NordvikManager-DND/blob/main/data/items.json" },
-  ],
+  spellSources: [srdSource("5.2", "spells")],
+  itemSources: [srdSource("5.2", "items")],
+  featSources: [srdSource("5.2", "feats")],
   bestiarySources: [],
 }
-
-// Derives the resource-key suffix for a source from its display name — must
-// match the derivation in each consuming card's own useXData.js hook exactly
-// (useSpellsData.js, useItemsData.js, the future useBestiaryData.js), since
-// that's how a source's display name maps to the resource key it synced.
-const slugify = (name) =>
-  (name ?? "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "") || "source"
 
 // Converts a GitHub "blob" viewer URL (which serves an HTML page, not raw JSON)
 // to the equivalent raw.githubusercontent.com URL. Passes through anything else
@@ -95,6 +86,14 @@ function useSourceSync({ Api, gameId, draft, setDraft, markDirty, configKey, res
 
   const add = () => {
     setDraft((prev) => ({ ...prev, [configKey]: [...prev[configKey], { name: "New Source", url: "" }] }))
+    markDirty()
+  }
+
+  // A ready-made source (e.g. one SRD edition), unless one with that name is already listed.
+  const addSource = (source) => {
+    setDraft((prev) => (prev[configKey].some((s) => slugify(s.name) === slugify(source.name))
+      ? prev
+      : { ...prev, [configKey]: [...prev[configKey], source] }))
     markDirty()
   }
 
@@ -159,59 +158,62 @@ function useSourceSync({ Api, gameId, draft, setDraft, markDirty, configKey, res
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Api, gameId, sources.map((s) => slugify(s.name)).join(",")])
 
-  return { sources, syncStatus, update, add, remove, syncOne, syncAll }
+  return { sources, syncStatus, update, add, addSource, remove, syncOne, syncAll }
 }
 
 // ── Presentational table for a useSourceSync() result ───────────────────────
 
-const SourceListSection = ({ title, hint, urlPlaceholder, sync }) => (
-  <section className="settings-section settings-section-full">
-    <div className="section-header">
+const SourceListSection = ({ title, hint, urlPlaceholder, sync, srdKind }) => (
+  <section className="settings-section settings-sources-section">
+    <div className="settings-sources-header">
       <h2>{title}</h2>
-      <div className="section-header-actions">
-        <button className="btn-secondary" onClick={sync.syncAll}>Sync All</button>
+      <div className="settings-sources-actions">
+        {srdKind && SRD_EDITIONS.map((edition) => (
+          <button key={edition} className="btn-secondary" onClick={() => sync.addSource(srdSource(edition, srdKind))}>
+            + SRD {edition}
+          </button>
+        ))}
         <button className="btn-add" onClick={sync.add}>+ Add</button>
+        <button className="btn-secondary" onClick={sync.syncAll} disabled={sync.sources.length === 0}>Sync All</button>
       </div>
     </div>
     {hint && <p className="settings-field-hint settings-section-intro">{hint}</p>}
-    <table className="settings-table">
-      <thead>
-        <tr><th>Name</th><th>URL</th><th></th><th></th></tr>
-      </thead>
-      <tbody>
-        {sync.sources.map((source, i) => {
-          const status = sync.syncStatus[slugify(source.name)]
-          return (
-            <tr key={i}>
-              <td className="settings-col-narrow">
-                <input type="text" value={source.name} onChange={(e) => sync.update(i, 'name', e.target.value)} />
-              </td>
-              <td>
-                <input
-                  type="text"
-                  placeholder={urlPlaceholder}
-                  value={source.url}
-                  onChange={(e) => sync.update(i, 'url', e.target.value)}
-                />
-                {status && (
-                  <div className={`ping-status ${status.ok ? "ok" : status.syncing ? "" : "fail"}`}>
-                    {status.syncing ? "Syncing…" : status.message}
-                  </div>
-                )}
-              </td>
-              <td className="settings-col-narrow">
-                <button className="btn-secondary" onClick={() => sync.syncOne(source)} disabled={status?.syncing}>
-                  {status?.syncing ? "Syncing…" : "Sync"}
-                </button>
-              </td>
-              <td>
-                <button className="btn-remove" onClick={() => sync.remove(i)} title="Remove source">✕</button>
-              </td>
-            </tr>
-          )
-        })}
-      </tbody>
-    </table>
+    {sync.sources.length === 0 && <p className="settings-field-hint">No sources.</p>}
+    <ul className="settings-source-list">
+      {sync.sources.map((source, i) => {
+        const status = sync.syncStatus[slugify(source.name)]
+        return (
+          <li key={i} className="settings-source-item">
+            <div className="settings-source-row">
+              <input
+                className="settings-source-name"
+                type="text"
+                aria-label="Source name"
+                value={source.name}
+                onChange={(e) => sync.update(i, 'name', e.target.value)}
+              />
+              <button className="btn-secondary" onClick={() => sync.syncOne(source)} disabled={status?.syncing}>
+                {status?.syncing ? "Syncing…" : "Sync"}
+              </button>
+              <button className="btn-remove" onClick={() => sync.remove(i)} title="Remove source">✕</button>
+            </div>
+            <input
+              className="settings-source-url"
+              type="text"
+              aria-label="Source URL"
+              placeholder={urlPlaceholder}
+              value={source.url}
+              onChange={(e) => sync.update(i, 'url', e.target.value)}
+            />
+            {status && (
+              <div className={`ping-status ${status.ok ? "ok" : status.syncing ? "" : "fail"}`}>
+                {status.syncing ? "Syncing…" : status.message}
+              </div>
+            )}
+          </li>
+        )
+      })}
+    </ul>
   </section>
 )
 
@@ -226,6 +228,7 @@ function AppInner({ Api, gameId }) {
   const [languageSourceUrlDraft, setLanguageSourceUrlDraft] = useState(null)
   const [proficiencySourceUrlDraft, setProficiencySourceUrlDraft] = useState(null)
   const [dirty, setDirty] = useState(false)
+  const [tab, setTab] = useState("general")
 
   const [pingStatus, setPingStatus] = useState({}) // fieldKey -> { ok, message } | undefined
   const [pinging, setPinging] = useState({})
@@ -242,6 +245,7 @@ function AppInner({ Api, gameId }) {
           modifier: s.modifier ?? s.attribute ?? "",
         })),
         spellSources: parsedConfig.spellSources ?? [],
+        featSources: parsedConfig.featSources ?? [],
         itemSources: parsedConfig.itemSources ?? [],
         bestiarySources: parsedConfig.bestiarySources ?? [],
       }
@@ -326,6 +330,12 @@ function AppInner({ Api, gameId }) {
     syncActionName: "dnd5e/sync_item_source", urlArgName: "item_url", keyArgName: "item_key",
     countField: "item",
   })
+  const featSync = useSourceSync({
+    Api, gameId, draft, setDraft, markDirty,
+    configKey: "featSources", resourcePrefix: "dnd5e_feats_",
+    syncActionName: "dnd5e/sync_feat_source", urlArgName: "feat_url", keyArgName: "feat_key",
+    countField: "feat",
+  })
   const bestiarySync = useSourceSync({
     Api, gameId, draft, setDraft, markDirty,
     configKey: "bestiarySources", resourcePrefix: "dnd5e_bestiary_",
@@ -395,7 +405,7 @@ function AppInner({ Api, gameId }) {
   return (
     <div className="settings">
       <header className="settings-header">
-        <h1>D&amp;D 5e Card Settings</h1>
+        <h1>5E Card Settings</h1>
         <div className="header-actions">
           <button className="btn-secondary" onClick={handleReset} disabled={!dirty}>Revert</button>
           <button className="btn-primary"   onClick={handleSave}  disabled={!dirty}>Save</button>
@@ -404,190 +414,246 @@ function AppInner({ Api, gameId }) {
 
       {dirty && <div className="unsaved-banner">Unsaved changes</div>}
 
+      <div className="settings-tabs" role="tablist">
+        {[["general", "General"], ["sources", "Sources"]].map(([key, label]) => (
+          <button
+            key={key}
+            role="tab"
+            aria-selected={tab === key}
+            className={`settings-tab${tab === key ? " active" : ""}`}
+            onClick={() => setTab(key)}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
       <div className="settings-body">
+        {tab === "general" && (
+          <>
+            <div className="settings-row">
+            {/* ── Attributes ──────────────────────────────────────────────────── */}
+            <section className="settings-section">
+              <div className="section-header">
+                <h2>Attributes</h2>
+                <button className="btn-add" onClick={addAttribute}>+ Add</button>
+              </div>
+              <table className="settings-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Init value</th>
+                    <th>Init modifier</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {draft.attributes.map((attr, i) => (
+                    <tr key={i}>
+                      <td>
+                        <input
+                          type="text"
+                          value={attr.attribute}
+                          onChange={e => updateAttribute(i, 'attribute', e.target.value)}
+                        />
+                      </td>
+                      <td>
+                        <input
+                          className="input-number"
+                          type="number"
+                          min={1} max={30}
+                          value={attr.initAttribute}
+                          onChange={e => updateAttribute(i, 'initAttribute', e.target.value)}
+                        />
+                      </td>
+                      <td>
+                        <input
+                          className="input-number"
+                          type="number"
+                          min={-10} max={10}
+                          value={attr.initModifier}
+                          onChange={e => updateAttribute(i, 'initModifier', e.target.value)}
+                        />
+                      </td>
+                      <td>
+                        <button className="btn-remove" onClick={() => removeAttribute(i)} title="Remove attribute and its skills">✕</button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
 
-        {/* ── Data source ──────────────────────────────────────────────────── */}
-        <section className="settings-section settings-section-full">
-          <div className="section-header">
-            <h2>Data Sources</h2>
-          </div>
-          <p className="settings-field-hint settings-section-intro">
-            Each data type has its own dedicated URL (or list of URLs, for Items/Spells/Bestiary
-            below) — no shared base URL is guessed at anymore, so any source can point anywhere.
-          </p>
-
-          <div className="settings-field">
-            <label htmlFor="language-source-url">Languages source URL</label>
-            <div className="settings-field-row">
-              <input
-                id="language-source-url"
-                type="text"
-                className="settings-text-input"
-                placeholder="https://raw.githubusercontent.com/<user>/<repo>/refs/heads/main/data/languages.json"
-                value={languageSourceUrlDraft}
-                onChange={e => { setLanguageSourceUrlDraft(e.target.value); setPingStatus((s) => ({ ...s, language: undefined })); markDirty() }}
-              />
-              <button className="btn-secondary" onClick={() => testUrl("language", languageSourceUrlDraft)} disabled={pinging.language}>
-                {pinging.language ? "Testing…" : "Test"}
-              </button>
+            {/* ── Skills ──────────────────────────────────────────────────────── */}
+            <section className="settings-section">
+              <div className="section-header">
+                <h2>Skills</h2>
+                <button className="btn-add" onClick={addSkill}>+ Add</button>
+              </div>
+              <table className="settings-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Attribute modifier</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {draft.skills.map((skill, i) => (
+                    <tr key={i}>
+                      <td>
+                        <input
+                          type="text"
+                          value={skill.name}
+                          onChange={e => updateSkill(i, 'name', e.target.value)}
+                        />
+                      </td>
+                      <td>
+                        <select
+                          value={skill.modifier}
+                          onChange={e => updateSkill(i, 'modifier', e.target.value)}
+                        >
+                          {draft.attributes.map(a => (
+                            <option key={a.attribute} value={a.attribute}>{a.attribute}</option>
+                          ))}
+                        </select>
+                      </td>
+                      <td>
+                        <button className="btn-remove" onClick={() => removeSkill(i)} title="Remove skill">✕</button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
             </div>
-            {pingStatus.language && (
-              <div className={`ping-status ${pingStatus.language.ok ? "ok" : "fail"}`}>{pingStatus.language.message}</div>
-            )}
-          </div>
+          </>
+        )}
 
-          <div className="settings-field">
-            <label htmlFor="proficiency-source-url">Proficiencies source URL</label>
-            <div className="settings-field-row">
-              <input
-                id="proficiency-source-url"
-                type="text"
-                className="settings-text-input"
-                placeholder="https://raw.githubusercontent.com/<user>/<repo>/refs/heads/main/data/proficiencies.json"
-                value={proficiencySourceUrlDraft}
-                onChange={e => { setProficiencySourceUrlDraft(e.target.value); setPingStatus((s) => ({ ...s, proficiency: undefined })); markDirty() }}
-              />
-              <button className="btn-secondary" onClick={() => testUrl("proficiency", proficiencySourceUrlDraft)} disabled={pinging.proficiency}>
-                {pinging.proficiency ? "Testing…" : "Test"}
-              </button>
-            </div>
-            {pingStatus.proficiency && (
-              <div className={`ping-status ${pingStatus.proficiency.ok ? "ok" : "fail"}`}>{pingStatus.proficiency.message}</div>
-            )}
-          </div>
+        {tab === "sources" && (
+          <div className="settings-stack">
+            {/* ── Data source ──────────────────────────────────────────────────── */}
+            <section className="settings-section settings-section-full">
+              <div className="section-header">
+                <h2>Data Sources</h2>
+              </div>
+              <p className="settings-field-hint settings-section-intro">
+                Each data type has its own dedicated URL (or list of URLs, for Items/Spells/Bestiary
+                below) — no shared base URL is guessed at anymore, so any source can point anywhere.
+                Homebrew made in 5E Homebrew (5E Settings menu) is always included next to these sources.
+              </p>
 
-          <div className="settings-field">
-            <label htmlFor="image-content-provider">Image Content Provider (optional)</label>
-            <input
-              id="image-content-provider"
-              type="text"
-              className="settings-text-input"
-              placeholder="Base URL for item/monster/token art — leave blank if unused"
-              value={imageContentProviderDraft}
-              onChange={e => { setImageContentProviderDraft(e.target.value); markDirty() }}
-            />
-            <div className="settings-field-hint">No known file to probe here yet, so there's no test button — this is just stored as-is.</div>
-          </div>
-        </section>
-
-        <div className="settings-row">
-        {/* ── Attributes ──────────────────────────────────────────────────── */}
-        <section className="settings-section">
-          <div className="section-header">
-            <h2>Attributes</h2>
-            <button className="btn-add" onClick={addAttribute}>+ Add</button>
-          </div>
-          <table className="settings-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Init value</th>
-                <th>Init modifier</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {draft.attributes.map((attr, i) => (
-                <tr key={i}>
-                  <td>
-                    <input
-                      type="text"
-                      value={attr.attribute}
-                      onChange={e => updateAttribute(i, 'attribute', e.target.value)}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      className="input-number"
-                      type="number"
-                      min={1} max={30}
-                      value={attr.initAttribute}
-                      onChange={e => updateAttribute(i, 'initAttribute', e.target.value)}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      className="input-number"
-                      type="number"
-                      min={-10} max={10}
-                      value={attr.initModifier}
-                      onChange={e => updateAttribute(i, 'initModifier', e.target.value)}
-                    />
-                  </td>
-                  <td>
-                    <button className="btn-remove" onClick={() => removeAttribute(i)} title="Remove attribute and its skills">✕</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </section>
-
-        {/* ── Skills ──────────────────────────────────────────────────────── */}
-        <section className="settings-section">
-          <div className="section-header">
-            <h2>Skills</h2>
-            <button className="btn-add" onClick={addSkill}>+ Add</button>
-          </div>
-          <table className="settings-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Attribute modifier</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {draft.skills.map((skill, i) => (
-                <tr key={i}>
-                  <td>
-                    <input
-                      type="text"
-                      value={skill.name}
-                      onChange={e => updateSkill(i, 'name', e.target.value)}
-                    />
-                  </td>
-                  <td>
-                    <select
-                      value={skill.modifier}
-                      onChange={e => updateSkill(i, 'modifier', e.target.value)}
+              <div className="settings-field">
+                <label htmlFor="language-source-url">Languages source URL</label>
+                <div className="settings-field-row">
+                  <input
+                    id="language-source-url"
+                    type="text"
+                    className="settings-text-input"
+                    placeholder="https://raw.githubusercontent.com/<user>/<repo>/refs/heads/main/data/srd-5.2/languages.json"
+                    value={languageSourceUrlDraft}
+                    onChange={e => { setLanguageSourceUrlDraft(e.target.value); setPingStatus((s) => ({ ...s, language: undefined })); markDirty() }}
+                  />
+                  <button className="btn-secondary" onClick={() => testUrl("language", languageSourceUrlDraft)} disabled={pinging.language}>
+                    {pinging.language ? "Testing…" : "Test"}
+                  </button>
+                  {SRD_EDITIONS.map((edition) => (
+                    <button
+                      key={edition}
+                      className="btn-secondary"
+                      onClick={() => { setLanguageSourceUrlDraft(srdRawUrl(edition, "languages")); setPingStatus((s) => ({ ...s, language: undefined })); markDirty() }}
                     >
-                      {draft.attributes.map(a => (
-                        <option key={a.attribute} value={a.attribute}>{a.attribute}</option>
-                      ))}
-                    </select>
-                  </td>
-                  <td>
-                    <button className="btn-remove" onClick={() => removeSkill(i)} title="Remove skill">✕</button>
-                  </td>
-                </tr>
+                      SRD {edition}
+                    </button>
+                  ))}
+                </div>
+                {pingStatus.language && (
+                  <div className={`ping-status ${pingStatus.language.ok ? "ok" : "fail"}`}>{pingStatus.language.message}</div>
+                )}
+              </div>
+
+              <div className="settings-field">
+                <label htmlFor="proficiency-source-url">Proficiencies source URL</label>
+                <div className="settings-field-row">
+                  <input
+                    id="proficiency-source-url"
+                    type="text"
+                    className="settings-text-input"
+                    placeholder="https://raw.githubusercontent.com/<user>/<repo>/refs/heads/main/data/proficiencies.json"
+                    value={proficiencySourceUrlDraft}
+                    onChange={e => { setProficiencySourceUrlDraft(e.target.value); setPingStatus((s) => ({ ...s, proficiency: undefined })); markDirty() }}
+                  />
+                  <button className="btn-secondary" onClick={() => testUrl("proficiency", proficiencySourceUrlDraft)} disabled={pinging.proficiency}>
+                    {pinging.proficiency ? "Testing…" : "Test"}
+                  </button>
+                </div>
+                {pingStatus.proficiency && (
+                  <div className={`ping-status ${pingStatus.proficiency.ok ? "ok" : "fail"}`}>{pingStatus.proficiency.message}</div>
+                )}
+              </div>
+
+              <div className="settings-field">
+                <label htmlFor="image-content-provider">Image Content Provider (optional)</label>
+                <input
+                  id="image-content-provider"
+                  type="text"
+                  className="settings-text-input"
+                  placeholder="Base URL for item/monster/token art — leave blank if unused"
+                  value={imageContentProviderDraft}
+                  onChange={e => { setImageContentProviderDraft(e.target.value); markDirty() }}
+                />
+                <div className="settings-field-hint">No known file to probe here yet, so there's no test button — this is just stored as-is.</div>
+              </div>
+            </section>
+
+            {/* ── Item / Spell / Bestiary sources ──────────────────────────────── */}
+            <SourceListSection
+              title="Item Sources"
+              srdKind="items"
+              hint="Each source is downloaded once and cached as a resource; the item creator reads every configured source and merges their item lists together, so you can combine the SRD with any homebrew items pack."
+              urlPlaceholder="https://github.com/<user>/<repo>/blob/<branch>/<path>.json"
+              sync={itemSync}
+            />
+
+            <SourceListSection
+              title="Spell Sources"
+              srdKind="spells"
+              hint="Each source is downloaded once and cached as a resource; character cards read every configured source and merge their spell lists together, so you can combine the SRD with any homebrew or supplement files."
+              urlPlaceholder="https://github.com/<user>/<repo>/blob/<branch>/<path>.json"
+              sync={spellSync}
+            />
+
+            <SourceListSection
+              title="Feat Sources"
+              srdKind="feats"
+              hint="Each source is downloaded once and cached as a resource; the Feats tab of character cards reads every configured source and merges their feat lists together."
+              urlPlaceholder="https://github.com/<user>/<repo>/blob/<branch>/<path>.json"
+              sync={featSync}
+            />
+
+            <SourceListSection
+              title="Bestiary Sources"
+              hint="Same pattern as Items/Spells above — add your own monster sources here once a bestiary creator card is available."
+              urlPlaceholder="https://github.com/<user>/<repo>/blob/<branch>/<path>.json"
+              sync={bestiarySync}
+            />
+
+            {/* ── Licenses ─────────────────────────────────────────────────────── */}
+            <section className="settings-section settings-section-full">
+              <div className="section-header">
+                <h2>About &amp; Licenses</h2>
+              </div>
+              <p className="settings-field-hint settings-section-intro">
+                The game data this addon offers (items, spells, feats, languages) is taken only from the
+                System Reference Documents, converted to JSON and edited (formatting, cross-references).
+                It contains no artwork. Sources you add yourself are your own responsibility.
+              </p>
+              {SRD_EDITIONS.map((edition) => (
+                <p key={edition} className="settings-field-hint">{SRD_ATTRIBUTION[edition]}</p>
               ))}
-            </tbody>
-          </table>
-        </section>
-        </div>
-
-        {/* ── Item / Spell / Bestiary sources ──────────────────────────────── */}
-        <SourceListSection
-          title="Item Sources"
-          hint="Each source is downloaded once and cached as a resource; the item creator reads every configured source and merges their item lists together, so you can combine the SRD with any homebrew items pack."
-          urlPlaceholder="https://github.com/<user>/<repo>/blob/<branch>/<path>.json"
-          sync={itemSync}
-        />
-
-        <SourceListSection
-          title="Spell Sources"
-          hint="Each source is downloaded once and cached as a resource; character cards read every configured source and merge their spell lists together, so you can combine the SRD with any homebrew or supplement files."
-          urlPlaceholder="https://github.com/<user>/<repo>/blob/<branch>/<path>.json"
-          sync={spellSync}
-        />
-
-        <SourceListSection
-          title="Bestiary Sources"
-          hint="Same pattern as Items/Spells above — add your own monster sources here once a bestiary creator card is available."
-          urlPlaceholder="https://github.com/<user>/<repo>/blob/<branch>/<path>.json"
-          sync={bestiarySync}
-        />
+            </section>
+          </div>
+        )}
 
       </div>
     </div>

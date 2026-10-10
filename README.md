@@ -1,0 +1,36 @@
+# Fifth Edition (SRD) addon for NordvikManager
+
+Character, item and monster cards, actions and settings for playing fifth edition games in NordvikManager.
+
+## Game data and license
+
+The data the addon offers lives in `data/srd-5.1/` and `data/srd-5.2/` (items, spells, feats, languages). It is
+material from the System Reference Documents 5.1 and 5.2.1 by Wizards of the Coast LLC, licensed under
+[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode); see [data/SRD-LICENSE.md](data/SRD-LICENSE.md)
+for the attribution statements. No artwork and no material from other books is included. A game picks its
+edition in the addon settings (Item / Spell sources, Languages); new games start with SRD 5.2.
+
+This addon is not affiliated with or endorsed by Wizards of the Coast.
+
+## Homebrew
+
+The GM can make the game's own items, spells, feats and languages in **5E Settings → 5E Homebrew**. They are
+saved in the game (resources `dnd5e_<kind>_homebrew`) and always offered next to the configured sources. The view
+exports everything as one file in the addon's data format (the same shape as the files in `data/`), which can be
+imported into another game or hosted and added as a source, and imports such files.
+
+## Rebuilding the data
+
+The files are generated from source data in the same JSON format, keeping only entries flagged as SRD:
+
+1. Put the source data files into `tmp-data-to-process/`. That folder is gitignored and **must never be
+   committed**: most of its content is not openly licensed.
+2. `pnpm srd` writes the SRD-only extract and `REPORT.md` (what is SRD, per file and section) to
+   `tmp-data-to-process/_srd/`.
+3. `pnpm srd:build` writes `data/srd-5.1/` and `data/srd-5.2/`: one edition each, book references removed,
+   links to content not shipped turned into plain text, and the license in every file's `_meta`.
+
+## Development
+
+- `pnpm test` runs the data scripts' tests and the cards' logic tests (`node --test`).
+- `pnpm run pack` builds every card and packs the addon.

@@ -1,0 +1,19 @@
+{
+  "name": "sync_feat_source_fail",
+  "hook": 0,
+  "prefix": "dnd5e",
+  "isEnabled": false,
+  "content": [
+    {
+      "id": "5a1ebdb1-f630-4513-b561-2116c6c95b59",
+      "Data": {
+        "Label": "Mark sync status failed",
+        "ParentId": "%gameId%",
+        "PropertyName": "dnd5e_sync_status_%feat_key%",
+        "PropertyValue": "error:%v:output.StatusCode%"
+      },
+      "Type": "SetProperty"
+    }
+  ],
+  "gmPermission": 31
+}

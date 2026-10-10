@@ -15,6 +15,8 @@ import { Weapons5E } from "./components/Weapons5E";
 import { ProficienciesLanguages5E } from "./components/ProficienciesLanguages5E";
 import { Bio5E } from "./components/Bio5E";
 import { Spells5E } from "./components/Spells5E";
+import { Feats5E } from "./components/Feats5E";
+import { Counters5E } from "./components/Counters5E";
 
 // Resolves the game id first; the sheet layout lives in the game-wide "dnd5e_config".
 export default function App({ Api }) {
@@ -66,7 +68,7 @@ function CharacterSheet({ Api, gameId }) {
       }}
     >
       <div className="dnd5e_tabs">
-        {["stats", "bio", "spells"].map((t) => (
+        {["stats", "bio", "spells", "feats", "counters"].map((t) => (
           <div key={t} className={`dnd5e_tab${tab === t ? " active" : ""}`} onClick={() => setTab(t)}>
             {t.charAt(0).toUpperCase() + t.slice(1)}
           </div>
@@ -119,6 +121,14 @@ function CharacterSheet({ Api, gameId }) {
 
       <div style={{ display: tab === "spells" ? "flex" : "none", flexDirection: "column", flex: 1, padding: "8px", minHeight: 0 }}>
         <Spells5E Api={Api} />
+      </div>
+
+      <div style={{ display: tab === "feats" ? "flex" : "none", flexDirection: "column", flex: 1, padding: "8px", minHeight: 0 }}>
+        <Feats5E Api={Api} />
+      </div>
+
+      <div style={{ display: tab === "counters" ? "flex" : "none", flexDirection: "column", flex: 1, padding: "8px", minHeight: 0 }}>
+        <Counters5E Api={Api} />
       </div>
     </div>
   );

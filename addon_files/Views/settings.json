@@ -1,6 +1,6 @@
 {
-  "name": "DND 5E Card settings",
-  "description": "Settings for Dungeons and Dragons 5th Edition character cards.",
+  "name": "5E Card settings",
+  "description": "Settings for fifth edition character cards.",
   "key": "dnd5e_character_card_settings",
   "mainResource": "dnd5e_index.html",
   "additionalResources": ["dnd5e_settings.js", "dnd5e_shared.css"],

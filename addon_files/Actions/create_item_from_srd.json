@@ -9,7 +9,7 @@
       "Data": {
         "Label": "Create item card from template",
         "Name": "%name%",
-        "TemplateId": "%qn:card-\"DND 5E Item Template\".id%",
+        "TemplateId": "%qn:card-\"5E Item Template\".id%",
         "Owner": "%playerId%",
         "Output": "newCardId"
       },

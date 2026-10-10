@@ -1,0 +1,28 @@
+{
+  "name": "counters_turn_tick",
+  "hook": 23,
+  "prefix": "dnd5e",
+  "isEnabled": true,
+  "content": [
+    {
+      "id": "de641ff1-1d64-4190-b735-e8c635cd579e",
+      "Data": {
+        "Label": "Does the new turn have a token?",
+        "Script": "var id = vars.Data && vars.Data.elementId ? String(vars.Data.elementId) : \"\";\nreturn { tick_hasToken: id ? 1 : 0, tick_elementId: id };",
+        "Output": ""
+      },
+      "Type": "RunScript"
+    },
+    {
+      "id": "20cbd635-274d-4098-915e-550ef871a788",
+      "Data": {
+        "Label": "Token: count down its card's counters",
+        "Condition": "%v:tick_hasToken% = 1",
+        "ActionTrue": "dnd5e/counters_turn_tick_token",
+        "ActionFalse": ""
+      },
+      "Type": "If"
+    }
+  ],
+  "gmPermission": 31
+}

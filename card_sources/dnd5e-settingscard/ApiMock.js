@@ -4,7 +4,7 @@ const _mkId = () => `mock-prop-${_idCounter++}`;
 
 // ── Dev seed: representative 5e SRD items ──────────────────────────────────────
 // Stored under Resources key "5e_items" so ItemSearchPanel works out of the box
-// in development without a server. Matches the 5etools items.json shape.
+// in development without a server. Matches the shape of data/srd-5.x/items.json.
 const MOCK_5E_ITEMS = { item: [
   { name:"Dagger", source:"PHB", type:"M", rarity:"none", weight:1, value:200, weaponCategory:"simple", dmg1:"1d4", dmgType:"P" },
   { name:"Longsword", source:"PHB", type:"M", rarity:"none", weight:3, value:1500, weaponCategory:"martial", dmg1:"1d8", dmgType:"S", dmg2:"1d10" },

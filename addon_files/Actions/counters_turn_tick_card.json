@@ -1,0 +1,39 @@
+{
+  "name": "counters_turn_tick_card",
+  "hook": 0,
+  "prefix": "dnd5e",
+  "isEnabled": false,
+  "content": [
+    {
+      "id": "ceca8250-95fd-44bc-b105-36aed1cd3e00",
+      "Data": {
+        "Label": "The character's counters",
+        "ParentId": "%tick_cardId%",
+        "PropertyName": "dnd5e_counters",
+        "Output": "tick_counters",
+        "DefaultValue": "[]"
+      },
+      "Type": "GetPropertyValue"
+    },
+    {
+      "id": "8516bf55-1773-476e-bddb-c139d9a8f29e",
+      "Data": {
+        "Label": "Count active durations down (counters.js tickRound)",
+        "Script": "var list;\ntry { list = typeof vars.tick_counters === \"string\" ? JSON.parse(vars.tick_counters) : vars.tick_counters; } catch (e) { list = null; }\nif (!Array.isArray(list)) list = [];\nvar ended = [];\nvar changed = 0;\nvar next = list.map(function (c) {\n  if (!(c && c.roundsLeft > 0)) return c;\n  changed = 1;\n  var copy = Object.assign({}, c, { roundsLeft: c.roundsLeft - 1 });\n  if (copy.roundsLeft === 0) ended.push(c.name);\n  return copy;\n});\nreturn { tick_newCounters: JSON.stringify(next), tick_changed: changed, tick_hasEnded: ended.length ? 1 : 0, tick_endedText: ended.join(\", \") };",
+        "Output": ""
+      },
+      "Type": "RunScript"
+    },
+    {
+      "id": "c2c442f9-4aec-463a-bb13-d7025e8ba895",
+      "Data": {
+        "Label": "Anything active",
+        "Condition": "%v:tick_changed% = 1",
+        "ActionTrue": "dnd5e/counters_turn_tick_apply",
+        "ActionFalse": ""
+      },
+      "Type": "If"
+    }
+  ],
+  "gmPermission": 31
+}

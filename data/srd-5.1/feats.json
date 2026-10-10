@@ -1,0 +1,34 @@
+{
+  "_meta": {
+    "license": "This work includes material taken from the System Reference Document 5.1 (\"SRD 5.1\") by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode. Converted to JSON and edited (formatting, cross-references) for NordvikManager.",
+    "edition": "SRD 5.1"
+  },
+  "feat": [
+    {
+      "name": "Grappler",
+      "source": "PHB",
+      "srdEditions": [
+        "5.1"
+      ],
+      "prerequisite": [
+        {
+          "ability": [
+            {
+              "str": 13
+            }
+          ]
+        }
+      ],
+      "entries": [
+        "You've developed the skills necessary to hold your own in close-quarters grappling. You gain the following benefits:",
+        {
+          "type": "list",
+          "items": [
+            "You have advantage on attack rolls against a creature you are grappling.",
+            "You can use your action to try to pin a creature {@condition grappled} by you. To do so, make another grapple check. If you succeed, you and the creature are both {@condition restrained} until the grapple ends."
+          ]
+        }
+      ]
+    }
+  ]
+}

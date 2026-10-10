@@ -31,6 +31,19 @@
     "Type": "AddMenuItem"
   },
   {
+    "id": "8d2a6c41-0f3e-4b9a-b7d5-2e1c9f6a4b83",
+    "Data": {
+      "Label": "5E Homebrew",
+      "SubMenuId": "5e_settings",
+      "Name": "homebrew",
+      "UiName": "Homebrew",
+      "Location": "5e_settings",
+      "Action": "dnd5e/open_homebrew",
+      "Icon": "FaFlask"
+    },
+    "Type": "AddMenuItem"
+  },
+  {
     "id": "2a6b8e4f-7c1d-4b3a-9e5f-8d2c1a0b3f44",
     "Data": {
       "Label": "5E Create item card",
@@ -39,7 +52,7 @@
       "UiName": "Create Item Card",
       "Action": "dnd5e/open_item_creator",
       "SubMenuId": "dnd5e_tools",
-      "SubMenuName": "DND5E Tools",
+      "SubMenuName": "5E Items",
       "Icon": "FaBoxOpen"
     },
     "Type": "AddMenuItem"

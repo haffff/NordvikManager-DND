@@ -1,5 +1,5 @@
 {
-  "name": "DND 5E Item Creator",
+  "name": "5E Item Creator",
   "description": "Search the SRD item list and create a pre-filled Item Card.",
   "key": "item_creator",
   "mainResource": "dnd5e_index.html",

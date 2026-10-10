@@ -1,4 +1,4 @@
-// Helpers for turning 5etools-shaped SRD entries into card data.
+// Helpers for turning SRD data entries into card data.
 // dnd5e-itemcreator/src/srdHelpers.js is a trimmed copy of the item half of this file.
 
 export const DMGTYPE_LABEL = {
@@ -17,7 +17,7 @@ export const ITEM_TYPE_LABEL = {
 export const stripTags = (str) =>
   str.replace(/\{@\w+ ([^|}]+)(?:\|[^}]*)?\}/g, "$1");
 
-/** Recursively extract plain text from a 5etools entries array. */
+/** Recursively extract plain text from an `entries` array. */
 export const entriesToText = (entries) => {
   if (!entries || !Array.isArray(entries)) return "";
   const parts = [];
@@ -68,6 +68,8 @@ export const formatRange = (range) => {
   const d = range.distance;
   if (!d) return range.type;
   if (d.type === "self") return "Self";
+  if (d.type === "sight") return "Sight";
+  if (d.type === "unlimited") return "Unlimited";
   if (d.type === "touch") return "Touch";
   return `${d.amount} ft.`;
 };
@@ -90,7 +92,8 @@ export const formatComponents = (components) => {
   const parts = [];
   if (components.v) parts.push("V");
   if (components.s) parts.push("S");
-  if (components.m) parts.push(typeof components.m === "string" ? `M (${components.m})` : `M (${components.m.text})`);
+  // m is the material text, an object with its text, or just true.
+  if (components.m) parts.push(typeof components.m === "string" ? `M (${components.m})` : components.m.text ? `M (${components.m.text})` : "M");
   return parts.join(", ");
 };
 

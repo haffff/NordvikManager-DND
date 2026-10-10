@@ -1,0 +1,8 @@
+{
+  "name": "5E Homebrew",
+  "description": "Create, edit, export and import this game's homebrew items, spells, feats and languages.",
+  "key": "homebrew",
+  "mainResource": "dnd5e_index.html",
+  "additionalResources": ["dnd5e_dnd5e-homebrew.js", "dnd5e_dnd5e-homebrew.css", "dnd5e_shared.css"],
+  "properties": []
+}
