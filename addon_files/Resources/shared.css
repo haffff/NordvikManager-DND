@@ -2646,10 +2646,11 @@ button:active {
     color: var(--dnd-ink-muted);
     font-size: 0.95rem;
 }
+/* A ring rather than a fill, so the coloured status dots keep their colour. */
 .dnd5e_ctr_token_icon.on {
-    background: var(--dnd-crimson);
-    border-color: var(--dnd-crimson);
-    color: #fff;
+    background: var(--dnd-parchment-dark);
+    border: 2px solid var(--dnd-crimson);
+    color: var(--dnd-crimson);
 }
 
 /* Value: pips for small counters, a big number for the rest. */
