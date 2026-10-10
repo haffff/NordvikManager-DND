@@ -155,3 +155,30 @@
 .hb_transfer h3 {
   margin: 0;
 }
+
+/* Inputs: white, in the addon's ink and border colours. */
+.hb_app input[type="text"],
+.hb_app input:not([type]),
+.hb_app input[type="file"],
+.hb_app select,
+.hb_app textarea {
+  background: #fff;
+  color: var(--dnd-ink, #1a1209);
+  border: 1px solid var(--dnd-border-light, #c4a882);
+  border-radius: var(--radius-sm, 4px);
+  padding: 4px 6px;
+  font-family: inherit;
+  font-size: 14px;
+}
+.hb_app input:focus,
+.hb_app select:focus,
+.hb_app textarea:focus {
+  outline: none;
+  border-color: var(--dnd-crimson, #8b1a1a);
+}
+.hb_app input[type="checkbox"] {
+  accent-color: var(--dnd-crimson, #8b1a1a);
+}
+.hb_app textarea[readonly] {
+  background: #faf7f1;
+}

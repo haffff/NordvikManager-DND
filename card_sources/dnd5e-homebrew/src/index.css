@@ -1,10 +1,11 @@
+/* Light page: the addon's parchment theme (shared.css), with native inputs drawn light. */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
   margin: 0;
-  background: rgb(30, 30, 30);
-  color: rgb(220, 220, 220);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--dnd-parchment, #f5f0e8);
+  color: var(--dnd-ink, #1a1209);
+  font-family: var(--font-body, Georgia, serif);
 }
