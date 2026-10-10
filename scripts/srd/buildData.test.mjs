@@ -68,7 +68,7 @@ const srd = {
 test("an edition gets only its own entries, items and base items together, in the wrappers the cards read", () => {
   const files = buildEdition("5.2", srd);
 
-  assert.deepEqual(Object.keys(files).sort(), ["feats.json", "items.json", "languages.json", "spells.json"]);
+  assert.deepEqual(Object.keys(files).sort(), ["feats.json", "items.json", "languages.json", "monsters.json", "spells.json"]);
   assert.deepEqual(files["items.json"].item.map((i) => `${i.name}|${i.source}`), ["Bag of Holding|XDMG", "Longsword|PHB"]);
   assert.deepEqual(files["spells.json"].spell.map((s) => s.name), ["Fireball"]);
   assert.deepEqual(files["feats.json"].feat.map((f) => f.name), ["Alert"]);
@@ -81,6 +81,39 @@ test("links are checked against the same edition's data", () => {
   const files = buildEdition("5.1", { ...srd, items: [{ name: "Wand", source: "DMG", srdEditions: ["5.1"], entries: ["{@spell Fireball|XPHB}"] }] });
 
   assert.deepEqual(files["items.json"].item[0].entries, ["Fireball"]);
+});
+
+test("monsters ship per edition, without sound, art flags or internal tag lists", () => {
+  const files = buildEdition("5.2", {
+    ...srd,
+    monsters: [
+      { name: "Goblin", source: "MM", srdEditions: ["5.1"] },
+      {
+        name: "Goblin Warrior", source: "XMM", srdEditions: ["5.2"],
+        soundClip: { type: "internal", path: "x.mp3" }, hasToken: true, altArt: [{}], foundryTokenScale: 1,
+        legendaryGroup: { name: "X" }, familiar: true, traitTags: ["A"], damageTags: ["S"], damageTagsLegendary: ["F"],
+        conditionInflictSpell: ["x"], savingThrowForcedLegendary: ["dexterity"], spellcastingTags: ["I"], miscTags: ["MA"],
+        action: [{ name: "Scimitar", entries: ["Hits like {@creature Goblin Boss|XMM}, casts {@spell Fireball|XPHB}."] }],
+      },
+      { name: "Goblin Boss", source: "XMM", srdEditions: ["5.2"] },
+    ],
+  });
+
+  const monsters = files["monsters.json"].monster;
+  assert.deepEqual(monsters.map((m) => m.name), ["Goblin Warrior", "Goblin Boss"]);
+  assert.deepEqual(Object.keys(monsters[0]).sort(), ["action", "name", "source", "srdEditions"]);
+  // A monster in the same edition stays linked, like spells do.
+  assert.deepEqual(monsters[0].action[0].entries, ["Hits like {@creature Goblin Boss|XMM}, casts {@spell Fireball|XPHB}."]);
+  assert.match(files["monsters.json"]._meta.license, /Creative Commons/);
+});
+
+test("links to monsters of another edition become plain text", () => {
+  const files = buildEdition("5.1", {
+    ...srd,
+    monsters: [{ name: "Goblin", source: "MM", srdEditions: ["5.1"], trait: [{ name: "X", entries: ["Like a {@creature Goblin Boss|XMM}."] }] }],
+  });
+
+  assert.deepEqual(files["monsters.json"].monster[0].trait[0].entries, ["Like a Goblin Boss."]);
 });
 
 test("every file carries the SRD license of its edition", () => {

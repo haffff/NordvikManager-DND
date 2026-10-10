@@ -21,6 +21,7 @@ const srd = {
   spells: [...read("spells/spells-phb.json", "spell"), ...read("spells/spells-xphb.json", "spell")],
   feats: read("feats.json", "feat"),
   languages: read("languages.json", "language"),
+  monsters: ["mm", "xmm", "xphb", "xdmg", "dmg"].flatMap((book) => read(`bestiary/bestiary-${book}.json`, "monster")),
 };
 
 for (const edition of ["5.1", "5.2"]) {

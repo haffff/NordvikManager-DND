@@ -61,9 +61,6 @@
       "savingThrow": [
         "dexterity"
       ],
-      "miscTags": [
-        "SCL"
-      ],
       "areaTags": [
         "MT"
       ]
@@ -114,9 +111,6 @@
             "Each target's {@variantrule Hit Points|XPHB} increase by 5 for each spell slot level above 2."
           ]
         }
-      ],
-      "miscTags": [
-        "HL"
       ],
       "areaTags": [
         "MT"
@@ -249,9 +243,6 @@
         "bludgeoning",
         "piercing",
         "slashing"
-      ],
-      "miscTags": [
-        "UA"
       ]
     },
     {
@@ -301,18 +292,11 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "charmed"
-      ],
       "savingThrow": [
         "wisdom"
       ],
       "affectsCreatureType": [
         "beast"
-      ],
-      "miscTags": [
-        "SCT",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -375,9 +359,6 @@
       "affectsCreatureType": [
         "beast"
       ],
-      "miscTags": [
-        "SGT"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -421,10 +402,6 @@
         "A target's game statistics are replaced by the chosen Beast's statistics, but the target retains its creature type; {@variantrule Hit Points|XPHB}; {@variantrule Hit Point Dice|XPHB}; alignment; ability to communicate; and Intelligence, Wisdom, and Charisma scores. The target's actions are limited by the Beast form's anatomy, and it can't cast spells. The target's equipment melds into the new form, and the target can't use any of that equipment while in that form.",
         "The target gains a number of {@variantrule Temporary Hit Points|XPHB} equal to the {@variantrule Hit Points|XPHB} of the first form into which it shape-shifts. These {@variantrule Temporary Hit Points|XPHB} vanish if any remain when the spell ends. The transformation lasts for the duration or until the target ends it as a {@variantrule Bonus Action|XPHB}."
       ],
-      "miscTags": [
-        "SGT",
-        "UA"
-      ],
       "areaTags": [
         "MT"
       ]
@@ -461,7 +438,7 @@
         }
       ],
       "entries": [
-        "Choose a pile of bones or a corpse of a Medium or Small Humanoid within range. The target becomes an Undead creature: a Skeleton if you chose bones or a Zombie if you chose a corpse.",
+        "Choose a pile of bones or a corpse of a Medium or Small Humanoid within range. The target becomes an Undead creature: a {@creature Skeleton|XMM} if you chose bones or a {@creature Zombie|XMM} if you chose a corpse.",
         "On each of your turns, you can take a {@variantrule Bonus Action|XPHB} to mentally command any creature you made with this spell if the creature is within 60 feet of you (if you control multiple creatures, you can command any of them at the same time, issuing the same command to each one). You decide what action the creature will take and where it will move on its next turn, or you can issue a general command, such as to guard a chamber or corridor. If you issue no commands, the creature takes the {@action Dodge|XPHB} action and moves only to avoid harm. Once given an order, the creature continues to follow it until its task is complete.",
         "The creature is under your control for 24 hours, after which it stops obeying any command you've given it. To maintain control of the creature for another 24 hours, you must cast this spell on the creature again before the current 24-hour period ends. This use of the spell reasserts your control over up to four creatures you have animated with this spell rather than animating a new creature."
       ],
@@ -476,12 +453,6 @@
       ],
       "affectsCreatureType": [
         "humanoid"
-      ],
-      "miscTags": [
-        "PRM",
-        "SMN",
-        "UA",
-        "UBA"
       ]
     },
     {
@@ -521,7 +492,7 @@
       ],
       "entries": [
         "Objects animate at your command. Choose a number of nonmagical objects within range that aren't being worn or carried, aren't fixed to a surface, and aren't Gargantuan. The maximum number of objects is equal to your spellcasting ability modifier; for this number, a Medium or smaller target counts as one object, a Large target counts as two, and a Huge target counts as three.",
-        "Each target animates, sprouts legs, and becomes a Construct that uses the Animated Object stat block; this creature is under your control until the spell ends or until it is reduced to 0 {@variantrule Hit Points|XPHB}. Each creature you make with this spell is an ally to you and your allies. In combat, it shares your {@variantrule Initiative|XPHB} count and takes its turn immediately after yours.",
+        "Each target animates, sprouts legs, and becomes a Construct that uses the {@creature Animated Object|XPHB} stat block; this creature is under your control until the spell ends or until it is reduced to 0 {@variantrule Hit Points|XPHB}. Each creature you make with this spell is an ally to you and your allies. In combat, it shares your {@variantrule Initiative|XPHB} count and takes its turn immediately after yours.",
         "Until the spell ends, you can take a {@variantrule Bonus Action|XPHB} to mentally command any creature you made with this spell if the creature is within 500 feet of you (if you control multiple creatures, you can command any of them at the same time, issuing the same command to each one). If you issue no commands, the creature takes the {@action Dodge|XPHB} action and moves only to avoid harm. When the creature drops to 0 {@variantrule Hit Points|XPHB}, it reverts to its object form, and any remaining damage carries over to that form."
       ],
       "entriesHigherLevel": [
@@ -537,12 +508,6 @@
         "bludgeoning",
         "piercing",
         "slashing"
-      ],
-      "miscTags": [
-        "OBJ",
-        "SMN",
-        "UA",
-        "UBA"
       ],
       "areaTags": [
         "MT"
@@ -647,9 +612,6 @@
         "Ongoing spells, except those cast by an Artifact or a deity, are suppressed in the area. While an effect is suppressed, it doesn't function, but the time it spends suppressed counts against its duration.",
         "{@spell Dispel Magic|XPHB} has no effect on the aura, and the auras created by different {@spell Antimagic Field|XPHB} spells don't nullify each other."
       ],
-      "miscTags": [
-        "OBJ"
-      ],
       "areaTags": [
         "S"
       ]
@@ -719,15 +681,8 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "frightened",
-        "charmed"
-      ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "OBJ"
       ],
       "areaTags": [
         "ST"
@@ -772,10 +727,6 @@
       "entries": [
         "You create an {@condition Invisible|XPHB}, invulnerable eye within range that hovers for the duration. You mentally receive visual information from the eye, which can see in every direction. It also has {@sense Darkvision|XPHB} with a range of 30 feet.",
         "As a {@variantrule Bonus Action|XPHB}, you can move the eye up to 30 feet in any direction. A solid barrier blocks the eye's movement, but the eye can pass through an opening as small as 1 inch in diameter."
-      ],
-      "miscTags": [
-        "UA",
-        "UBA"
       ]
     },
     {
@@ -817,9 +768,6 @@
       ],
       "entries": [
         "You touch a closed door, window, gate, container, or hatch and magically lock it for the duration. This lock can't be unlocked by any nonmagical means. You and any creatures you designate when you cast the spell can open and close the object despite the lock. You can also set a password that, when spoken within 5 feet of the object, unlocks it for 1 minute."
-      ],
-      "miscTags": [
-        "OBJ"
       ]
     },
     {
@@ -866,14 +814,6 @@
         "A target's astral form can travel through the Astral Plane. The moment an astral form leaves that plane, the target's body and possessions travel along the silver cord, causing the target to re-enter its body on the new plane.",
         "Any damage or other effects that apply to an astral form have no effect on the target's body and vice versa. If a target's body or astral form drops to 0 {@variantrule Hit Points|XPHB}, the spell ends for that target. The spell ends for all the targets if you take a {@action Magic|XPHB} action to dismiss it.",
         "When the spell ends for a target who isn't dead, the target reappears in its body and exits the state of suspended animation."
-      ],
-      "conditionInflict": [
-        "unconscious"
-      ],
-      "miscTags": [
-        "PRM",
-        "PS",
-        "UA"
       ],
       "areaTags": [
         "MT"
@@ -991,9 +931,6 @@
       "damageResist": [
         "necrotic"
       ],
-      "miscTags": [
-        "HL"
-      ],
       "areaTags": [
         "S"
       ]
@@ -1033,18 +970,12 @@
         }
       ],
       "entries": [
-        "You spend the casting time tracing magical pathways within a precious gemstone, and then touch the target. The target must be either a Beast or Plant creature with an Intelligence of 3 or less or a natural plant that isn't a creature. The target gains an Intelligence of 10 and the ability to speak one language you know. If the target is a natural plant, it becomes a Plant creature and gains the ability to move its limbs, roots, vines, creepers, and so forth, and it gains senses similar to a human's. The DM chooses statistics appropriate for the awakened Plant, such as the statistics for the Awakened Shrub or Awakened Tree in the Monster Manual.",
+        "You spend the casting time tracing magical pathways within a precious gemstone, and then touch the target. The target must be either a Beast or Plant creature with an Intelligence of 3 or less or a natural plant that isn't a creature. The target gains an Intelligence of 10 and the ability to speak one language you know. If the target is a natural plant, it becomes a Plant creature and gains the ability to move its limbs, roots, vines, creepers, and so forth, and it gains senses similar to a human's. The DM chooses statistics appropriate for the awakened Plant, such as the statistics for the {@creature Awakened Shrub|XMM} or {@creature Awakened Tree|XMM} in the Monster Manual.",
         "The awakened target has the {@condition Charmed|XPHB} condition for 30 days or until you or your allies deal damage to it. When that condition ends, the awakened creature chooses its attitude toward you."
-      ],
-      "conditionInflict": [
-        "charmed"
       ],
       "affectsCreatureType": [
         "beast",
         "plant"
-      ],
-      "miscTags": [
-        "PRM"
       ],
       "areaTags": [
         "ST"
@@ -1101,10 +1032,6 @@
       "savingThrow": [
         "charisma"
       ],
-      "miscTags": [
-        "SCT",
-        "SGT"
-      ],
       "areaTags": [
         "MT"
       ]
@@ -1158,15 +1085,8 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "incapacitated"
-      ],
       "savingThrow": [
         "charisma"
-      ],
-      "miscTags": [
-        "SCT",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -1209,9 +1129,6 @@
       "entries": [
         "You touch a willing creature. Until the spell ends, the target's skin assumes a bark-like appearance, and the target has an {@variantrule Armor Class|XPHB} of 17 if its AC is lower than that."
       ],
-      "miscTags": [
-        "MAC"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -1253,10 +1170,6 @@
       ],
       "entries": [
         "Choose any number of creatures within range. For the duration, each target has {@variantrule Advantage|XPHB} on Wisdom saving throws and {@variantrule Death Saving Throw|XPHB|Death Saving Throws} and regains the maximum number of {@variantrule Hit Points|XPHB} possible from any healing."
-      ],
-      "miscTags": [
-        "ADV",
-        "HL"
       ],
       "areaTags": [
         "MT"
@@ -1303,9 +1216,6 @@
       ],
       "savingThrow": [
         "intelligence"
-      ],
-      "miscTags": [
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -1371,9 +1281,6 @@
       ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "PRM"
       ],
       "areaTags": [
         "ST"
@@ -1467,23 +1374,12 @@
         "bludgeoning",
         "force"
       ],
-      "conditionInflict": [
-        "grappled"
-      ],
       "spellAttack": [
         "M"
       ],
       "savingThrow": [
         "dexterity",
         "strength"
-      ],
-      "miscTags": [
-        "DFT",
-        "FMV",
-        "OBJ",
-        "SGT",
-        "UA",
-        "UBA"
       ]
     },
     {
@@ -1530,9 +1426,6 @@
       ],
       "savingThrow": [
         "dexterity"
-      ],
-      "miscTags": [
-        "DFT"
       ],
       "areaTags": [
         "W"
@@ -1589,9 +1482,6 @@
           ]
         }
       ],
-      "miscTags": [
-        "SCT"
-      ],
       "areaTags": [
         "MT"
       ]
@@ -1645,9 +1535,6 @@
       "savingThrow": [
         "constitution"
       ],
-      "miscTags": [
-        "SGT"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -1697,16 +1584,8 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "blinded",
-        "deafened"
-      ],
       "savingThrow": [
         "constitution"
-      ],
-      "miscTags": [
-        "SCT",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -1748,9 +1627,6 @@
       "entries": [
         "Roll {@dice 1d6} at the end of each of your turns for the duration. On a roll of 4-6, you vanish from your current plane of existence and appear in the Ethereal Plane (the spell ends instantly if you are already on that plane). While on the Ethereal Plane, you can perceive the plane you left, which is cast in shades of gray, but you can't see anything there more than 60 feet away. You can affect and be affected only by other creatures on the Ethereal Plane, and creatures on the other plane can't perceive you unless they have a special ability that lets them perceive things on the Ethereal Plane.",
         "You return to the other plane at the start of your next turn and when the spell ends if you are on the Ethereal Plane. You return to an unoccupied space of your choice that you can see within 10 feet of the space you left. If no unoccupied space is available within that range, you appear in the nearest unoccupied space."
-      ],
-      "miscTags": [
-        "SGT"
       ]
     },
     {
@@ -1839,10 +1715,6 @@
       "savingThrow": [
         "dexterity"
       ],
-      "miscTags": [
-        "BO",
-        "OBJ"
-      ],
       "areaTags": [
         "N"
       ]
@@ -1902,10 +1774,6 @@
       ],
       "savingThrow": [
         "dexterity"
-      ],
-      "miscTags": [
-        "SGT",
-        "UA"
       ],
       "areaTags": [
         "S",
@@ -2017,11 +1885,6 @@
       "savingThrow": [
         "dexterity"
       ],
-      "miscTags": [
-        "OBJ",
-        "SCT",
-        "SGT"
-      ],
       "areaTags": [
         "MT",
         "ST"
@@ -2073,15 +1936,8 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "charmed"
-      ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "SCT",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -2133,18 +1989,11 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "charmed"
-      ],
       "savingThrow": [
         "wisdom"
       ],
       "affectsCreatureType": [
         "humanoid"
-      ],
-      "miscTags": [
-        "SCT",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -2205,9 +2054,6 @@
       ],
       "spellAttack": [
         "M"
-      ],
-      "miscTags": [
-        "SCL"
       ],
       "areaTags": [
         "ST"
@@ -2270,9 +2116,6 @@
       ],
       "spellAttack": [
         "R"
-      ],
-      "miscTags": [
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -2377,10 +2220,6 @@
         "You create an {@condition Invisible|XPHB} sensor within range in a location familiar to you (a place you have visited or seen before) or in an obvious location that is unfamiliar to you (such as behind a door, around a corner, or in a grove of trees). The intangible, invulnerable sensor remains in place for the duration.",
         "When you cast the spell, choose seeing or hearing. You can use the chosen sense through the sensor as if you were in its space. As a {@variantrule Bonus Action|XPHB}, you can switch between seeing and hearing.",
         "A creature that sees the sensor (such as a creature benefiting from {@spell See Invisibility|XPHB} or {@sense Truesight|XPHB}) sees a luminous orb about the size of your fist."
-      ],
-      "miscTags": [
-        "UA",
-        "UBA"
       ]
     },
     {
@@ -2420,9 +2259,6 @@
       "entries": [
         "You touch a creature or at least 1 cubic inch of its flesh. An inert duplicate of that creature forms inside the vessel used in the spell's casting and finishes growing after 120 days; you choose whether the finished clone is the same age as the creature or younger. The clone remains inert and endures indefinitely while its vessel remains undisturbed.",
         "If the original creature dies after the clone finishes forming, the creature's soul transfers to the clone if the soul is free and willing to return. The clone is physically identical to the original and has the same personality, memories, and abilities, but none of the original's equipment. The creature's original remains, if any, become inert and can't be revived, since the creature's soul is elsewhere."
-      ],
-      "miscTags": [
-        "PRM"
       ]
     },
     {
@@ -2480,9 +2316,6 @@
       "savingThrow": [
         "constitution"
       ],
-      "miscTags": [
-        "OBS"
-      ],
       "areaTags": [
         "S"
       ]
@@ -2520,9 +2353,6 @@
       ],
       "entries": [
         "You launch a dazzling array of flashing, colorful light. Each creature in a 15-foot {@variantrule Cone [Area of Effect]|XPHB|Cone} originating from you must succeed on a Constitution saving throw or have the {@condition Blinded|XPHB} condition until the end of your next turn."
-      ],
-      "conditionInflict": [
-        "blinded"
       ],
       "savingThrow": [
         "constitution"
@@ -2613,15 +2443,8 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "prone"
-      ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "SCT",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -2802,16 +2625,8 @@
         "Each creature of your choice that you can see within range must succeed on a Wisdom saving throw or have the {@condition Charmed|XPHB} condition until the spell ends.",
         "For the duration, you can take a {@variantrule Bonus Action|XPHB} to designate a direction that is horizontal to you. Each {@condition Charmed|XPHB} target must use as much of its movement as possible to move in that direction on its next turn, taking the safest route. After moving in this way, a target repeats the save, ending the spell on itself on a success."
       ],
-      "conditionInflict": [
-        "charmed"
-      ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "SGT",
-        "UA",
-        "UBA"
       ],
       "areaTags": [
         "MT"
@@ -2951,9 +2766,6 @@
       "savingThrow": [
         "wisdom"
       ],
-      "miscTags": [
-        "RO"
-      ],
       "areaTags": [
         "S"
       ]
@@ -3012,10 +2824,6 @@
       ],
       "savingThrow": [
         "dexterity"
-      ],
-      "miscTags": [
-        "ADV",
-        "SGT"
       ],
       "areaTags": [
         "C"
@@ -3096,10 +2904,6 @@
       "savingThrow": [
         "dexterity"
       ],
-      "miscTags": [
-        "HL",
-        "SGT"
-      ],
       "areaTags": [
         "Y"
       ]
@@ -3158,14 +2962,8 @@
         "fire",
         "cold"
       ],
-      "conditionInflict": [
-        "restrained"
-      ],
       "savingThrow": [
         "dexterity"
-      ],
-      "miscTags": [
-        "SGT"
       ]
     },
     {
@@ -3218,13 +3016,6 @@
       ],
       "damageInflict": [
         "psychic"
-      ],
-      "conditionInflict": [
-        "frightened"
-      ],
-      "miscTags": [
-        "SGT",
-        "UBA"
       ]
     },
     {
@@ -3280,10 +3071,6 @@
         "cold",
         "fire",
         "lightning"
-      ],
-      "miscTags": [
-        "AAD",
-        "DFT"
       ],
       "areaTags": [
         "S"
@@ -3342,10 +3129,6 @@
       ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "SGT",
-        "UBA"
       ]
     },
     {
@@ -3434,9 +3217,6 @@
       ],
       "damageInflict": [
         "necrotic"
-      ],
-      "conditionInflict": [
-        "poisoned"
       ],
       "savingThrow": [
         "constitution"
@@ -3527,10 +3307,6 @@
       ],
       "entries": [
         "A flame springs from an object that you touch. The effect casts {@variantrule Bright Light|XPHB} in a 20-foot radius and {@variantrule Dim Light|XPHB} for an additional 20 feet. It looks like a regular flame, but it creates no heat and consumes no fuel. The flame can be covered or hidden but not smothered or quenched."
-      ],
-      "miscTags": [
-        "LGT",
-        "OBJ"
       ]
     },
     {
@@ -3609,10 +3385,6 @@
       ],
       "abilityCheck": [
         "strength"
-      ],
-      "miscTags": [
-        "FMV",
-        "OBJ"
       ],
       "areaTags": [
         "C"
@@ -3801,9 +3573,6 @@
       ],
       "savingThrow": [
         "constitution"
-      ],
-      "miscTags": [
-        "SGT"
       ]
     },
     {
@@ -3903,9 +3672,6 @@
           ]
         }
       ],
-      "miscTags": [
-        "PRM"
-      ],
       "areaTags": [
         "C"
       ]
@@ -3945,7 +3711,7 @@
         }
       ],
       "entries": [
-        "You can cast this spell only at night. Choose up to three corpses of Medium or Small Humanoids within range. Each one becomes a Ghoul under your control (see the Monster Manual for its stat block).",
+        "You can cast this spell only at night. Choose up to three corpses of Medium or Small Humanoids within range. Each one becomes a {@creature Ghoul|XMM} under your control (see the Monster Manual for its stat block).",
         "As a {@variantrule Bonus Action|XPHB} on each of your turns, you can mentally command any creature you animated with this spell if the creature is within 120 feet of you (if you control multiple creatures, you can command any of them at the same time, issuing the same command to them). You decide what action the creature will take and where it will move on its next turn, or you can issue a general command, such as to guard a particular place. If you issue no commands, the creature takes the {@action Dodge|XPHB} action and moves only to avoid harm. Once given an order, the creature continues to follow the order until its task is complete.",
         "The creature is under your control for 24 hours, after which it stops obeying any command you've given it. To maintain control of the creature for another 24 hours, you must cast this spell on the creature before the current 24-hour period ends. This use of the spell reasserts your control over up to three creatures you have animated with this spell rather than animating new ones."
       ],
@@ -3954,17 +3720,12 @@
           "type": "entries",
           "name": "Using a Higher-Level Spell Slot",
           "entries": [
-            "If you use a level 7 spell slot, you can animate or reassert control over four Ghouls. If you use a level 8 spell slot, you can animate or reassert control over five Ghouls or two Ghasts or Wights. If you use a level 9 spell slot, you can animate or reassert control over six Ghouls, three Ghasts or Wights, or two Mummies. See the Monster Manual for these stat blocks."
+            "If you use a level 7 spell slot, you can animate or reassert control over four {@creature Ghoul|XMM|Ghouls}. If you use a level 8 spell slot, you can animate or reassert control over five {@creature Ghoul|XMM|Ghouls} or two {@creature Ghast|XMM|Ghasts} or {@creature Wight|XMM|Wights}. If you use a level 9 spell slot, you can animate or reassert control over six {@creature Ghoul|XMM|Ghouls}, three {@creature Ghast|XMM|Ghasts} or {@creature Wight|XMM|Wights}, or two {@creature Mummy|XMM|Mummies}. See the Monster Manual for these stat blocks."
           ]
         }
       ],
       "affectsCreatureType": [
         "humanoid"
-      ],
-      "miscTags": [
-        "PRM",
-        "SMN",
-        "UBA"
       ]
     },
     {
@@ -4087,9 +3848,6 @@
           ]
         }
       ],
-      "miscTags": [
-        "HL"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -4133,11 +3891,6 @@
       "entries": [
         "You create up to four torch-size lights within range, making them appear as torches, lanterns, or glowing orbs that hover for the duration. Alternatively, you combine the four lights into one glowing Medium form that is vaguely humanlike. Whichever form you choose, each light sheds {@variantrule Dim Light|XPHB} in a 10-foot radius.",
         "As a {@variantrule Bonus Action|XPHB}, you can move the lights up to 60 feet to a space within range. A light must be within 20 feet of another light created by this spell, and a light vanishes if it exceeds the spell's range."
-      ],
-      "miscTags": [
-        "LGT",
-        "UA",
-        "UBA"
       ]
     },
     {
@@ -4179,10 +3932,6 @@
         "For the duration, magical {@variantrule Darkness|XPHB} spreads from a point within range and fills a 15-foot-radius {@variantrule Sphere [Area of Effect]|XPHB|Sphere}. {@sense Darkvision|XPHB} can't see through it, and nonmagical light can't illuminate it.",
         "Alternatively, you cast the spell on an object that isn't being worn or carried, causing the {@variantrule Darkness|XPHB} to fill a 15-foot {@variantrule Emanation [Area of Effect]|XPHB|Emanation} originating from that object. Covering that object with something opaque, such as a bowl or helm, blocks the {@variantrule Darkness|XPHB}.",
         "If any of this spell's area overlaps with an area of {@variantrule Bright Light|XPHB} or {@variantrule Dim Light|XPHB} created by a spell of level 2 or lower, that other spell is dispelled."
-      ],
-      "miscTags": [
-        "OBJ",
-        "OBS"
       ],
       "areaTags": [
         "S"
@@ -4267,11 +4016,6 @@
         "For the duration, sunlight spreads from a point within range and fills a 60-foot-radius {@variantrule Sphere [Area of Effect]|XPHB|Sphere}. The sunlight's area is {@variantrule Bright Light|XPHB} and sheds {@variantrule Dim Light|XPHB} for an additional 60 feet.",
         "Alternatively, you cast the spell on an object that isn't being worn or carried, causing the sunlight to fill a 60-foot {@variantrule Emanation [Area of Effect]|XPHB|Emanation} originating from that object. Covering that object with something opaque, such as a bowl or helm, blocks the sunlight.",
         "If any of this spell's area overlaps with an area of {@variantrule Darkness|XPHB} created by a spell of level 3 or lower, that other spell is dispelled."
-      ],
-      "miscTags": [
-        "LGT",
-        "LGTS",
-        "OBJ"
       ],
       "areaTags": [
         "S"
@@ -4375,10 +4119,6 @@
       "savingThrow": [
         "dexterity"
       ],
-      "miscTags": [
-        "BO",
-        "OBJ"
-      ],
       "areaTags": [
         "S"
       ]
@@ -4420,11 +4160,6 @@
         "You create a shadowy Medium door on a flat solid surface that you can see within range. This door can be opened and closed, and it leads to a demiplane that is an empty room 30 feet in each dimension, made of wood or stone (your choice).",
         "When the spell ends, the door vanishes, and any objects inside the demiplane remain there. Any creatures inside also remain unless they opt to be shunted through the door as it vanishes, landing with the {@condition Prone|XPHB} condition in the unoccupied spaces closest to the door's former space.",
         "Each time you cast this spell, you can create a new demiplane or connect the shadowy door to a demiplane you created with a previous casting of this spell. Additionally, if you know the nature and contents of a demiplane created by a casting of this spell by another creature, you can connect the shadowy door to that demiplane instead."
-      ],
-      "miscTags": [
-        "OBJ",
-        "PRM",
-        "SGT"
       ]
     },
     {
@@ -4621,9 +4356,6 @@
       ],
       "abilityCheck": [
         "intelligence"
-      ],
-      "miscTags": [
-        "SGT"
       ]
     },
     {
@@ -4662,9 +4394,6 @@
       ],
       "damageInflict": [
         "force"
-      ],
-      "miscTags": [
-        "TP"
       ]
     },
     {
@@ -4707,9 +4436,6 @@
       ],
       "abilityCheck": [
         "intelligence"
-      ],
-      "miscTags": [
-        "SGT"
       ]
     },
     {
@@ -4762,10 +4488,6 @@
       ],
       "savingThrow": [
         "dexterity"
-      ],
-      "miscTags": [
-        "OBJ",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -4833,10 +4555,6 @@
         "fiend",
         "undead"
       ],
-      "miscTags": [
-        "SGT",
-        "UA"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -4882,9 +4600,6 @@
             "You automatically end a spell on the target if the spell's level is equal to or less than the level of the spell slot you use."
           ]
         }
-      ],
-      "miscTags": [
-        "OBJ"
       ],
       "areaTags": [
         "ST"
@@ -4936,9 +4651,6 @@
       ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -5024,9 +4736,6 @@
       ],
       "damageInflict": [
         "radiant"
-      ],
-      "miscTags": [
-        "AAD"
       ]
     },
     {
@@ -5072,9 +4781,6 @@
       ],
       "damageInflict": [
         "radiant"
-      ],
-      "miscTags": [
-        "AAD"
       ]
     },
     {
@@ -5139,11 +4845,6 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "blinded",
-        "deafened",
-        "stunned"
-      ],
       "savingThrow": [
         "charisma"
       ],
@@ -5200,17 +4901,11 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "charmed"
-      ],
       "savingThrow": [
         "wisdom"
       ],
       "affectsCreatureType": [
         "beast"
-      ],
-      "miscTags": [
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -5265,14 +4960,8 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "charmed"
-      ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -5327,17 +5016,11 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "charmed"
-      ],
       "savingThrow": [
         "wisdom"
       ],
       "affectsCreatureType": [
         "humanoid"
-      ],
-      "miscTags": [
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -5448,10 +5131,6 @@
         "You touch the sapphire used in the casting and an object weighing 10 pounds or less whose longest dimension is 6 feet or less. The spell leaves an {@condition Invisible|XPHB} mark on that object and invisibly inscribes the object's name on the sapphire. Each time you cast this spell, you must use a different sapphire.",
         "Thereafter, you can take a {@action Magic|XPHB} action to speak the object's name and crush the sapphire. The object instantly appears in your hand regardless of physical or planar distances, and the spell ends.",
         "If another creature is holding or carrying the object, crushing the sapphire doesn't transport it, but instead you learn who that creature is and where that creature is currently located."
-      ],
-      "miscTags": [
-        "OBJ",
-        "UA"
       ]
     },
     {
@@ -5564,10 +5243,6 @@
             "You light or snuff out a candle, a torch, or a campfire."
           ]
         }
-      ],
-      "miscTags": [
-        "BO",
-        "OBJ"
       ]
     },
     {
@@ -5629,19 +5304,12 @@
       "damageInflict": [
         "bludgeoning"
       ],
-      "conditionInflict": [
-        "prone"
-      ],
       "savingThrow": [
         "constitution",
         "dexterity"
       ],
       "abilityCheck": [
         "strength"
-      ],
-      "miscTags": [
-        "DFT",
-        "SGT"
       ],
       "areaTags": [
         "R"
@@ -5694,9 +5362,6 @@
       ],
       "spellAttack": [
         "R"
-      ],
-      "miscTags": [
-        "SCL"
       ],
       "areaTags": [
         "MT",
@@ -5771,10 +5436,6 @@
           ]
         }
       ],
-      "miscTags": [
-        "BO",
-        "OBJ"
-      ],
       "areaTags": [
         "C",
         "Q"
@@ -5826,10 +5487,6 @@
             "You can target one additional creature for each spell slot level above 2. You can choose a different ability for each target."
           ]
         }
-      ],
-      "miscTags": [
-        "ADV",
-        "SCT"
       ],
       "areaTags": [
         "ST"
@@ -5892,11 +5549,6 @@
       "savingThrow": [
         "constitution"
       ],
-      "miscTags": [
-        "ADV",
-        "OBJ",
-        "SGT"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -5951,9 +5603,6 @@
       "damageInflict": [
         "piercing"
       ],
-      "conditionInflict": [
-        "restrained"
-      ],
       "savingThrow": [
         "strength"
       ],
@@ -6000,17 +5649,11 @@
         "Grasping plants sprout from the ground in a 20-foot square within range. For the duration, these plants turn the ground in the area into {@variantrule Difficult Terrain|XPHB}. They disappear when the spell ends.",
         "Each creature (other than you) in the area when you cast the spell must succeed on a Strength saving throw or have the {@condition Restrained|XPHB} condition until the spell ends. A {@condition Restrained|XPHB} creature can take an action to make a Strength ({@skill Athletics|XPHB}) check against your spell save DC. On a success, it frees itself from the grasping plants and is no longer {@condition Restrained|XPHB} by them."
       ],
-      "conditionInflict": [
-        "restrained"
-      ],
       "savingThrow": [
         "strength"
       ],
       "abilityCheck": [
         "strength"
-      ],
-      "miscTags": [
-        "DFT"
       ],
       "areaTags": [
         "Q"
@@ -6056,9 +5699,6 @@
       ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "SGT"
       ],
       "areaTags": [
         "MT"
@@ -6114,10 +5754,6 @@
       ],
       "damageInflict": [
         "force"
-      ],
-      "miscTags": [
-        "PS",
-        "SCT"
       ]
     },
     {
@@ -6164,18 +5800,11 @@
       "damageInflict": [
         "bludgeoning"
       ],
-      "conditionInflict": [
-        "restrained"
-      ],
       "savingThrow": [
         "strength"
       ],
       "abilityCheck": [
         "strength"
-      ],
-      "miscTags": [
-        "DFT",
-        "SGT"
       ],
       "areaTags": [
         "Q"
@@ -6217,9 +5846,6 @@
       ],
       "entries": [
         "You take the {@action Dash|XPHB} action, and until the spell ends, you can take that action again as a {@variantrule Bonus Action|XPHB}."
-      ],
-      "miscTags": [
-        "UBA"
       ]
     },
     {
@@ -6281,16 +5907,8 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "frightened",
-        "unconscious"
-      ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "SGT",
-        "UA"
       ],
       "areaTags": [
         "ST"
@@ -6330,11 +5948,6 @@
         "You convert raw materials into products of the same material. For example, you can fabricate a wooden bridge from a clump of trees, a rope from a patch of hemp, or clothes from flax or wool.",
         "Choose raw materials that you can see within range. You can fabricate a Large or smaller object (contained within a 10-foot {@variantrule Cube [Area of Effect]|XPHB|Cube} or eight connected 5-foot Cubes) given a sufficient quantity of material. If you're working with metal, stone, or another mineral substance, however, the fabricated object can be no larger than Medium (contained within a 5-foot {@variantrule Cube [Area of Effect]|XPHB|Cube}). The quality of any fabricated objects is based on the quality of the raw materials.",
         "Creatures and magic items can't be created by this spell. You also can't use it to create items that require a high degree of skill—such as weapons and armor—unless you have proficiency with the type of Artisan's Tools used to craft such objects."
-      ],
-      "miscTags": [
-        "OBJ",
-        "PRM",
-        "SGT"
       ]
     },
     {
@@ -6377,10 +5990,6 @@
       ],
       "savingThrow": [
         "dexterity"
-      ],
-      "miscTags": [
-        "ADV",
-        "LGT"
       ],
       "areaTags": [
         "C"
@@ -6427,9 +6036,6 @@
             "You gain 5 additional {@variantrule Temporary Hit Points|XPHB} for each spell slot level above 1."
           ]
         }
-      ],
-      "miscTags": [
-        "THP"
       ]
     },
     {
@@ -6471,9 +6077,6 @@
       "entries": [
         "Each creature in a 30-foot {@variantrule Cone [Area of Effect]|XPHB|Cone} must succeed on a Wisdom saving throw or drop whatever it is holding and have the {@condition Frightened|XPHB} condition for the duration.",
         "A {@condition Frightened|XPHB} creature takes the {@action Dash|XPHB} action and moves away from you by the safest route on each of its turns unless there is nowhere to move. If the creature ends its turn in a space where it doesn't have line of sight to you, the creature makes a Wisdom saving throw. On a successful save, the spell ends on that creature."
-      ],
-      "conditionInflict": [
-        "frightened"
       ],
       "savingThrow": [
         "wisdom"
@@ -6563,7 +6166,7 @@
         "ritual": true
       },
       "entries": [
-        "You gain the service of a familiar, a spirit that takes an animal form you choose: Bat, Cat, Frog, Hawk, Lizard, Octopus, Owl, Rat, Raven, Spider, Weasel, or another Beast that has a Challenge Rating of 0. Appearing in an unoccupied space within range, the familiar has the statistics of the chosen form, though it is a Celestial, Fey, or Fiend (your choice) instead of a Beast. Your familiar acts independently of you, but it obeys your commands.",
+        "You gain the service of a familiar, a spirit that takes an animal form you choose: {@creature Bat|XMM}, {@creature Cat|XMM}, {@creature Frog|XMM}, {@creature Hawk|XMM}, {@creature Lizard|XMM}, {@creature Octopus|XMM}, {@creature Owl|XMM}, {@creature Rat|XMM}, {@creature Raven|XMM}, {@creature Spider|XMM}, {@creature Weasel|XMM}, or another Beast that has a Challenge Rating of 0. Appearing in an unoccupied space within range, the familiar has the statistics of the chosen form, though it is a Celestial, Fey, or Fiend (your choice) instead of a Beast. Your familiar acts independently of you, but it obeys your commands.",
         {
           "type": "entries",
           "name": "Telepathic Connection",
@@ -6593,11 +6196,6 @@
             "You can't have more than one familiar at a time. If you cast this spell while you have a familiar, you instead cause it to adopt a new eligible form."
           ]
         }
-      ],
-      "miscTags": [
-        "PRM",
-        "SMN",
-        "UA"
       ]
     },
     {
@@ -6631,7 +6229,7 @@
         }
       ],
       "entries": [
-        "You summon an otherworldly being that appears as a loyal steed in an unoccupied space of your choice within range. This creature uses the Otherworldly Steed stat block. If you already have a steed from this spell, the steed is replaced by the new one.",
+        "You summon an otherworldly being that appears as a loyal steed in an unoccupied space of your choice within range. This creature uses the {@creature Otherworldly Steed|XPHB} stat block. If you already have a steed from this spell, the steed is replaced by the new one.",
         "The steed resembles a Large, rideable animal of your choice, such as a horse, a camel, a dire wolf, or an elk. Whenever you cast the spell, choose the steed's creature type—Celestial, Fey, or Fiend—which determines certain traits in the stat block.",
         {
           "type": "entries",
@@ -6656,10 +6254,6 @@
             "Use the spell slot's level for the spell's level in the stat block."
           ]
         }
-      ],
-      "miscTags": [
-        "PRM",
-        "SMN"
       ]
     },
     {
@@ -6738,9 +6332,6 @@
       "entries": [
         "You sense any trap within range that is within line of sight. A trap, for the purpose of this spell, includes any object or mechanism that was created to cause damage or other danger. Thus, the spell would sense the {@spell Alarm|XPHB} or {@spell Glyph of Warding|XPHB} spell or a mechanical pit trap, but it wouldn't reveal a natural weakness in the floor, an unstable ceiling, or a hidden sinkhole.",
         "This spell reveals that a trap is present but not its location. You do learn the general nature of the danger posed by a trap you sense."
-      ],
-      "miscTags": [
-        "SGT"
       ]
     },
     {
@@ -6775,18 +6366,13 @@
       ],
       "entries": [
         "You unleash negative energy toward a creature you can see within range. The target makes a Constitution saving throw, taking {@damage 7d8 + 30} Necrotic damage on a failed save or half as much damage on a successful one.",
-        "A Humanoid killed by this spell rises at the start of your next turn as a Zombie that follows your verbal orders."
+        "A Humanoid killed by this spell rises at the start of your next turn as a {@creature Zombie|XMM} that follows your verbal orders."
       ],
       "damageInflict": [
         "necrotic"
       ],
       "savingThrow": [
         "constitution"
-      ],
-      "miscTags": [
-        "PRM",
-        "SGT",
-        "SMN"
       ],
       "areaTags": [
         "ST"
@@ -6852,11 +6438,6 @@
       "spellAttack": [
         "R"
       ],
-      "miscTags": [
-        "BO",
-        "OBJ",
-        "SCL"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -6907,9 +6488,6 @@
       "damageInflict": [
         "cold",
         "fire"
-      ],
-      "miscTags": [
-        "LGT"
       ]
     },
     {
@@ -6951,10 +6529,6 @@
       ],
       "savingThrow": [
         "dexterity"
-      ],
-      "miscTags": [
-        "BO",
-        "OBJ"
       ],
       "areaTags": [
         "C"
@@ -7009,10 +6583,6 @@
       ],
       "savingThrow": [
         "dexterity"
-      ],
-      "miscTags": [
-        "BO",
-        "OBJ"
       ],
       "areaTags": [
         "S"
@@ -7072,11 +6642,6 @@
       ],
       "spellAttack": [
         "M"
-      ],
-      "miscTags": [
-        "LGT",
-        "UA",
-        "UBA"
       ],
       "areaTags": [
         "ST"
@@ -7192,13 +6757,6 @@
       "savingThrow": [
         "dexterity"
       ],
-      "miscTags": [
-        "BO",
-        "LGT",
-        "OBJ",
-        "UA",
-        "UBA"
-      ],
       "areaTags": [
         "S"
       ]
@@ -7244,16 +6802,8 @@
         "A {@condition Restrained|XPHB} target makes another Constitution saving throw at the end of each of its turns. If it successfully saves against this spell three times, the spell ends. If it fails its saves three times, it is turned to stone and has the {@condition Petrified|XPHB} condition for the duration. The successes and failures needn't be consecutive; keep track of both until the target collects three of a kind.",
         "If you maintain your {@status Concentration|XPHB} on this spell for the entire possible duration, the target is {@condition Petrified|XPHB} until the condition is ended by {@spell Greater Restoration|XPHB} or similar magic."
       ],
-      "conditionInflict": [
-        "petrified",
-        "restrained"
-      ],
       "savingThrow": [
         "constitution"
-      ],
-      "miscTags": [
-        "PRM",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -7306,9 +6856,6 @@
           ]
         }
       ],
-      "miscTags": [
-        "SCT"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -7359,9 +6906,6 @@
             "The fog's radius increases by 20 feet for each spell slot level above 1."
           ]
         }
-      ],
-      "miscTags": [
-        "OBS"
       ],
       "areaTags": [
         "S"
@@ -7424,10 +6968,6 @@
         "fey",
         "fiend",
         "undead"
-      ],
-      "miscTags": [
-        "PIR",
-        "PRM"
       ]
     },
     {
@@ -7521,9 +7061,6 @@
       "entries": [
         "You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target has {@variantrule Advantage|XPHB} on {@variantrule D20 Test|XPHB|D20 Tests}, and other creatures have {@variantrule Disadvantage|XPHB} on attack rolls against it. The spell ends early if you cast it again."
       ],
-      "miscTags": [
-        "ADV"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -7578,9 +7115,6 @@
       "conditionImmune": [
         "paralyzed",
         "restrained"
-      ],
-      "miscTags": [
-        "SCT"
       ],
       "areaTags": [
         "ST"
@@ -7638,10 +7172,6 @@
       "conditionImmune": [
         "prone"
       ],
-      "miscTags": [
-        "ADV",
-        "SCT"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -7690,11 +7220,6 @@
         "The portal has a front and a back on each plane where it appears. Travel through the portal is possible only by moving through its front. Anything that does so is instantly transported to the other plane, appearing in the unoccupied space nearest to the portal.",
         "Deities and other planar rulers can prevent portals created by this spell from opening in their presence or anywhere within their domains.",
         "When you cast this spell, you can speak the name of a specific creature (a pseudonym, title, or nickname doesn't work). If that creature is on a plane other than the one you are on, the portal opens next to the named creature and transports it to the nearest unoccupied space on your side of the portal. You gain no special power over the creature, and it is free to act as the DM deems appropriate. It might leave, attack you, or help you."
-      ],
-      "miscTags": [
-        "PS",
-        "SGT",
-        "TP"
       ]
     },
     {
@@ -7748,15 +7273,8 @@
       "damageInflict": [
         "psychic"
       ],
-      "conditionInflict": [
-        "charmed"
-      ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "PRM",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -7843,7 +7361,7 @@
         }
       ],
       "entries": [
-        "You summon a giant centipede, spider, or wasp (chosen when you cast the spell). It manifests in an unoccupied space you can see within range and uses the Giant Insect stat block. The form you choose determines certain details in its stat block. The creature disappears when it drops to 0 {@variantrule Hit Points|XPHB} or when the spell ends.",
+        "You summon a giant centipede, spider, or wasp (chosen when you cast the spell). It manifests in an unoccupied space you can see within range and uses the {@creature Giant Insect|XPHB} stat block. The form you choose determines certain details in its stat block. The creature disappears when it drops to 0 {@variantrule Hit Points|XPHB} or when the spell ends.",
         "The creature is an ally to you and your allies. In combat, the creature shares your {@variantrule Initiative|XPHB} count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the {@action Dodge|XPHB} action and uses its movement to avoid danger."
       ],
       "entriesHigherLevel": [
@@ -7854,9 +7372,6 @@
             "Use the spell slot's level for the spell's level in the stat block."
           ]
         }
-      ],
-      "miscTags": [
-        "SMN"
       ]
     },
     {
@@ -8077,9 +7592,6 @@
       "entries": [
         "Ten berries appear in your hand and are infused with magic for the duration. A creature can take a {@variantrule Bonus Action|XPHB} to eat one berry. Eating a berry restores 1 {@variantrule Hit Points|XPHB|Hit Point}, and the berry provides enough nourishment to sustain a creature for one day.",
         "Uneaten berries disappear when the spell ends."
-      ],
-      "miscTags": [
-        "HL"
       ]
     },
     {
@@ -8121,14 +7633,8 @@
         "Nonflammable grease covers the ground in a 10-foot square centered on a point within range and turns it into {@variantrule Difficult Terrain|XPHB} for the duration.",
         "When the grease appears, each creature standing in its area must succeed on a Dexterity saving throw or have the {@condition Prone|XPHB} condition. A creature that enters the area or ends its turn there must also succeed on that save or fall {@condition Prone|XPHB}."
       ],
-      "conditionInflict": [
-        "prone"
-      ],
       "savingThrow": [
         "dexterity"
-      ],
-      "miscTags": [
-        "DFT"
       ],
       "areaTags": [
         "Q"
@@ -8170,9 +7676,6 @@
       ],
       "entries": [
         "A creature you touch has the {@condition Invisible|XPHB} condition until the spell ends."
-      ],
-      "conditionInflict": [
-        "invisible"
       ],
       "areaTags": [
         "ST"
@@ -8271,9 +7774,6 @@
       ],
       "savingThrow": [
         "dexterity"
-      ],
-      "miscTags": [
-        "SGT"
       ]
     },
     {
@@ -8355,11 +7855,6 @@
             }
           ]
         }
-      ],
-      "miscTags": [
-        "OBS",
-        "PIR",
-        "PRM"
       ],
       "areaTags": [
         "Q"
@@ -8458,9 +7953,6 @@
       "spellAttack": [
         "R"
       ],
-      "miscTags": [
-        "ADV"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -8509,10 +8001,6 @@
       ],
       "savingThrow": [
         "strength"
-      ],
-      "miscTags": [
-        "FMV",
-        "UBA"
       ],
       "areaTags": [
         "L"
@@ -8679,10 +8167,6 @@
         "fey",
         "fiend",
         "undead"
-      ],
-      "miscTags": [
-        "LGT",
-        "OBS"
       ]
     },
     {
@@ -8770,9 +8254,6 @@
       "savingThrow": [
         "constitution"
       ],
-      "miscTags": [
-        "SGT"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -8816,14 +8297,6 @@
       "entries": [
         "Choose a willing creature that you can see within range. Until the spell ends, the target's {@variantrule Speed|XPHB} is doubled, it gains a +2 bonus to {@variantrule Armor Class|XPHB}, it has {@variantrule Advantage|XPHB} on Dexterity saving throws, and it gains an additional action on each of its turns. That action can be used to take only the {@action Attack|XPHB} (one attack only), {@action Dash|XPHB}, {@action Disengage|XPHB}, {@action Hide|XPHB}, or {@action Utilize|XPHB} action.",
         "When the spell ends, the target is {@condition Incapacitated|XPHB} and has a {@variantrule Speed|XPHB} of 0 until the end of its next turn, as a wave of lethargy washes over it."
-      ],
-      "conditionInflict": [
-        "incapacitated"
-      ],
-      "miscTags": [
-        "ADV",
-        "MAC",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -8871,10 +8344,6 @@
           ]
         }
       ],
-      "miscTags": [
-        "HL",
-        "SGT"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -8919,10 +8388,6 @@
             "The healing increases by {@scaledice 2d4|1-9|2d4} for each spell slot level above 1."
           ]
         }
-      ],
-      "miscTags": [
-        "HL",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -8983,12 +8448,6 @@
       "savingThrow": [
         "constitution"
       ],
-      "miscTags": [
-        "OBJ",
-        "SGT",
-        "UA",
-        "UBA"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -9042,9 +8501,6 @@
       "savingThrow": [
         "dexterity"
       ],
-      "miscTags": [
-        "SGT"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -9094,9 +8550,6 @@
       "conditionImmune": [
         "frightened",
         "poisoned"
-      ],
-      "miscTags": [
-        "HL"
       ],
       "areaTags": [
         "C",
@@ -9151,10 +8604,6 @@
       ],
       "conditionImmune": [
         "frightened"
-      ],
-      "miscTags": [
-        "SCT",
-        "THP"
       ],
       "areaTags": [
         "ST"
@@ -9212,12 +8661,6 @@
       "damageInflict": [
         "necrotic"
       ],
-      "miscTags": [
-        "AAD",
-        "SGT",
-        "UA",
-        "UBA"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -9270,15 +8713,8 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "paralyzed"
-      ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "SCT",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -9332,18 +8768,11 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "paralyzed"
-      ],
       "savingThrow": [
         "wisdom"
       ],
       "affectsCreatureType": [
         "humanoid"
-      ],
-      "miscTags": [
-        "SCT",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -9391,14 +8820,8 @@
       "entries": [
         "For the duration, you emit an aura in a 30-foot {@variantrule Emanation [Area of Effect]|XPHB|Emanation}. While in the aura, creatures of your choice have {@variantrule Advantage|XPHB} on all saving throws, and other creatures have {@variantrule Disadvantage|XPHB} on attack rolls against them. In addition, when a Fiend or an Undead hits an affected creature with a melee attack roll, the attacker must succeed on a Constitution saving throw or have the {@condition Blinded|XPHB} condition until the end of its next turn."
       ],
-      "conditionInflict": [
-        "blinded"
-      ],
       "savingThrow": [
         "constitution"
-      ],
-      "miscTags": [
-        "ADV"
       ],
       "areaTags": [
         "S"
@@ -9454,13 +8877,6 @@
       "damageInflict": [
         "force"
       ],
-      "miscTags": [
-        "AAD",
-        "ADV",
-        "SGT",
-        "UA",
-        "UBA"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -9503,10 +8919,6 @@
       "entries": [
         "You create a twisting pattern of colors in a 30-foot {@variantrule Cube [Area of Effect]|XPHB|Cube} within range. The pattern appears for a moment and vanishes. Each creature in the area who can see the pattern must succeed on a Wisdom saving throw or have the {@condition Charmed|XPHB} condition for the duration. While {@condition Charmed|XPHB}, the creature has the {@condition Incapacitated|XPHB} condition and a {@variantrule Speed|XPHB} of 0.",
         "The spell ends for an affected creature if it takes any damage or if someone else uses an action to shake the creature out of its stupor."
-      ],
-      "conditionInflict": [
-        "charmed",
-        "incapacitated"
       ],
       "savingThrow": [
         "wisdom"
@@ -9622,9 +9034,6 @@
       "savingThrow": [
         "dexterity"
       ],
-      "miscTags": [
-        "DFT"
-      ],
       "areaTags": [
         "Y"
       ]
@@ -9668,9 +9077,6 @@
       "entries": [
         "You touch an object throughout the spell's casting. If the object is a magic item or some other magical object, you learn its properties and how to use them, whether it requires {@variantrule Attunement|XPHB}, and how many charges it has, if any. You learn whether any ongoing spells are affecting the item and what they are. If the item was created by a spell, you learn that spell's name.",
         "If you instead touch a creature throughout the casting, you learn which ongoing spells, if any, are currently affecting it."
-      ],
-      "miscTags": [
-        "OBJ"
       ],
       "areaTags": [
         "ST"
@@ -9812,15 +9218,8 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "restrained",
-        "unconscious"
-      ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -9871,9 +9270,6 @@
       ],
       "savingThrow": [
         "dexterity"
-      ],
-      "miscTags": [
-        "OBS"
       ],
       "areaTags": [
         "S"
@@ -9985,10 +9381,6 @@
       "savingThrow": [
         "constitution"
       ],
-      "miscTags": [
-        "DFT",
-        "OBS"
-      ],
       "areaTags": [
         "S"
       ]
@@ -10040,12 +9432,6 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "invisible"
-      ],
-      "miscTags": [
-        "SCT"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -10096,9 +9482,6 @@
           ]
         }
       ],
-      "miscTags": [
-        "SCT"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -10137,10 +9520,6 @@
         "A target that is held shut by a mundane lock or that is stuck or barred becomes unlocked, unstuck, or unbarred. If the object has multiple locks, only one of them is unlocked.",
         "If the target is held shut by {@spell Arcane Lock|XPHB}, that spell is suppressed for 10 minutes, during which time the target can be opened and closed.",
         "When you cast the spell, a loud knock, audible up to 300 feet away, emanates from the target."
-      ],
-      "miscTags": [
-        "OBJ",
-        "SGT"
       ]
     },
     {
@@ -10181,9 +9560,6 @@
         "Name or describe a famous person, place, or object. The spell brings to your mind a brief summary of the significant lore about that famous thing, as described by the DM.",
         "The lore might consist of important details, amusing revelations, or even secret lore that has never been widely known. The more information you already know about the thing, the more precise and detailed the information you receive is. That information is accurate but might be couched in figurative language or poetry, as determined by the DM.",
         "If the famous thing you chose isn't actually famous, you hear sad musical notes played on a trombone, and the spell fails."
-      ],
-      "miscTags": [
-        "OBJ"
       ]
     },
     {
@@ -10226,11 +9602,6 @@
         "You hide a chest and all its contents on the Ethereal Plane. You must touch the chest and the miniature replica that serve as Material components for the spell. The chest can contain up to 12 cubic feet of nonliving material (3 feet by 2 feet by 2 feet).",
         "While the chest remains on the Ethereal Plane, you can take a {@action Magic|XPHB} action and touch the replica to recall the chest. It appears in an unoccupied space on the ground within 5 feet of you. You can send the chest back to the Ethereal Plane by taking a {@action Magic|XPHB} action to touch the chest and the replica.",
         "After 60 days, there is a cumulative {@chance 5|||Effect ends!|Effect continues} chance at the end of each day that the spell ends. The spell also ends if you cast this spell again or if the Tiny replica chest is destroyed. If the spell ends and the larger chest is on the Ethereal Plane, the chest remains there for you or someone else to find."
-      ],
-      "miscTags": [
-        "OBJ",
-        "PRM",
-        "UA"
       ]
     },
     {
@@ -10276,9 +9647,6 @@
         "Creatures and objects within the {@variantrule Emanation [Area of Effect]|XPHB|Emanation} when you cast the spell can move through it freely. All other creatures and objects are barred from passing through it. Spells of level 3 or lower can't be cast through it, and the effects of such spells can't extend into it.",
         "The atmosphere inside the {@variantrule Emanation [Area of Effect]|XPHB|Emanation} is comfortable and dry, regardless of the weather outside. Until the spell ends, you can command the interior to have {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB} (no action required). The {@variantrule Emanation [Area of Effect]|XPHB|Emanation} is opaque from the outside and of any color you choose, but it's transparent from the inside.",
         "The spell ends early if you leave the {@variantrule Emanation [Area of Effect]|XPHB|Emanation} or if you cast it again."
-      ],
-      "miscTags": [
-        "LGT"
       ],
       "areaTags": [
         "S"
@@ -10364,11 +9732,6 @@
       "savingThrow": [
         "constitution"
       ],
-      "miscTags": [
-        "OBJ",
-        "SGT",
-        "UA"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -10409,10 +9772,6 @@
       "entries": [
         "You touch one Large or smaller object that isn't being worn or carried by someone else. Until the spell ends, the object sheds {@variantrule Bright Light|XPHB} in a 20-foot radius and {@variantrule Dim Light|XPHB} for an additional 20 feet. The light can be colored as you like.",
         "Covering the object with something opaque blocks the light. The spell ends if you cast it again."
-      ],
-      "miscTags": [
-        "LGT",
-        "OBJ"
       ]
     },
     {
@@ -10463,9 +9822,6 @@
       ],
       "savingThrow": [
         "dexterity"
-      ],
-      "miscTags": [
-        "OBJ"
       ],
       "areaTags": [
         "L"
@@ -10592,9 +9948,6 @@
         "Describe or name an object that is familiar to you. You sense the direction to the object's location if that object is within 1,000 feet of you. If the object is in motion, you know the direction of its movement.",
         "The spell can locate a specific object known to you if you have seen it up close—within 30 feet—at least once. Alternatively, the spell can locate the nearest object of a particular kind, such as a certain kind of apparel, jewelry, furniture, tool, or weapon.",
         "This spell can't locate an object if any thickness of lead blocks a direct path between you and the object."
-      ],
-      "miscTags": [
-        "OBJ"
       ]
     },
     {
@@ -10643,9 +9996,6 @@
           ]
         }
       ],
-      "miscTags": [
-        "SCT"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -10686,9 +10036,6 @@
       ],
       "entries": [
         "You touch a willing creature who isn't wearing armor. Until the spell ends, the target's base AC becomes 13 plus its Dexterity modifier. The spell ends early if the target dons armor."
-      ],
-      "miscTags": [
-        "MAC"
       ],
       "areaTags": [
         "ST"
@@ -10733,9 +10080,6 @@
         "When you cast the spell, you can use the hand to manipulate an object, open an unlocked door or container, stow or retrieve an item from an open container, or pour the contents out of a vial.",
         "As a {@action Magic|XPHB} action on your later turns, you can control the hand thus again. As part of that action, you can move the hand up to 30 feet.",
         "The hand can't attack, activate magic items, or carry more than 10 pounds."
-      ],
-      "miscTags": [
-        "OBJ"
       ]
     },
     {
@@ -10809,9 +10153,6 @@
         "fiend",
         "undead"
       ],
-      "miscTags": [
-        "SGT"
-      ],
       "areaTags": [
         "Y"
       ]
@@ -10866,10 +10207,6 @@
       ],
       "affectsCreatureType": [
         "humanoid"
-      ],
-      "miscTags": [
-        "SGT",
-        "UA"
       ]
     },
     {
@@ -10916,9 +10253,6 @@
       ],
       "damageInflict": [
         "force"
-      ],
-      "miscTags": [
-        "SGT"
       ],
       "areaTags": [
         "MT",
@@ -10970,10 +10304,6 @@
         "You implant a message within an object in range—a message that is uttered when a trigger condition is met. Choose an object that you can see and that isn't being worn or carried by another creature. Then speak the message, which must be 25 words or fewer, though it can be delivered over as long as 10 minutes. Finally, determine the circumstance that will trigger the spell to deliver your message.",
         "When that trigger occurs, a magical mouth appears on the object and recites the message in your voice and at the same volume you spoke. If the object you chose has a mouth or something that looks like a mouth (for example, the mouth of a statue), the magical mouth appears there, so the words appear to come from the object's mouth. When you cast this spell, you can have the spell end after it delivers its message, or it can remain and repeat its message whenever the trigger occurs.",
         "The trigger can be as general or as detailed as you like, though it must be based on visual or audible conditions that occur within 30 feet of the object. For example, you could instruct the mouth to speak when any creature moves within 30 feet of the object or when a silver bell rings within 30 feet of it."
-      ],
-      "miscTags": [
-        "OBJ",
-        "SGT"
       ]
     },
     {
@@ -11074,11 +10404,6 @@
       ],
       "abilityCheck": [
         "intelligence"
-      ],
-      "miscTags": [
-        "PRM",
-        "SGT",
-        "UA"
       ]
     },
     {
@@ -11123,9 +10448,6 @@
           ]
         }
       ],
-      "miscTags": [
-        "HL"
-      ],
       "areaTags": [
         "MT",
         "S"
@@ -11163,10 +10485,6 @@
       ],
       "entries": [
         "A flood of healing energy flows from you into creatures around you. You restore up to 700 {@variantrule Hit Points|XPHB}, divided as you choose among any number of creatures that you can see within range. Creatures healed by this spell also have the {@condition Blinded|XPHB}, {@condition Deafened|XPHB}, and {@condition Poisoned|XPHB} conditions removed from them."
-      ],
-      "miscTags": [
-        "HL",
-        "SGT"
       ],
       "areaTags": [
         "MT"
@@ -11212,10 +10530,6 @@
             "The healing increases by {@scaledice 2d4|3-9|1d4} for each spell slot level above 3."
           ]
         }
-      ],
-      "miscTags": [
-        "HL",
-        "SGT"
       ],
       "areaTags": [
         "MT"
@@ -11268,14 +10582,8 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "charmed"
-      ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "SGT"
       ],
       "areaTags": [
         "MT"
@@ -11324,9 +10632,6 @@
       "abilityCheck": [
         "intelligence"
       ],
-      "miscTags": [
-        "SGT"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -11374,9 +10679,6 @@
       ],
       "damageInflict": [
         "force"
-      ],
-      "conditionInflict": [
-        "prone"
       ]
     },
     {
@@ -11465,9 +10767,6 @@
       "entries": [
         "This spell repairs a single break or tear in an object you touch, such as a broken chain link, two halves of a broken key, a torn cloak, or a leaking wineskin. As long as the break or tear is no larger than 1 foot in any dimension, you mend it, leaving no trace of the former damage.",
         "This spell can physically repair a magic item, but it can't restore magic to such an object."
-      ],
-      "miscTags": [
-        "OBJ"
       ]
     },
     {
@@ -11552,11 +10851,6 @@
       ],
       "savingThrow": [
         "dexterity"
-      ],
-      "miscTags": [
-        "BO",
-        "OBJ",
-        "SGT"
       ],
       "areaTags": [
         "S"
@@ -11660,9 +10954,6 @@
       "savingThrow": [
         "wisdom"
       ],
-      "miscTags": [
-        "SGT"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -11761,9 +11052,6 @@
         "Similarly, you can alter the appearance of structures or add them where none are present. The spell doesn't disguise, conceal, or add creatures.",
         "The illusion includes audible, visual, tactile, and olfactory elements, so it can turn clear ground into {@variantrule Difficult Terrain|XPHB} (or vice versa) or otherwise impede movement through the area. Any piece of the illusory terrain (such as a rock or stick) that is removed from the spell's area disappears immediately.",
         "Creatures with {@sense Truesight|XPHB} can see through the illusion to the terrain's true form; however, all other elements of the illusion remain, so while the creature is aware of the illusion's presence, the creature can still physically interact with the illusion."
-      ],
-      "miscTags": [
-        "DFT"
       ]
     },
     {
@@ -11842,13 +11130,6 @@
         "You gain the {@condition Invisible|XPHB} condition at the same time that an illusory double of you appears where you are standing. The double lasts for the duration, but the invisibility ends immediately after you make an attack roll, deal damage, or cast a spell.",
         "As a {@action Magic|XPHB} action, you can move the illusory double up to twice your {@variantrule Speed|XPHB} and make it gesture, speak, and behave in whatever way you choose. It is intangible and invulnerable.",
         "You can see through its eyes and hear through its ears as if you were located where it is."
-      ],
-      "conditionInflict": [
-        "invisible"
-      ],
-      "miscTags": [
-        "SGT",
-        "UA"
       ]
     },
     {
@@ -11881,10 +11162,6 @@
       ],
       "entries": [
         "Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space you can see."
-      ],
-      "miscTags": [
-        "SGT",
-        "TP"
       ]
     },
     {
@@ -11938,16 +11215,8 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "charmed",
-        "incapacitated"
-      ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "PRM",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -12008,10 +11277,6 @@
       "savingThrow": [
         "constitution"
       ],
-      "miscTags": [
-        "LGT",
-        "UA"
-      ],
       "areaTags": [
         "Y"
       ]
@@ -12062,10 +11327,6 @@
       ],
       "savingThrow": [
         "dexterity"
-      ],
-      "miscTags": [
-        "SGT",
-        "UA"
       ]
     },
     {
@@ -12112,9 +11373,6 @@
         "You can create any floor plan you like for the dwelling, but it can't exceed 50 contiguous 10-foot Cubes. The place is furnished and decorated as you choose. It contains sufficient food to serve a nine-course banquet for up to 100 people. Furnishings and other objects created by this spell dissipate into smoke if removed from it.",
         "A staff of 100 near-transparent servants attends all who enter. You determine the appearance of these servants and their attire. They are invulnerable and obey your commands. Each servant can perform tasks that a human could perform, but they can't attack or take any action that would directly harm another creature. Thus the servants can fetch things, clean, mend, fold clothes, light fires, serve food, pour wine, and so on. The servants can't leave the dwelling.",
         "When the spell ends, any creatures or objects left inside the extradimensional space are expelled into the unoccupied spaces nearest to the entrance."
-      ],
-      "miscTags": [
-        "OBJ"
       ]
     },
     {
@@ -12177,10 +11435,6 @@
           ]
         }
       ],
-      "miscTags": [
-        "PIR",
-        "PRM"
-      ],
       "areaTags": [
         "C"
       ]
@@ -12234,11 +11488,6 @@
       ],
       "spellAttack": [
         "M"
-      ],
-      "miscTags": [
-        "SGT",
-        "UA",
-        "UBA"
       ],
       "areaTags": [
         "ST"
@@ -12331,9 +11580,6 @@
       "entries": [
         "For the duration, you hide a target that you touch from Divination spells. The target can be a willing creature, or it can be a place or an object no larger than 10 feet in any dimension. The target can't be targeted by any Divination spell or perceived through magical scrying sensors."
       ],
-      "miscTags": [
-        "OBJ"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -12388,11 +11634,6 @@
             "You change the way the target appears to spells and magical effects that detect magical auras, such as {@spell Detect Magic|XPHB}. You can make a nonmagical object appear magical, make a magic item appear nonmagical, or change the object's aura so that it appears to belong to a school of magic you choose."
           ]
         }
-      ],
-      "miscTags": [
-        "OBJ",
-        "PIR",
-        "PRM"
       ],
       "areaTags": [
         "ST"
@@ -12516,9 +11757,6 @@
       "savingThrow": [
         "dexterity"
       ],
-      "miscTags": [
-        "OBJ"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -12561,14 +11799,8 @@
         "One creature that you can see within range must make a Wisdom saving throw. On a successful save, the target dances comically until the end of its next turn, during which it must spend all its movement to dance in place.",
         "On a failed save, the target has the {@condition Charmed|XPHB} condition for the duration. While {@condition Charmed|XPHB}, the target dances comically, must use all its movement to dance in place, and has {@variantrule Disadvantage|XPHB} on Dexterity saving throws and attack rolls, and other creatures have {@variantrule Advantage|XPHB} on attack rolls against it. On each of its turns, the target can take an action to collect itself and repeat the save, ending the spell on itself on a success."
       ],
-      "conditionInflict": [
-        "charmed"
-      ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -12655,10 +11887,6 @@
       "entries": [
         "A passage appears at a point that you can see on a wooden, plaster, or stone surface (such as a wall, ceiling, or floor) within range and lasts for the duration. You choose the opening's dimensions: up to 5 feet wide, 8 feet tall, and 20 feet deep. The passage creates no instability in a structure surrounding it.",
         "When the opening disappears, any creatures or objects still in the passage created by the spell are safely ejected to an unoccupied space nearest to the surface on which you cast the spell."
-      ],
-      "miscTags": [
-        "OBJ",
-        "SGT"
       ]
     },
     {
@@ -12711,9 +11939,6 @@
       ],
       "abilityCheck": [
         "intelligence"
-      ],
-      "miscTags": [
-        "SGT"
       ]
     },
     {
@@ -12770,9 +11995,6 @@
       "savingThrow": [
         "wisdom"
       ],
-      "miscTags": [
-        "SGT"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -12816,10 +12038,7 @@
       },
       "entries": [
         "A Large, quasi-real, horselike creature appears on the ground in an unoccupied space of your choice within range. You decide the creature's appearance, and it is equipped with a saddle, bit, and bridle. Any of the equipment created by the spell vanishes in a puff of smoke if it is carried more than 10 feet away from the steed.",
-        "For the duration, you or a creature you choose can ride the steed. The steed uses the Riding Horse stat block, except it has a {@variantrule Speed|XPHB} of 100 feet and can travel 13 miles in an hour. When the spell ends, the steed gradually fades, giving the rider 1 minute to dismount. The spell ends early if the steed takes any damage."
-      ],
-      "miscTags": [
-        "SMN"
+        "For the duration, you or a creature you choose can ride the steed. The steed uses the {@creature Riding Horse|XMM} stat block, except it has a {@variantrule Speed|XPHB} of 100 feet and can travel 13 miles in an hour. When the spell ends, the steed gradually fades, giving the rider 1 minute to dismount. The spell ends early if the steed takes any damage."
       ]
     },
     {
@@ -12858,9 +12077,6 @@
         "Payment can take a variety of forms. A Celestial might require a sizable donation of gold or magic items to an allied temple, while a Fiend might demand a living sacrifice or a gift of treasure. Some creatures might exchange their service for a quest undertaken by you.",
         "A task that can be measured in minutes requires a payment worth 100 GP per minute. A task measured in hours requires 1,000 GP per hour. And a task measured in days (up to 10 days) requires 10,000 GP per day. The DM can adjust these payments based on the circumstances under which you cast the spell. If the task is aligned with the creature's ethos, the payment might be halved or even waived. Nonhazardous tasks typically require only half the suggested payment, while especially dangerous tasks might require a greater gift. Creatures rarely accept tasks that seem suicidal.",
         "After the creature completes the task, or when the agreed-upon duration of service expires, the creature returns to its home plane after reporting back to you if possible. If you are unable to agree on a price for the creature's service, the creature immediately returns to its home plane."
-      ],
-      "miscTags": [
-        "SMN"
       ]
     },
     {
@@ -12924,9 +12140,6 @@
         "fey",
         "fiend"
       ],
-      "miscTags": [
-        "SMN"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -12967,10 +12180,6 @@
       "entries": [
         "You and up to eight willing creatures who link hands in a circle are transported to a different plane of existence. You can specify a target destination in general terms, such as the City of Brass on the Elemental Plane of Fire or the palace of Dispater on the second level of the Nine Hells, and you appear in or near that destination, as determined by the DM.",
         "Alternatively, if you know the sigil sequence of a teleportation circle on another plane of existence, this spell can take you to that circle. If the teleportation circle is too small to hold all the creatures you transported, they appear in the closest unoccupied spaces next to the circle."
-      ],
-      "miscTags": [
-        "PS",
-        "TP"
       ]
     },
     {
@@ -13025,9 +12234,6 @@
             "All plants in a half-mile radius centered on a point within range become enriched for 365 days. The plants yield twice the normal amount of food when harvested. They can benefit from only one Plant Growth per year."
           ]
         }
-      ],
-      "miscTags": [
-        "DFT"
       ]
     },
     {
@@ -13087,9 +12293,6 @@
       "spellAttack": [
         "R"
       ],
-      "miscTags": [
-        "SCL"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -13139,9 +12342,6 @@
       "savingThrow": [
         "wisdom"
       ],
-      "miscTags": [
-        "SGT"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -13178,9 +12378,6 @@
       ],
       "entries": [
         "A wave of healing energy washes over one creature you can see within range. The target regains all its {@variantrule Hit Points|XPHB}. If the creature has the {@condition Charmed|XPHB}, {@condition Frightened|XPHB}, {@condition Paralyzed|XPHB}, {@condition Poisoned|XPHB}, or {@condition Stunned|XPHB} condition, the condition ends. If the creature has the {@condition Prone|XPHB} condition, it can use its {@variantrule Reaction|XPHB} to stand up."
-      ],
-      "miscTags": [
-        "HL"
       ],
       "areaTags": [
         "ST"
@@ -13221,9 +12418,6 @@
       "damageInflict": [
         "psychic"
       ],
-      "miscTags": [
-        "SGT"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -13261,14 +12455,8 @@
         "You overwhelm the mind of one creature you can see within range. If the target has 150 {@variantrule Hit Points|XPHB} or fewer, it has the {@condition Stunned|XPHB} condition. Otherwise, its {@variantrule Speed|XPHB} is 0 until the start of your next turn.",
         "The {@condition Stunned|XPHB} target makes a Constitution saving throw at the end of each of its turns, ending the condition on itself on a success."
       ],
-      "conditionInflict": [
-        "stunned"
-      ],
       "savingThrow": [
         "constitution"
-      ],
-      "miscTags": [
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -13314,9 +12502,6 @@
             "The healing increases by {@scaledice 2d8|2-9|1d8} for each spell slot level above 2."
           ]
         }
-      ],
-      "miscTags": [
-        "HL"
       ],
       "areaTags": [
         "MT"
@@ -13400,10 +12585,6 @@
             "You create a nonmagical trinket or an illusory image that can fit in your hand. It lasts until the end of your next turn. A trinket can deal no damage and has no monetary worth."
           ]
         }
-      ],
-      "miscTags": [
-        "BO",
-        "OBJ"
       ]
     },
     {
@@ -13492,18 +12673,10 @@
         "lightning",
         "poison"
       ],
-      "conditionInflict": [
-        "blinded",
-        "petrified",
-        "restrained"
-      ],
       "savingThrow": [
         "dexterity",
         "constitution",
         "wisdom"
-      ],
-      "miscTags": [
-        "PRM"
       ],
       "areaTags": [
         "N"
@@ -13599,19 +12772,10 @@
         "lightning",
         "poison"
       ],
-      "conditionInflict": [
-        "blinded",
-        "petrified",
-        "restrained"
-      ],
       "savingThrow": [
         "constitution",
         "dexterity",
         "wisdom"
-      ],
-      "miscTags": [
-        "LGT",
-        "PRM"
       ],
       "areaTags": [
         "W"
@@ -13677,12 +12841,6 @@
       ],
       "spellAttack": [
         "R"
-      ],
-      "miscTags": [
-        "LGT",
-        "OBJ",
-        "SCL",
-        "UA"
       ],
       "areaTags": [
         "ST"
@@ -13781,10 +12939,6 @@
       ],
       "abilityCheck": [
         "intelligence"
-      ],
-      "miscTags": [
-        "SGT",
-        "UA"
       ]
     },
     {
@@ -13885,9 +13039,6 @@
         "fiend",
         "undead"
       ],
-      "miscTags": [
-        "ADV"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -13930,9 +13081,6 @@
       ],
       "damageResist": [
         "poison"
-      ],
-      "miscTags": [
-        "ADV"
       ],
       "areaTags": [
         "ST"
@@ -14032,9 +13180,6 @@
         "monstrosity",
         "ooze",
         "plant"
-      ],
-      "miscTags": [
-        "HL"
       ]
     },
     {
@@ -14186,9 +13331,6 @@
       "spellAttack": [
         "R"
       ],
-      "miscTags": [
-        "SCL"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -14238,9 +13380,6 @@
       "damageInflict": [
         "poison"
       ],
-      "conditionInflict": [
-        "poisoned"
-      ],
       "spellAttack": [
         "R"
       ],
@@ -14284,9 +13423,6 @@
       ],
       "entries": [
         "A creature you touch regains {@dice 4d8 + 15} {@variantrule Hit Points|XPHB}. For the duration, the target regains 1 {@variantrule Hit Points|XPHB|Hit Point} at the start of each of its turns, and any severed body parts regrow after 2 minutes."
-      ],
-      "miscTags": [
-        "HL"
       ],
       "areaTags": [
         "ST"
@@ -14385,10 +13521,6 @@
       ],
       "affectsCreatureType": [
         "humanoid"
-      ],
-      "miscTags": [
-        "HL",
-        "RO"
       ]
     },
     {
@@ -14422,9 +13554,6 @@
       ],
       "entries": [
         "At your touch, all curses affecting one creature or object end. If the object is a cursed magic item, its curse remains, but the spell breaks its owner's {@variantrule Attunement|XPHB} to the object so it can be removed or discarded."
-      ],
-      "miscTags": [
-        "OBJ"
       ],
       "areaTags": [
         "ST"
@@ -14525,9 +13654,6 @@
         "monstrosity",
         "ooze",
         "plant"
-      ],
-      "miscTags": [
-        "HL"
       ]
     },
     {
@@ -14573,9 +13699,6 @@
       "savingThrow": [
         "dexterity"
       ],
-      "miscTags": [
-        "OBJ"
-      ],
       "areaTags": [
         "Y"
       ]
@@ -14616,9 +13739,6 @@
       ],
       "entries": [
         "You touch a creature that has died within the last minute. That creature revives with 1 {@variantrule Hit Points|XPHB|Hit Point}. This spell can't revive a creature that has died of old age, nor does it restore any missing body parts."
-      ],
-      "miscTags": [
-        "HL"
       ],
       "areaTags": [
         "ST"
@@ -14719,10 +13839,6 @@
       ],
       "savingThrow": [
         "dexterity"
-      ],
-      "miscTags": [
-        "SCL",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -14975,9 +14091,6 @@
       ],
       "savingThrow": [
         "constitution"
-      ],
-      "miscTags": [
-        "AAD"
       ]
     },
     {
@@ -15064,9 +14177,6 @@
       "abilityCheck": [
         "intelligence"
       ],
-      "miscTags": [
-        "SGT"
-      ],
       "areaTags": [
         "MT"
       ]
@@ -15149,13 +14259,6 @@
         "If the target is a creature, it enters a state of suspended animation; it has the {@condition Unconscious|XPHB} condition, doesn't age, and doesn't need food, water, or air.",
         "You can set a condition for the spell to end early. The condition can be anything you choose, but it must occur or be visible within 1 mile of the target. Examples include \"after 1,000 years\" or \"when the tarrasque awakens.\" This spell also ends if the target takes any damage."
       ],
-      "conditionInflict": [
-        "invisible",
-        "unconscious"
-      ],
-      "miscTags": [
-        "OBJ"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -15203,10 +14306,6 @@
         "When you cast the spell, you gain a number of {@variantrule Temporary Hit Points|XPHB} equal to the {@variantrule Hit Points|XPHB} of the first form into which you shape-shift. These {@variantrule Temporary Hit Points|XPHB} vanish if any remain when the spell ends.",
         "Your game statistics are replaced by the stat block of the chosen form, but you retain your creature type; alignment; personality; Intelligence, Wisdom, and Charisma scores; {@variantrule Hit Points|XPHB}; {@variantrule Hit Point Dice|XPHB}; proficiencies; and ability to communicate. If you have the Spellcasting feature, you retain it too.",
         "Upon shape-shifting, you determine whether your equipment drops to the ground or changes in size and shape to fit the new form while you're in it."
-      ],
-      "miscTags": [
-        "THP",
-        "UA"
       ]
     },
     {
@@ -15259,9 +14358,6 @@
       "savingThrow": [
         "constitution"
       ],
-      "miscTags": [
-        "OBJ"
-      ],
       "areaTags": [
         "S"
       ]
@@ -15302,9 +14398,6 @@
       ],
       "entries": [
         "An imperceptible barrier of magical force protects you. Until the start of your next turn, you have a +5 bonus to AC, including against the triggering attack, and you take no damage from {@spell Magic Missile|XPHB}."
-      ],
-      "miscTags": [
-        "MAC"
       ]
     },
     {
@@ -15345,9 +14438,6 @@
       ],
       "entries": [
         "A shimmering field surrounds a creature of your choice within range, granting it a +2 bonus to AC for the duration."
-      ],
-      "miscTags": [
-        "MAC"
       ],
       "areaTags": [
         "ST"
@@ -15411,10 +14501,6 @@
       },
       "damageInflict": [
         "force"
-      ],
-      "miscTags": [
-        "AAD",
-        "SCL"
       ]
     },
     {
@@ -15465,11 +14551,6 @@
       ],
       "damageInflict": [
         "radiant"
-      ],
-      "miscTags": [
-        "AAD",
-        "ADV",
-        "LGT"
       ],
       "areaTags": [
         "ST"
@@ -15531,9 +14612,6 @@
       "spellAttack": [
         "M"
       ],
-      "miscTags": [
-        "SCL"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -15582,12 +14660,6 @@
       "damageImmune": [
         "thunder"
       ],
-      "conditionInflict": [
-        "deafened"
-      ],
-      "miscTags": [
-        "OBJ"
-      ],
       "areaTags": [
         "S"
       ]
@@ -15635,9 +14707,6 @@
       ],
       "abilityCheck": [
         "intelligence"
-      ],
-      "miscTags": [
-        "UA"
       ]
     },
     {
@@ -15731,10 +14800,6 @@
         "Each creature of your choice in a 5-foot-radius {@variantrule Sphere [Area of Effect]|XPHB|Sphere} centered on a point within range must succeed on a Wisdom saving throw or have the {@condition Incapacitated|XPHB} condition until the end of its next turn, at which point it must repeat the save. If the target fails the second save, the target has the {@condition Unconscious|XPHB} condition for the duration. The spell ends on a target if it takes damage or someone within 5 feet of it takes an action to shake it out of the spell's effect.",
         "Creatures that don't sleep, such as elves, or that have {@variantrule Immunity|XPHB} to the {@condition Exhaustion|XPHB} condition automatically succeed on saves against this spell."
       ],
-      "conditionInflict": [
-        "incapacitated",
-        "unconscious"
-      ],
       "savingThrow": [
         "wisdom"
       ],
@@ -15782,15 +14847,8 @@
         "Until the spell ends, sleet falls in a 40-foot-tall, 20-foot-radius {@variantrule Cylinder [Area of Effect]|XPHB|Cylinder} centered on a point you choose within range. The area is {@variantrule Heavily Obscured|XPHB}, and exposed flames in the area are doused.",
         "Ground in the {@variantrule Cylinder [Area of Effect]|XPHB|Cylinder} is {@variantrule Difficult Terrain|XPHB}. When a creature enters the {@variantrule Cylinder [Area of Effect]|XPHB|Cylinder} for the first time on a turn or starts its turn there, it must succeed on a Dexterity saving throw or have the {@condition Prone|XPHB} condition and lose {@status Concentration|XPHB}."
       ],
-      "conditionInflict": [
-        "prone"
-      ],
       "savingThrow": [
         "dexterity"
-      ],
-      "miscTags": [
-        "DFT",
-        "OBS"
       ],
       "areaTags": [
         "Y"
@@ -15839,9 +14897,6 @@
       ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "MAC"
       ],
       "areaTags": [
         "C",
@@ -15912,10 +14967,6 @@
       "spellAttack": [
         "R"
       ],
-      "miscTags": [
-        "OBJ",
-        "SCL"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -15961,9 +15012,6 @@
             "The range doubles when you reach levels 5 (30 feet), 11 (60 feet), and 17 (120 feet)."
           ]
         }
-      ],
-      "miscTags": [
-        "SCL"
       ],
       "areaTags": [
         "ST"
@@ -16110,9 +15158,6 @@
       ],
       "affectsCreatureType": [
         "plant"
-      ],
-      "miscTags": [
-        "DFT"
       ]
     },
     {
@@ -16161,9 +15206,6 @@
             "You can target one additional creature for each spell slot level above 2."
           ]
         }
-      ],
-      "miscTags": [
-        "SCT"
       ]
     },
     {
@@ -16211,9 +15253,6 @@
       ],
       "abilityCheck": [
         "wisdom"
-      ],
-      "miscTags": [
-        "DFT"
       ],
       "areaTags": [
         "S"
@@ -16333,9 +15372,6 @@
       "spellAttack": [
         "M"
       ],
-      "miscTags": [
-        "UBA"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -16397,11 +15433,6 @@
       "spellAttack": [
         "R"
       ],
-      "miscTags": [
-        "LGT",
-        "OBJ",
-        "SCL"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -16446,14 +15477,8 @@
         "You create a 20-foot-radius {@variantrule Sphere [Area of Effect]|XPHB|Sphere} of yellow, nauseating gas centered on a point within range. The cloud is {@variantrule Heavily Obscured|XPHB}. The cloud lingers in the air for the duration or until a strong wind (such as the one created by {@spell Gust of Wind|XPHB}) disperses it.",
         "Each creature that starts its turn in the {@variantrule Sphere [Area of Effect]|XPHB|Sphere} must succeed on a Constitution saving throw or have the {@condition Poisoned|XPHB} condition until the end of the current turn. While {@condition Poisoned|XPHB} in this way, the creature can't take an action or a {@variantrule Bonus Action|XPHB}."
       ],
-      "conditionInflict": [
-        "poisoned"
-      ],
       "savingThrow": [
         "constitution"
-      ],
-      "miscTags": [
-        "OBS"
       ],
       "areaTags": [
         "S"
@@ -16491,9 +15516,6 @@
       ],
       "entries": [
         "You touch a stone object of Medium size or smaller or a section of stone no more than 5 feet in any dimension and form it into any shape you like. For example, you could shape a large rock into a weapon, statue, or coffer, or you could make a small passage through a wall that is 5 feet thick. You could also shape a stone door or its frame to seal the door shut. The object you create can have up to two hinges and a latch, but finer mechanical detail isn't possible."
-      ],
-      "miscTags": [
-        "OBJ"
       ]
     },
     {
@@ -16621,17 +15643,9 @@
         "lightning",
         "thunder"
       ],
-      "conditionInflict": [
-        "deafened"
-      ],
       "savingThrow": [
         "constitution",
         "dexterity"
-      ],
-      "miscTags": [
-        "DFT",
-        "OBJ",
-        "OBS"
       ],
       "areaTags": [
         "Y"
@@ -16676,14 +15690,8 @@
         "You suggest a course of activity—described in no more than 25 words—to one creature you can see within range that can hear and understand you. The suggestion must sound achievable and not involve anything that would obviously deal damage to the target or its allies. For example, you could say, \"Fetch the key to the cult's treasure vault, and give the key to me.\" Or you could say, \"Stop fighting, leave this library peacefully, and don't return.\"",
         "The target must succeed on a Wisdom saving throw or have the {@condition Charmed|XPHB} condition for the duration or until you or your allies deal damage to the target. The {@condition Charmed|XPHB} target pursues the suggestion to the best of its ability. The suggested activity can continue for the entire duration, but if the suggested activity can be completed in a shorter time, the spell ends for the target upon completing it."
       ],
-      "conditionInflict": [
-        "charmed"
-      ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -16729,7 +15737,7 @@
         }
       ],
       "entries": [
-        "You call forth a Dragon spirit. It manifests in an unoccupied space that you can see within range and uses the Draconic Spirit stat block. The creature disappears when it drops to 0 {@variantrule Hit Points|XPHB} or when the spell ends.",
+        "You call forth a Dragon spirit. It manifests in an unoccupied space that you can see within range and uses the {@creature Draconic Spirit|XPHB} stat block. The creature disappears when it drops to 0 {@variantrule Hit Points|XPHB} or when the spell ends.",
         "The creature is an ally to you and your allies. In combat, the creature shares your {@variantrule Initiative|XPHB} count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the {@action Dodge|XPHB} action and uses its movement to avoid danger."
       ],
       "entriesHigherLevel": [
@@ -16740,10 +15748,6 @@
             "Use the spell slot's level for the spell's level in the stat block."
           ]
         }
-      ],
-      "miscTags": [
-        "SGT",
-        "SMN"
       ]
     },
     {
@@ -16790,15 +15794,8 @@
       "damageInflict": [
         "radiant"
       ],
-      "conditionInflict": [
-        "blinded"
-      ],
       "savingThrow": [
         "constitution"
-      ],
-      "miscTags": [
-        "LGTS",
-        "UA"
       ],
       "areaTags": [
         "L"
@@ -16843,15 +15840,8 @@
       "damageInflict": [
         "radiant"
       ],
-      "conditionInflict": [
-        "blinded"
-      ],
       "savingThrow": [
         "constitution"
-      ],
-      "miscTags": [
-        "LGT",
-        "LGTS"
       ],
       "areaTags": [
         "S"
@@ -16954,12 +15944,6 @@
       "damageInflict": [
         "necrotic"
       ],
-      "conditionInflict": [
-        "frightened",
-        "incapacitated",
-        "stunned",
-        "unconscious"
-      ],
       "savingThrow": [
         "constitution",
         "wisdom",
@@ -16967,10 +15951,6 @@
       ],
       "abilityCheck": [
         "wisdom"
-      ],
-      "miscTags": [
-        "LGT",
-        "OBJ"
       ],
       "areaTags": [
         "S"
@@ -17025,16 +16005,8 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "incapacitated",
-        "prone"
-      ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "SCT",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -17094,16 +16066,8 @@
           ]
         }
       ],
-      "conditionInflict": [
-        "restrained"
-      ],
       "savingThrow": [
         "strength"
-      ],
-      "miscTags": [
-        "FMV",
-        "OBJ",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -17253,12 +16217,6 @@
       "damageInflict": [
         "force"
       ],
-      "miscTags": [
-        "OBJ",
-        "RO",
-        "SGT",
-        "TP"
-      ],
       "areaTags": [
         "MT"
       ]
@@ -17306,11 +16264,6 @@
         "Many major temples, guildhalls, and other important places have permanent teleportation circles. Each circle includes a unique sigil sequence—a string of runes arranged in a particular pattern.",
         "When you first gain the ability to cast this spell, you learn the sigil sequences for two destinations on the Material Plane, determined by the DM. You might learn additional sigil sequences during your adventures. You can commit a new sigil sequence to memory after studying it for 1 minute.",
         "You can create a permanent teleportation circle by casting this spell in the same location every day for 365 days."
-      ],
-      "miscTags": [
-        "PIR",
-        "PRM",
-        "TP"
       ]
     },
     {
@@ -17355,9 +16308,6 @@
         "This spell creates a circular, horizontal plane of force, 3 feet in diameter and 1 inch thick, that floats 3 feet above the ground in an unoccupied space of your choice that you can see within range. The disk remains for the duration and can hold up to 500 pounds. If more weight is placed on it, the spell ends, and everything on the disk falls to the ground.",
         "The disk is immobile while you are within 20 feet of it. If you move more than 20 feet away from it, the disk follows you so that it remains within 20 feet of you. It can move across uneven terrain, up or down stairs, slopes and the like, but it can't cross an elevation change of 10 feet or more. For example, the disk can't move across a 10-foot-deep pit, nor could it leave such a pit if it was created at the bottom.",
         "If you move more than 100 feet from the disk (typically because it can't move around an obstacle to follow you), the spell ends."
-      ],
-      "miscTags": [
-        "SGT"
       ]
     },
     {
@@ -17437,9 +16387,6 @@
             "You cause harmless tremors in the ground for 1 minute."
           ]
         }
-      ],
-      "miscTags": [
-        "ADV"
       ]
     },
     {
@@ -17490,10 +16437,6 @@
       ],
       "savingThrow": [
         "constitution"
-      ],
-      "miscTags": [
-        "FMV",
-        "OBJ"
       ],
       "areaTags": [
         "C"
@@ -17608,9 +16551,6 @@
       ],
       "entries": [
         "This spell creates a magical link between a Large or larger inanimate plant within range and another plant, at any distance, on the same plane of existence. You must have seen or touched the destination plant at least once before. For the duration, any creature can step into the target plant and exit from the destination plant by using 5 feet of movement."
-      ],
-      "miscTags": [
-        "TP"
       ]
     },
     {
@@ -17650,9 +16590,6 @@
       "entries": [
         "You gain the ability to enter a tree and move from inside it to inside another tree of the same kind within 500 feet. Both trees must be living and at least the same size as you. You must use 5 feet of movement to enter a tree. You instantly know the location of all other trees of the same kind within 500 feet and, as part of the move used to enter the tree, can either pass into one of those trees or step out of the tree you're in. You appear in a spot of your choice within 5 feet of the destination tree, using another 5 feet of movement. If you have no movement left, you appear within 5 feet of the tree you entered.",
         "You can use this transportation ability only once on each of your turns. You must end each turn outside a tree."
-      ],
-      "miscTags": [
-        "TP"
       ]
     },
     {
@@ -17723,13 +16660,6 @@
       "savingThrow": [
         "wisdom"
       ],
-      "miscTags": [
-        "OBJ",
-        "PRM",
-        "SGT",
-        "SMN",
-        "THP"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -17772,9 +16702,6 @@
         "You touch a creature that has been dead for no longer than 200 years and that died for any reason except old age. The creature is revived with all its {@variantrule Hit Points|XPHB}.",
         "This spell closes all wounds, neutralizes any poison, cures all magical contagions, and lifts any curses affecting the creature when it died. The spell replaces damaged or missing organs and limbs. If the creature was Undead, it is restored to its non-Undead form.",
         "The spell can provide a new body if the original no longer exists, in which case you must speak the creature's name. The creature then appears in an unoccupied space you choose within 10 feet of you."
-      ],
-      "miscTags": [
-        "HL"
       ],
       "areaTags": [
         "ST"
@@ -17879,9 +16806,6 @@
       "damageInflict": [
         "radiant"
       ],
-      "miscTags": [
-        "AAD"
-      ],
       "areaTags": [
         "ST"
       ]
@@ -17982,11 +16906,6 @@
         "This spell creates an {@condition Invisible|XPHB}, mindless, shapeless, Medium force that performs simple tasks at your command until the spell ends. The servant springs into existence in an unoccupied space on the ground within range. It has AC 10, 1 {@variantrule Hit Points|XPHB|Hit Point}, and a Strength of 2, and it can't attack. If it drops to 0 {@variantrule Hit Points|XPHB}, the spell ends.",
         "Once on each of your turns as a {@variantrule Bonus Action|XPHB}, you can mentally command the servant to move up to 15 feet and interact with an object. The servant can perform simple tasks that a human could do, such as fetching things, cleaning, mending, folding clothes, lighting fires, serving food, and pouring drinks. Once you give the command, the servant performs the task to the best of its ability until it completes the task, then waits for your next command.",
         "If you command the servant to perform a task that would move it more than 60 feet away from you, the spell ends."
-      ],
-      "miscTags": [
-        "SMN",
-        "UA",
-        "UBA"
       ]
     },
     {
@@ -18041,9 +16960,6 @@
       ],
       "spellAttack": [
         "M"
-      ],
-      "miscTags": [
-        "HL"
       ],
       "areaTags": [
         "ST"
@@ -18104,10 +17020,6 @@
       ],
       "savingThrow": [
         "wisdom"
-      ],
-      "miscTags": [
-        "SCL",
-        "SGT"
       ],
       "areaTags": [
         "ST"
@@ -18379,10 +17291,6 @@
       "savingThrow": [
         "dexterity"
       ],
-      "miscTags": [
-        "OBJ",
-        "PRM"
-      ],
       "areaTags": [
         "W"
       ]
@@ -18488,9 +17396,6 @@
       "entries": [
         "You touch another creature that is willing and create a mystic connection between you and the target until the spell ends. While the target is within 60 feet of you, it gains a +1 bonus to AC and saving throws, and it has {@variantrule Resistance|XPHB} to all damage. Also, each time it takes damage, you take the same amount of damage.",
         "The spell ends if you drop to 0 {@variantrule Hit Points|XPHB} or if you and the target become separated by more than 60 feet. It also ends if the spell is cast again on either of the connected creatures."
-      ],
-      "miscTags": [
-        "MAC"
       ],
       "areaTags": [
         "ST"
@@ -18633,18 +17538,11 @@
       "damageInflict": [
         "fire"
       ],
-      "conditionInflict": [
-        "restrained"
-      ],
       "savingThrow": [
         "dexterity"
       ],
       "abilityCheck": [
         "strength"
-      ],
-      "miscTags": [
-        "DFT",
-        "OBS"
       ],
       "areaTags": [
         "C"
@@ -18692,9 +17590,6 @@
       "damageInflict": [
         "psychic"
       ],
-      "conditionInflict": [
-        "frightened"
-      ],
       "savingThrow": [
         "wisdom"
       ],
@@ -18740,9 +17635,6 @@
       "entries": [
         "You and up to ten willing creatures of your choice within range assume gaseous forms for the duration, appearing as wisps of cloud. While in this cloud form, a target has a {@variantrule Fly Speed|XPHB} of 300 feet and can hover; it has {@variantrule Immunity|XPHB} to the {@condition Prone|XPHB} condition; and it has {@variantrule Resistance|XPHB} to Bludgeoning, Piercing, and Slashing damage. The only actions a target can take in this form are the {@action Dash|XPHB} action or a {@action Magic|XPHB} action to begin reverting to its normal form. Reverting takes 1 minute, during which the target has the {@condition Stunned|XPHB} condition. Until the spell ends, the target can revert to cloud form, which also requires a {@action Magic|XPHB} action followed by a 1-minute transformation.",
         "If a target is in cloud form and flying when the effect ends, the target descends 60 feet per round for 1 minute until it lands, which it does safely. If it can't land after 1 minute, it falls the remaining distance."
-      ],
-      "conditionInflict": [
-        "stunned"
       ],
       "areaTags": [
         "MT"
@@ -18905,11 +17797,6 @@
       ],
       "damageInflict": [
         "necrotic"
-      ],
-      "miscTags": [
-        "ADV",
-        "HL",
-        "SGT"
       ]
     },
     {
@@ -18944,10 +17831,6 @@
       "entries": [
         "You and up to five willing creatures within 5 feet of you instantly teleport to a previously designated sanctuary. You and any creatures that teleport with you appear in the nearest unoccupied space to the spot you designated when you prepared your sanctuary (see below). If you cast this spell without first preparing a sanctuary, the spell has no effect.",
         "You must designate a location, such as a temple, as a sanctuary by casting this spell there."
-      ],
-      "miscTags": [
-        "PS",
-        "TP"
       ]
     },
     {

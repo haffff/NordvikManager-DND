@@ -76,9 +76,6 @@
       "value": 2500,
       "entries": [
         "When you take the {@action Attack|XPHB} action, you can replace one of your attacks with throwing a vial of Acid. Target one creature or object you can see within 20 feet of yourself. The target must succeed on a Dexterity saving throw ({@dc 8} plus your Dexterity modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}) or take {@damage 2d6} Acid damage."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -109,9 +106,6 @@
       "value": 5000,
       "entries": [
         "When you take the {@action Attack|XPHB} action, you can replace one of your attacks with throwing a flask of Alchemist's Fire. Target one creature or object you can see within 20 feet of yourself. The target must succeed on a Dexterity saving throw ({@dc 8} plus your Dexterity modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}) or take {@damage 1d4} Fire damage and start burning."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -122,10 +116,7 @@
       ],
       "type": "FD|XPHB",
       "rarity": "none",
-      "value": 4,
-      "miscTags": [
-        "CNS"
-      ]
+      "value": 4
     },
     {
       "name": "Amulet",
@@ -255,9 +246,6 @@
       "value": 5000,
       "entries": [
         "As a {@variantrule Bonus Action|XPHB}, you can drink a vial of Antitoxin to gain {@variantrule Advantage|XPHB} on saving throws to avoid or end the {@condition Poisoned|XPHB} condition for 1 hour."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -407,9 +395,6 @@
       ],
       "poisonTypes": [
         "ingested"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -464,7 +449,7 @@
             ],
             [
               "11-20",
-              "A Treant sprouts. Roll any die. On an odd roll, the treant is Chaotic Evil. On an even roll, the treant is Chaotic Good."
+              "A {@creature Treant|XMM} sprouts. Roll any die. On an odd roll, the treant is Chaotic Evil. On an even roll, the treant is Chaotic Good."
             ],
             [
               "21-30",
@@ -484,7 +469,7 @@
             ],
             [
               "61-70",
-              "A hungry Bulette burrows up and attacks."
+              "A hungry {@creature Bulette|XMM} burrows up and attacks."
             ],
             [
               "71-80",
@@ -496,7 +481,7 @@
             ],
             [
               "91-95",
-              "A pyramid with a 60-foot-square base bursts upward. Inside is a burial chamber containing a Mummy, a Mummy Lord, or some other Undead of the DM's choice. Its sarcophagus contains treasure of the DM's choice."
+              "A pyramid with a 60-foot-square base bursts upward. Inside is a burial chamber containing a {@creature Mummy|XMM}, a {@creature Mummy Lord|XMM}, or some other Undead of the DM's choice. Its sarcophagus contains treasure of the DM's choice."
             ],
             [
               "96-00",
@@ -569,35 +554,35 @@
           "rows": [
             [
               "1",
-              "Weasel"
+              "{@creature Weasel|XMM}"
             ],
             [
               "2",
-              "Giant Rat"
+              "{@creature Giant Rat|XMM}"
             ],
             [
               "3",
-              "Badger"
+              "{@creature Badger|XMM}"
             ],
             [
               "4",
-              "Boar"
+              "{@creature Boar|XMM}"
             ],
             [
               "5",
-              "Panther"
+              "{@creature Panther|XMM}"
             ],
             [
               "6",
-              "Giant Badger"
+              "{@creature Giant Badger|XMM}"
             ],
             [
               "7",
-              "Dire Wolf"
+              "{@creature Dire Wolf|XMM}"
             ],
             [
               "8",
-              "Giant Elk"
+              "{@creature Giant Elk|XMM}"
             ]
           ]
         }
@@ -630,35 +615,35 @@
           "rows": [
             [
               "1",
-              "Rat"
+              "{@creature Rat|XMM}"
             ],
             [
               "2",
-              "Owl"
+              "{@creature Owl|XMM}"
             ],
             [
               "3",
-              "Mastiff"
+              "{@creature Mastiff|XMM}"
             ],
             [
               "4",
-              "Goat"
+              "{@creature Goat|XMM}"
             ],
             [
               "5",
-              "Giant Goat"
+              "{@creature Giant Goat|XMM}"
             ],
             [
               "6",
-              "Giant Boar"
+              "{@creature Giant Boar|XMM}"
             ],
             [
               "7",
-              "Lion"
+              "{@creature Lion|XMM}"
             ],
             [
               "8",
-              "Brown Bear"
+              "{@creature Brown Bear|XMM}"
             ]
           ]
         }
@@ -691,35 +676,35 @@
           "rows": [
             [
               "1",
-              "Jackal"
+              "{@creature Jackal|XMM}"
             ],
             [
               "2",
-              "Ape"
+              "{@creature Ape|XMM}"
             ],
             [
               "3",
-              "Baboon"
+              "{@creature Baboon|XMM}"
             ],
             [
               "4",
-              "Axe Beak"
+              "{@creature Axe Beak|XMM}"
             ],
             [
               "5",
-              "Black Bear"
+              "{@creature Black Bear|XMM}"
             ],
             [
               "6",
-              "Giant Weasel"
+              "{@creature Giant Weasel|XMM}"
             ],
             [
               "7",
-              "Giant Hyena"
+              "{@creature Giant Hyena|XMM}"
             ],
             [
               "8",
-              "Tiger"
+              "{@creature Tiger|XMM}"
             ]
           ]
         }
@@ -770,9 +755,6 @@
       "poison": true,
       "entries": [
         "As a {@variantrule Bonus Action|XPHB}, you can use a vial of Basic Poison to coat one weapon or up to three pieces of ammunition. A creature that takes Piercing or Slashing damage from the poisoned weapon or ammunition takes an extra {@damage 1d4} Poison damage. Once applied, the poison retains potency for 1 minute or until its damage is dealt, whichever comes first."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -807,9 +789,6 @@
         "This small black sphere measures 3/4 of an inch in diameter and weighs an ounce. Typically, {@dice 1d4 + 4} Beads of Force are found together.",
         "You can take a {@action Magic|XPHB} action to throw the bead up to 60 feet. The bead explodes in a 10-foot-radius {@variantrule Sphere [Area of Effect]|XPHB|Sphere} on impact and is destroyed. Each creature in the {@variantrule Sphere [Area of Effect]|XPHB|Sphere} must succeed on a {@dc 15} Dexterity saving throw or take {@damage 5d4} Force damage. A sphere of transparent force then encloses the area for 1 minute. Any creature that failed the save and is completely within the area is trapped inside this sphere. Creatures that succeeded on the save or are partially within the area are pushed away from the center of the sphere until they are no longer inside it. Only breathable air can pass through the sphere's wall. No attack or other effect can pass through.",
         "An enclosed creature can take a {@action Utilize|XPHB} action to push against the sphere's wall, moving the sphere up to half the creature's {@variantrule Speed|XPHB}. The sphere can be picked up, and its magic causes it to weigh only 1 pound, regardless of the weight of creatures inside."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -822,10 +801,6 @@
       "wondrous": true,
       "entries": [
         "This flavorless, gelatinous bead dissolves on your tongue and provides as much nourishment as 1 day of Rations."
-      ],
-      "miscTags": [
-        "CF/W",
-        "CNS"
       ]
     },
     {
@@ -1219,7 +1194,7 @@
       "rarity": "rare",
       "wondrous": true,
       "entries": [
-        "While this bowl is filled with water and you are within 5 feet of it, you can take a {@action Magic|XPHB} action to summon a Water Elemental. The elemental appears in an unoccupied space as close to the bowl as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}. The bowl can't be used this way again until the next dawn.",
+        "While this bowl is filled with water and you are within 5 feet of it, you can take a {@action Magic|XPHB} action to summon a {@creature Water Elemental|XMM}. The elemental appears in an unoccupied space as close to the bowl as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}. The bowl can't be used this way again until the next dawn.",
         "The bowl is about 1 foot in diameter and half as deep. It holds about 3 gallons."
       ]
     },
@@ -1283,7 +1258,7 @@
       "rarity": "rare",
       "wondrous": true,
       "entries": [
-        "While you are within 5 feet of this brazier, you can take a {@action Magic|XPHB} action to summon a Fire Elemental. The elemental appears in an unoccupied space as close to the brazier as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}. The brazier can't be used this way again until the next dawn."
+        "While you are within 5 feet of this brazier, you can take a {@action Magic|XPHB} action to summon a {@creature Fire Elemental|XMM}. The elemental appears in an unoccupied space as close to the brazier as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}. The brazier can't be used this way again until the next dawn."
       ]
     },
     {
@@ -1294,10 +1269,7 @@
       ],
       "type": "FD|XPHB",
       "rarity": "none",
-      "value": 2,
-      "miscTags": [
-        "CNS"
-      ]
+      "value": 2
     },
     {
       "name": "Bronze Dragon Scale Mail",
@@ -1442,9 +1414,6 @@
       ],
       "poisonTypes": [
         "inhaled"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -1490,9 +1459,6 @@
           "bright": 5,
           "dim": 10
         }
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -1597,10 +1563,7 @@
             "gate|xphb"
           ]
         }
-      },
-      "miscTags": [
-        "CNS"
-      ]
+      }
     },
     {
       "name": "Cape of the Mountebank",
@@ -1700,9 +1663,6 @@
       ],
       "poisonTypes": [
         "contact"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -1725,7 +1685,7 @@
       "rarity": "rare",
       "wondrous": true,
       "entries": [
-        "While gently swinging this censer, you can take a {@action Magic|XPHB} action to summon an Air Elemental. The elemental appears in an unoccupied space as close to the censer as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}. The censer can't be used this way again until the next dawn."
+        "While gently swinging this censer, you can take a {@action Magic|XPHB} action to summon an {@creature Air Elemental|XMM}. The elemental appears in an unoccupied space as close to the censer as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}. The censer can't be used this way again until the next dawn."
       ]
     },
     {
@@ -1761,10 +1721,7 @@
       ],
       "type": "FD|XPHB",
       "rarity": "none",
-      "value": 10,
-      "miscTags": [
-        "CNS"
-      ]
+      "value": 10
     },
     {
       "name": "Chest",
@@ -1958,7 +1915,7 @@
       "wondrous": true,
       "entries": [
         "While wearing this cloak, you have {@variantrule Advantage|XPHB} on Dexterity ({@skill Stealth|XPHB}) checks. In an area of {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, you can grip the edges of the cloak and use it to gain a {@variantrule Fly Speed|XPHB} of 40 feet. If you ever fail to grip the cloak's edges while flying in this way, or if you are no longer in {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, you lose this {@variantrule Fly Speed|XPHB}.",
-        "While wearing the cloak in an area of {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, you can cast {@spell Polymorph|XPHB} on yourself, shape-shifting into a Bat. While in that form, you retain your Intelligence, Wisdom, and Charisma scores. The cloak can't be used this way again until the next dawn."
+        "While wearing the cloak in an area of {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, you can cast {@spell Polymorph|XPHB} on yourself, shape-shifting into a {@creature Bat|XMM}. While in that form, you retain your Intelligence, Wisdom, and Charisma scores. The cloak can't be used this way again until the next dawn."
       ],
       "attachedSpells": {
         "daily": {
@@ -1994,10 +1951,7 @@
       ],
       "type": "FD|XPHB",
       "rarity": "none",
-      "value": 20,
-      "miscTags": [
-        "CNS"
-      ]
+      "value": 20
     },
     {
       "name": "Component Pouch",
@@ -2349,9 +2303,6 @@
             }
           ]
         }
-      ],
-      "miscTags": [
-        "CF/W"
       ]
     },
     {
@@ -2380,19 +2331,19 @@
           "rows": [
             [
               "01-03",
-              "Adult Red Dragon"
+              "{@creature Adult Red Dragon|XMM}"
             ],
             [
               "04-06",
-              "Archmage"
+              "{@creature Archmage|XMM}"
             ],
             [
               "07-09",
-              "Assassin"
+              "{@creature Assassin|XMM}"
             ],
             [
               "10-12",
-              "Bandit Captain"
+              "{@creature Bandit Captain|XMM}"
             ],
             [
               "13-15",
@@ -2400,111 +2351,111 @@
             ],
             [
               "16-18",
-              "Berserker"
+              "{@creature Berserker|XMM}"
             ],
             [
               "19-21",
-              "Bugbear Warrior"
+              "{@creature Bugbear Warrior|XMM}"
             ],
             [
               "22-24",
-              "Cloud Giant"
+              "{@creature Cloud Giant|XMM}"
             ],
             [
               "25-27",
-              "Druid"
+              "{@creature Druid|XMM}"
             ],
             [
               "28-30",
-              "Erinyes"
+              "{@creature Erinyes|XMM}"
             ],
             [
               "31-33",
-              "Ettin"
+              "{@creature Ettin|XMM}"
             ],
             [
               "34-36",
-              "Fire Giant"
+              "{@creature Fire Giant|XMM}"
             ],
             [
               "37-39",
-              "Frost Giant"
+              "{@creature Frost Giant|XMM}"
             ],
             [
               "40-42",
-              "Gnoll Warrior"
+              "{@creature Gnoll Warrior|XMM}"
             ],
             [
               "43-45",
-              "Goblin Warrior"
+              "{@creature Goblin Warrior|XMM}"
             ],
             [
               "46-48",
-              "Guardian Naga"
+              "{@creature Guardian Naga|XMM}"
             ],
             [
               "49-51",
-              "Hill Giant"
+              "{@creature Hill Giant|XMM}"
             ],
             [
               "52-54",
-              "Hobgoblin Warrior"
+              "{@creature Hobgoblin Warrior|XMM}"
             ],
             [
               "55-57",
-              "Incubus"
+              "{@creature Incubus|XMM}"
             ],
             [
               "58-60",
-              "Iron Golem"
+              "{@creature Iron Golem|XMM}"
             ],
             [
               "61-63",
-              "Knight"
+              "{@creature Knight|XMM}"
             ],
             [
               "64-66",
-              "Kobold Warrior"
+              "{@creature Kobold Warrior|XMM}"
             ],
             [
               "67-69",
-              "Lich"
+              "{@creature Lich|XMM}"
             ],
             [
               "70-72",
-              "Medusa"
+              "{@creature Medusa|XMM}"
             ],
             [
               "73-75",
-              "Night Hag"
+              "{@creature Night Hag|XMM}"
             ],
             [
               "76-78",
-              "Ogre"
+              "{@creature Ogre|XMM}"
             ],
             [
               "79-81",
-              "Oni"
+              "{@creature Oni|XMM}"
             ],
             [
               "82-84",
-              "Priest"
+              "{@creature Priest|XMM}"
             ],
             [
               "85-87",
-              "Succubus"
+              "{@creature Succubus|XMM}"
             ],
             [
               "88-90",
-              "Troll"
+              "{@creature Troll|XMM}"
             ],
             [
               "91-93",
-              "Warrior Veteran"
+              "{@creature Warrior Veteran|XMM}"
             ],
             [
               "94-96",
-              "Wyvern"
+              "{@creature Wyvern|XMM}"
             ],
             [
               "97-00",
@@ -2748,7 +2699,7 @@
           "type": "entries",
           "name": "Knight",
           "entries": [
-            "You gain the service of a Knight, who magically appears in an unoccupied space you choose within 30 feet of yourself. The knight has the same alignment as you and serves you loyally until death, believing the two of you have been drawn together by fate. Work with your DM to create a name and backstory for this NPC. The DM can use a different stat block to represent the knight, as desired."
+            "You gain the service of a {@creature Knight|XMM}, who magically appears in an unoccupied space you choose within 30 feet of yourself. The knight has the same alignment as you and serves you loyally until death, believing the two of you have been drawn together by fate. Work with your DM to create a name and backstory for this NPC. The DM can use a different stat block to represent the knight, as desired."
           ]
         },
         {
@@ -2790,7 +2741,7 @@
           "type": "entries",
           "name": "Skull",
           "entries": [
-            "An Avatar of Death appears in an unoccupied space as close to you as possible. The avatar targets only you with its attacks, appearing as a ghostly skeleton clad in a tattered black robe and carrying a spectral scythe. The avatar disappears when it drops to 0 {@variantrule Hit Points|XPHB} or you die. If an ally of yours deals damage to the avatar, that ally summons another Avatar of Death. The new avatar appears in an unoccupied space as close to that ally as possible and targets only that ally with its attacks. You and your allies can each summon only one avatar as a consequence of this draw. A creature slain by an avatar can't be restored to life."
+            "An {@creature Avatar of Death|XDMG} appears in an unoccupied space as close to you as possible. The avatar targets only you with its attacks, appearing as a ghostly skeleton clad in a tattered black robe and carrying a spectral scythe. The avatar disappears when it drops to 0 {@variantrule Hit Points|XPHB} or you die. If an ally of yours deals damage to the avatar, that ally summons another Avatar of Death. The new avatar appears in an unoccupied space as close to that ally as possible and targets only that ally with its attacks. You and your allies can each summon only one avatar as a consequence of this draw. A creature slain by an avatar can't be restored to life."
           ]
         },
         {
@@ -3048,9 +2999,6 @@
       "wondrous": true,
       "entries": [
         "This powder resembles fine sand. There is enough of it for one use. When you take a {@action Utilize|XPHB} action to throw the dust into the air, you and each creature and object within a 10-foot {@variantrule Emanation [Area of Effect]|XPHB|Emanation} originating from you have the {@condition Invisible|XPHB} condition for {@dice 2d4} minutes. The duration is the same for all subjects, and the dust is consumed when its magic takes effect. Immediately after an affected creature makes an attack roll, deals damage, or casts a spell, the {@condition Invisible|XPHB} condition ends for that creature."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -3063,7 +3011,7 @@
       "wondrous": true,
       "entries": [
         "This small packet contains {@dice 1d6 + 4} pinches of dust. As a {@action Utilize|XPHB} action, you can sprinkle a pinch of the dust over water, turning up to a 15-foot {@variantrule Cube [Area of Effect]|XPHB|Cube} of water into one marble-sized pellet, which floats or rests near where the dust was sprinkled. The pellet's weight is negligible. A creature can take a {@action Utilize|XPHB} action to smash the pellet against a hard surface, causing the pellet to shatter and release the water the dust absorbed. Doing so destroys the pellet and ends its magic.",
-        "As a {@action Utilize|XPHB} action, you can sprinkle a pinch of the dust on an Elemental within 5 feet of yourself that is composed mostly of water (such as a Water Elemental or a Water Weird). Such a creature exposed to a pinch of the dust makes a {@dc 13} Constitution saving throw, taking {@damage 10d6} Necrotic damage on a failed save or half as much damage on a successful one."
+        "As a {@action Utilize|XPHB} action, you can sprinkle a pinch of the dust on an Elemental within 5 feet of yourself that is composed mostly of water (such as a {@creature Water Elemental|XMM} or a Water Weird). Such a creature exposed to a pinch of the dust makes a {@dc 13} Constitution saving throw, taking {@damage 10d6} Necrotic damage on a failed save or half as much damage on a successful one."
       ]
     },
     {
@@ -3122,7 +3070,7 @@
       "rarity": "very rare",
       "wondrous": true,
       "entries": [
-        "When you take a {@action Magic|XPHB} action to remove the stopper of this painted brass bottle, a cloud of thick smoke flows out of it. At the end of your turn, the smoke disappears with a flash of harmless fire, and an Efreeti appears in an unoccupied space within 30 feet of you.",
+        "When you take a {@action Magic|XPHB} action to remove the stopper of this painted brass bottle, a cloud of thick smoke flows out of it. At the end of your turn, the smoke disappears with a flash of harmless fire, and an {@creature Efreeti|XMM} appears in an unoccupied space within 30 feet of you.",
         "The first time the bottle is opened, the DM rolls on the following table to determine what happens.",
         {
           "type": "table",
@@ -3137,15 +3085,15 @@
           "rows": [
             [
               "1",
-              "The efreeti attacks you. After fighting for 5 rounds, the efreeti disappears, and the bottle loses its magic."
+              "The {@creature efreeti|XMM} attacks you. After fighting for 5 rounds, the efreeti disappears, and the bottle loses its magic."
             ],
             [
               "2-9",
-              "The efreeti understands your languages and obeys your commands for 1 hour, after which it returns to the bottle, and a new stopper contains it. The stopper can't be removed for 24 hours. The next two times the bottle is opened, the same effect occurs. If the bottle is opened a fourth time, the efreeti escapes and disappears, and the bottle loses its magic."
+              "The {@creature efreeti|XMM} understands your languages and obeys your commands for 1 hour, after which it returns to the bottle, and a new stopper contains it. The stopper can't be removed for 24 hours. The next two times the bottle is opened, the same effect occurs. If the bottle is opened a fourth time, the efreeti escapes and disappears, and the bottle loses its magic."
             ],
             [
               "10",
-              "The efreeti understands your languages and can cast {@spell Wish|XPHB} once for you. It disappears when it grants the wish or after 1 hour, and the bottle loses its magic."
+              "The {@creature efreeti|XMM} understands your languages and can cast {@spell Wish|XPHB} once for you. It disappears when it grants the wish or after 1 hour, and the bottle loses its magic."
             ]
           ]
         }
@@ -3167,7 +3115,7 @@
       "rarity": "uncommon",
       "wondrous": true,
       "entries": [
-        "This gem contains a mote of elemental energy. When you take a {@action Utilize|XPHB} action to break the gem, an Air Elemental is summoned, and the gem ceases to be magical. The elemental appears in an unoccupied space as close to the broken gem as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}."
+        "This gem contains a mote of elemental energy. When you take a {@action Utilize|XPHB} action to break the gem, an {@creature Air Elemental|XMM} is summoned, and the gem ceases to be magical. The elemental appears in an unoccupied space as close to the broken gem as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}."
       ]
     },
     {
@@ -3179,7 +3127,7 @@
       "rarity": "uncommon",
       "wondrous": true,
       "entries": [
-        "This gem contains a mote of elemental energy. When you take a {@action Utilize|XPHB} action to break the gem, a Water Elemental is summoned, and the gem ceases to be magical. The elemental appears in an unoccupied space as close to the broken gem as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}."
+        "This gem contains a mote of elemental energy. When you take a {@action Utilize|XPHB} action to break the gem, a {@creature Water Elemental|XMM} is summoned, and the gem ceases to be magical. The elemental appears in an unoccupied space as close to the broken gem as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}."
       ]
     },
     {
@@ -3191,7 +3139,7 @@
       "rarity": "uncommon",
       "wondrous": true,
       "entries": [
-        "This gem contains a mote of elemental energy. When you take a {@action Utilize|XPHB} action to break the gem, a Fire Elemental is summoned, and the gem ceases to be magical. The elemental appears in an unoccupied space as close to the broken gem as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}."
+        "This gem contains a mote of elemental energy. When you take a {@action Utilize|XPHB} action to break the gem, a {@creature Fire Elemental|XMM} is summoned, and the gem ceases to be magical. The elemental appears in an unoccupied space as close to the broken gem as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}."
       ]
     },
     {
@@ -3203,7 +3151,7 @@
       "rarity": "uncommon",
       "wondrous": true,
       "entries": [
-        "This gem contains a mote of elemental energy. When you take a {@action Utilize|XPHB} action to break the gem, an Earth Elemental is summoned, and the gem ceases to be magical. The elemental appears in an unoccupied space as close to the broken gem as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}."
+        "This gem contains a mote of elemental energy. When you take a {@action Utilize|XPHB} action to break the gem, an {@creature Earth Elemental|XMM} is summoned, and the gem ceases to be magical. The elemental appears in an unoccupied space as close to the broken gem as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}."
       ]
     },
     {
@@ -3230,9 +3178,6 @@
       "entries": [
         "When you drink this potion, you are cured of all magical contagions. In addition, the following conditions end on you: {@condition Blinded|XPHB}, {@condition Deafened|XPHB}, {@condition Paralyzed|XPHB}, and {@condition Poisoned|XPHB}.",
         "The clear, red liquid has tiny bubbles of light in it."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -3302,9 +3247,6 @@
       ],
       "poisonTypes": [
         "inhaled"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -3443,7 +3385,7 @@
           "type": "entries",
           "name": "Bronze Griffon (Rare)",
           "entries": [
-            "This bronze statuette is of a griffon rampant. It can become a Griffon for up to 6 hours. Once it has been used, it can't be used again until 5 days have passed."
+            "This bronze statuette is of a griffon rampant. It can become a {@creature Griffon|XMM} for up to 6 hours. Once it has been used, it can't be used again until 5 days have passed."
           ]
         }
       ]
@@ -3464,7 +3406,7 @@
           "type": "entries",
           "name": "Ebony Fly (Rare)",
           "entries": [
-            "This ebony statuette, carved in the likeness of a horsefly, can become a Giant Fly for up to 12 hours and can be ridden as a mount. Once it has been used, it can't be used again until 2 days have passed."
+            "This ebony statuette, carved in the likeness of a horsefly, can become a {@creature Giant Fly|XDMG} for up to 12 hours and can be ridden as a mount. Once it has been used, it can't be used again until 2 days have passed."
           ]
         }
       ]
@@ -3485,7 +3427,7 @@
           "type": "entries",
           "name": "Golden Lions (Rare)",
           "entries": [
-            "These gold statuettes of lions are always created in pairs. You can use one figurine or both simultaneously. Each can become a Lion for up to 1 hour. Once a lion has been used, it can't be used again until 7 days have passed."
+            "These gold statuettes of lions are always created in pairs. You can use one figurine or both simultaneously. Each can become a {@creature Lion|XMM} for up to 1 hour. Once a lion has been used, it can't be used again until 7 days have passed."
           ]
         }
       ]
@@ -3516,21 +3458,21 @@
                   "type": "item",
                   "name": "Goat of Terror",
                   "entries": [
-                    "This figurine can become a Giant Goat for up to 3 hours. The goat can't attack, but you can (harmlessly) remove its horns and use them as weapons. One horn becomes a +1 Lance, and the other becomes a +2 Longsword. Removing a horn requires a {@action Magic|XPHB} action, and the weapons disappear and the horns return when the goat reverts to figurine form. While you ride the goat, any {@variantrule Hostile [Attitude]|XPHB|Hostile} creature that starts its turn within a 30-foot {@variantrule Emanation [Area of Effect]|XPHB|Emanation} originating from the goat must succeed on a {@dc 15} Wisdom saving throw or have the {@condition Frightened|XPHB} condition for 1 minute, until you are no longer riding the goat, or until the goat reverts to figurine form. The {@condition Frightened|XPHB} creature repeats the save at the end of each of its turns, ending the effect on itself on a success. Once it succeeds on the save, a creature is immune to this effect for the next 24 hours. Once the figurine has been used, it can't be used again until 15 days have passed."
+                    "This figurine can become a {@creature Giant Goat|XMM} for up to 3 hours. The goat can't attack, but you can (harmlessly) remove its horns and use them as weapons. One horn becomes a +1 Lance, and the other becomes a +2 Longsword. Removing a horn requires a {@action Magic|XPHB} action, and the weapons disappear and the horns return when the goat reverts to figurine form. While you ride the goat, any {@variantrule Hostile [Attitude]|XPHB|Hostile} creature that starts its turn within a 30-foot {@variantrule Emanation [Area of Effect]|XPHB|Emanation} originating from the goat must succeed on a {@dc 15} Wisdom saving throw or have the {@condition Frightened|XPHB} condition for 1 minute, until you are no longer riding the goat, or until the goat reverts to figurine form. The {@condition Frightened|XPHB} creature repeats the save at the end of each of its turns, ending the effect on itself on a success. Once it succeeds on the save, a creature is immune to this effect for the next 24 hours. Once the figurine has been used, it can't be used again until 15 days have passed."
                   ]
                 },
                 {
                   "type": "item",
                   "name": "Goat of Traveling",
                   "entries": [
-                    "This figurine can become a Large goat with the same statistics as a Riding Horse. It has 24 charges, and each hour or portion thereof it spends in goat form costs 1 charge. While it has charges, you can use it as often as you wish. When it runs out of charges, it reverts to a figurine and can't be used again until 7 days have passed, when it regains all expended charges."
+                    "This figurine can become a Large goat with the same statistics as a {@creature Riding Horse|XMM}. It has 24 charges, and each hour or portion thereof it spends in goat form costs 1 charge. While it has charges, you can use it as often as you wish. When it runs out of charges, it reverts to a figurine and can't be used again until 7 days have passed, when it regains all expended charges."
                   ]
                 },
                 {
                   "type": "item",
                   "name": "Goat of Travail",
                   "entries": [
-                    "This figurine can become a Giant Goat for up to 3 hours. Once it has been used, it can't be used again until 30 days have passed."
+                    "This figurine can become a {@creature Giant Goat|XMM} for up to 3 hours. Once it has been used, it can't be used again until 30 days have passed."
                   ]
                 }
               ]
@@ -3555,7 +3497,7 @@
           "type": "entries",
           "name": "Marble Elephant (Rare)",
           "entries": [
-            "This marble statuette resembles a trumpeting elephant. It can become an Elephant for up to 24 hours. Once it has been used, it can't be used again until 7 days have passed."
+            "This marble statuette resembles a trumpeting elephant. It can become an {@creature Elephant|XMM} for up to 24 hours. Once it has been used, it can't be used again until 7 days have passed."
           ]
         }
       ]
@@ -3576,7 +3518,7 @@
           "type": "entries",
           "name": "Obsidian Steed (Very Rare)",
           "entries": [
-            "This polished obsidian horse can become a Nightmare for up to 24 hours. The nightmare fights only to defend itself. Once it has been used, it can't be used again until 5 days have passed.",
+            "This polished obsidian horse can become a {@creature Nightmare|XMM} for up to 24 hours. The nightmare fights only to defend itself. Once it has been used, it can't be used again until 5 days have passed.",
             "The figurine has a {@chance 10} chance each time you use it to ignore your orders, including a command to revert to figurine form. If you mount the nightmare while it is ignoring your orders, you and the nightmare are instantly transported to a random location on the plane of Hades, where the nightmare reverts to figurine form."
           ]
         }
@@ -3598,7 +3540,7 @@
           "type": "entries",
           "name": "Onyx Dog (Rare)",
           "entries": [
-            "This onyx statuette of a dog can become a Mastiff for up to 6 hours. The mastiff has an Intelligence of 8 and can speak Common. It also has {@sense Blindsight|XPHB} with a range of 60 feet. Once it has been used, it can't be used again until 7 days have passed."
+            "This onyx statuette of a dog can become a {@creature Mastiff|XMM} for up to 6 hours. The mastiff has an Intelligence of 8 and can speak Common. It also has {@sense Blindsight|XPHB} with a range of 60 feet. Once it has been used, it can't be used again until 7 days have passed."
           ]
         }
       ]
@@ -3619,7 +3561,7 @@
           "type": "entries",
           "name": "Serpentine Owl (Rare)",
           "entries": [
-            "This serpentine statuette of an owl can become a Giant Owl for up to 8 hours. The owl can communicate telepathically with you at any range if you and it are on the same plane of existence. Once it has been used, it can't be used again until 2 days have passed."
+            "This serpentine statuette of an owl can become a {@creature Giant Owl|XMM} for up to 8 hours. The owl can communicate telepathically with you at any range if you and it are on the same plane of existence. Once it has been used, it can't be used again until 2 days have passed."
           ]
         }
       ]
@@ -3640,7 +3582,7 @@
           "type": "entries",
           "name": "Silver Raven (Uncommon)",
           "entries": [
-            "This silver statuette of a raven can become a Raven for up to 12 hours. Once it has been used, it can't be used again until 2 days have passed. While in raven form, the figurine grants you the ability to cast {@spell Animal Messenger|XPHB} on it."
+            "This silver statuette of a raven can become a {@creature Raven|XMM} for up to 12 hours. Once it has been used, it can't be used again until 2 days have passed. While in raven form, the figurine grants you the ability to cast {@spell Animal Messenger|XPHB} on it."
           ]
         }
       ],
@@ -3670,10 +3612,7 @@
       ],
       "type": "FD|XPHB",
       "rarity": "none",
-      "value": 1000,
-      "miscTags": [
-        "CNS"
-      ]
+      "value": 1000
     },
     {
       "name": "Flask",
@@ -4102,11 +4041,11 @@
                 ],
                 [
                   "81-85",
-                  "A creature appears in an unoccupied space as close to you as possible. The creature isn't under your control and acts as it normally would, and it disappears after 1 hour or when it drops to 0 {@variantrule Hit Points|XPHB}. Roll {@dice 1d4} to determine the creature: on a {@b 1}, a Camel; on a {@b 2}, a Constrictor Snake; on a {@b 3}, an Elephant; on a {@b 4}, a Mule."
+                  "A creature appears in an unoccupied space as close to you as possible. The creature isn't under your control and acts as it normally would, and it disappears after 1 hour or when it drops to 0 {@variantrule Hit Points|XPHB}. Roll {@dice 1d4} to determine the creature: on a {@b 1}, a {@creature Camel|XMM}; on a {@b 2}, a {@creature Constrictor Snake|XMM}; on a {@b 3}, an {@creature Elephant|XMM}; on a {@b 4}, a {@creature Mule|XMM}."
                 ],
                 [
                   "86-90",
-                  "A {@variantrule Hostile [Attitude]|XPHB|Hostile} Swarm of Bats flies out of the hat, occupies your space, and attacks you."
+                  "A {@variantrule Hostile [Attitude]|XPHB|Hostile} {@creature Swarm of Bats|XMM} flies out of the hat, occupies your space, and attacks you."
                 ],
                 [
                   "91-95",
@@ -4379,9 +4318,6 @@
       "value": 2500,
       "entries": [
         "When you take the {@action Attack|XPHB} action, you can replace one of your attacks with throwing a flask of Holy Water. Target one creature you can see within 20 feet of yourself. The target must succeed on a Dexterity saving throw ({@dc 8} plus your Dexterity modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}) or take {@damage 2d8} Radiant damage if it is a Fiend or an Undead."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -4433,9 +4369,9 @@
       "rarity": "rare",
       "wondrous": true,
       "entries": [
-        "You can take a {@action Magic|XPHB} action to blow this horn. In response, warrior spirits from the plane of Ysgard appear in unoccupied spaces within 60 feet of you. Each spirit uses the Berserker stat block and returns to Ysgard after 1 hour or when it drops to 0 {@variantrule Hit Points|XPHB}. The spirits look like living, breathing warriors, and they have {@variantrule Immunity|XPHB} to the {@condition Charmed|XPHB} and {@condition Frightened|XPHB} conditions. Once you use the horn, it can't be used again until 7 days have passed.",
-        "A brass horn summons 3 Berserkers. To meet the requirements of the brass horn, you must have {@variantrule Proficiency|XPHB} with all Simple weapons.",
-        "If you blow the horn without meeting its requirement, the summoned Berserkers attack you. If you meet the requirement, they are {@variantrule Friendly [Attitude]|XPHB|Friendly} to you and your allies and follow your commands."
+        "You can take a {@action Magic|XPHB} action to blow this horn. In response, warrior spirits from the plane of Ysgard appear in unoccupied spaces within 60 feet of you. Each spirit uses the {@creature Berserker|XMM} stat block and returns to Ysgard after 1 hour or when it drops to 0 {@variantrule Hit Points|XPHB}. The spirits look like living, breathing warriors, and they have {@variantrule Immunity|XPHB} to the {@condition Charmed|XPHB} and {@condition Frightened|XPHB} conditions. Once you use the horn, it can't be used again until 7 days have passed.",
+        "A brass horn summons 3 {@creature Berserker|XMM|Berserkers}. To meet the requirements of the brass horn, you must have {@variantrule Proficiency|XPHB} with all Simple weapons.",
+        "If you blow the horn without meeting its requirement, the summoned {@creature Berserker|XMM|Berserkers} attack you. If you meet the requirement, they are {@variantrule Friendly [Attitude]|XPHB|Friendly} to you and your allies and follow your commands."
       ]
     },
     {
@@ -4449,9 +4385,9 @@
       "rarity": "very rare",
       "wondrous": true,
       "entries": [
-        "You can take a {@action Magic|XPHB} action to blow this horn. In response, warrior spirits from the plane of Ysgard appear in unoccupied spaces within 60 feet of you. Each spirit uses the Berserker stat block and returns to Ysgard after 1 hour or when it drops to 0 {@variantrule Hit Points|XPHB}. The spirits look like living, breathing warriors, and they have {@variantrule Immunity|XPHB} to the {@condition Charmed|XPHB} and {@condition Frightened|XPHB} conditions. Once you use the horn, it can't be used again until 7 days have passed.",
-        "A bronze horn summons 4 Berserkers. To meet the requirements of the bronze horn, you must have training with all Medium armor.",
-        "If you blow the horn without meeting its requirement, the summoned Berserkers attack you. If you meet the requirement, they are {@variantrule Friendly [Attitude]|XPHB|Friendly} to you and your allies and follow your commands."
+        "You can take a {@action Magic|XPHB} action to blow this horn. In response, warrior spirits from the plane of Ysgard appear in unoccupied spaces within 60 feet of you. Each spirit uses the {@creature Berserker|XMM} stat block and returns to Ysgard after 1 hour or when it drops to 0 {@variantrule Hit Points|XPHB}. The spirits look like living, breathing warriors, and they have {@variantrule Immunity|XPHB} to the {@condition Charmed|XPHB} and {@condition Frightened|XPHB} conditions. Once you use the horn, it can't be used again until 7 days have passed.",
+        "A bronze horn summons 4 {@creature Berserker|XMM|Berserkers}. To meet the requirements of the bronze horn, you must have training with all Medium armor.",
+        "If you blow the horn without meeting its requirement, the summoned {@creature Berserker|XMM|Berserkers} attack you. If you meet the requirement, they are {@variantrule Friendly [Attitude]|XPHB|Friendly} to you and your allies and follow your commands."
       ]
     },
     {
@@ -4465,9 +4401,9 @@
       "rarity": "legendary",
       "wondrous": true,
       "entries": [
-        "You can take a {@action Magic|XPHB} action to blow this horn. In response, warrior spirits from the plane of Ysgard appear in unoccupied spaces within 60 feet of you. Each spirit uses the Berserker stat block and returns to Ysgard after 1 hour or when it drops to 0 {@variantrule Hit Points|XPHB}. The spirits look like living, breathing warriors, and they have {@variantrule Immunity|XPHB} to the {@condition Charmed|XPHB} and {@condition Frightened|XPHB} conditions. Once you use the horn, it can't be used again until 7 days have passed.",
-        "An iron horn summons 5 Berserkers. To meet the requirements of the iron horn, you must have {@variantrule Proficiency|XPHB} with all Martial weapons.",
-        "If you blow the horn without meeting its requirement, the summoned Berserkers attack you. If you meet the requirement, they are {@variantrule Friendly [Attitude]|XPHB|Friendly} to you and your allies and follow your commands."
+        "You can take a {@action Magic|XPHB} action to blow this horn. In response, warrior spirits from the plane of Ysgard appear in unoccupied spaces within 60 feet of you. Each spirit uses the {@creature Berserker|XMM} stat block and returns to Ysgard after 1 hour or when it drops to 0 {@variantrule Hit Points|XPHB}. The spirits look like living, breathing warriors, and they have {@variantrule Immunity|XPHB} to the {@condition Charmed|XPHB} and {@condition Frightened|XPHB} conditions. Once you use the horn, it can't be used again until 7 days have passed.",
+        "An iron horn summons 5 {@creature Berserker|XMM|Berserkers}. To meet the requirements of the iron horn, you must have {@variantrule Proficiency|XPHB} with all Martial weapons.",
+        "If you blow the horn without meeting its requirement, the summoned {@creature Berserker|XMM|Berserkers} attack you. If you meet the requirement, they are {@variantrule Friendly [Attitude]|XPHB|Friendly} to you and your allies and follow your commands."
       ]
     },
     {
@@ -4481,8 +4417,8 @@
       "rarity": "rare",
       "wondrous": true,
       "entries": [
-        "You can take a {@action Magic|XPHB} action to blow this horn. In response, warrior spirits from the plane of Ysgard appear in unoccupied spaces within 60 feet of you. Each spirit uses the Berserker stat block and returns to Ysgard after 1 hour or when it drops to 0 {@variantrule Hit Points|XPHB}. The spirits look like living, breathing warriors, and they have {@variantrule Immunity|XPHB} to the {@condition Charmed|XPHB} and {@condition Frightened|XPHB} conditions. Once you use the horn, it can't be used again until 7 days have passed.",
-        "A silver horn summons 2 Berserkers. They are {@variantrule Friendly [Attitude]|XPHB|Friendly} to you and your allies and follow your commands."
+        "You can take a {@action Magic|XPHB} action to blow this horn. In response, warrior spirits from the plane of Ysgard appear in unoccupied spaces within 60 feet of you. Each spirit uses the {@creature Berserker|XMM} stat block and returns to Ysgard after 1 hour or when it drops to 0 {@variantrule Hit Points|XPHB}. The spirits look like living, breathing warriors, and they have {@variantrule Immunity|XPHB} to the {@condition Charmed|XPHB} and {@condition Frightened|XPHB} conditions. Once you use the horn, it can't be used again until 7 days have passed.",
+        "A silver horn summons 2 {@creature Berserker|XMM|Berserkers}. They are {@variantrule Friendly [Attitude]|XPHB|Friendly} to you and your allies and follow your commands."
       ]
     },
     {
@@ -4549,9 +4485,6 @@
       "value": 1000,
       "entries": [
         "Ink comes in a 1-ounce bottle, which provides enough ink to write about 500 pages."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -4834,7 +4767,7 @@
             ],
             [
               "52-54",
-              "Bone Devil"
+              "{@creature Bone Devil|XMM}"
             ],
             [
               "55-56",
@@ -4846,19 +4779,19 @@
             ],
             [
               "59",
-              "Deva"
+              "{@creature Deva|XMM}"
             ],
             [
               "60-61",
-              "Djinni"
+              "{@creature Djinni|XMM}"
             ],
             [
               "62-63",
-              "Efreeti"
+              "{@creature Efreeti|XMM}"
             ],
             [
               "64-65",
-              "Erinyes"
+              "{@creature Erinyes|XMM}"
             ],
             [
               "66-67",
@@ -4874,19 +4807,19 @@
             ],
             [
               "70-71",
-              "Glabrezu"
+              "{@creature Glabrezu|XMM}"
             ],
             [
               "72-74",
-              "Hezrou"
+              "{@creature Hezrou|XMM}"
             ],
             [
               "75",
-              "Incubus"
+              "{@creature Incubus|XMM}"
             ],
             [
               "76-77",
-              "Invisible Stalker"
+              "{@creature Invisible Stalker|XMM}"
             ],
             [
               "78-79",
@@ -4894,7 +4827,7 @@
             ],
             [
               "80",
-              "Marilith"
+              "{@creature Marilith|XMM}"
             ],
             [
               "81-82",
@@ -4902,11 +4835,11 @@
             ],
             [
               "83-84",
-              "Nalfeshnee"
+              "{@creature Nalfeshnee|XMM}"
             ],
             [
               "85-86",
-              "Night Hag"
+              "{@creature Night Hag|XMM}"
             ],
             [
               "87-88",
@@ -4914,7 +4847,7 @@
             ],
             [
               "89",
-              "Planetar"
+              "{@creature Planetar|XMM}"
             ],
             [
               "90-91",
@@ -4922,15 +4855,15 @@
             ],
             [
               "92-93",
-              "Salamander"
+              "{@creature Salamander|XMM}"
             ],
             [
               "94",
-              "Solar"
+              "{@creature Solar|XMM}"
             ],
             [
               "95",
-              "Succubus"
+              "{@creature Succubus|XMM}"
             ],
             [
               "96",
@@ -4938,11 +4871,11 @@
             ],
             [
               "97-99",
-              "Vrock"
+              "{@creature Vrock|XMM}"
             ],
             [
               "00",
-              "Xorn"
+              "{@creature Xorn|XMM}"
             ]
           ]
         }
@@ -5152,9 +5085,6 @@
       ],
       "poisonTypes": [
         "injury"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -5282,9 +5212,6 @@
       ],
       "poisonTypes": [
         "inhaled"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -5341,7 +5268,7 @@
       "wondrous": true,
       "weight": 5,
       "entries": [
-        "This tome contains information and incantations necessary to make a clay golem. To decipher and use the manual, you must be a spellcaster with at least two 5th-level spell slots. A creature that can't use a {@i manual of golems} and attempts to read it takes {@damage 6d6} psychic damage.",
+        "This tome contains information and incantations necessary to make a {@creature clay golem|XMM}. To decipher and use the manual, you must be a spellcaster with at least two 5th-level spell slots. A creature that can't use a {@i manual of golems} and attempts to read it takes {@damage 6d6} psychic damage.",
         "To create a clay golem, you must spend 30 days, working without interruption with the manual at hand and resting no more than 8 hours per day. You must also pay 65,000 gp to purchase supplies.",
         "Once you finish creating the golem, the book is consumed in eldritch flames. The golem becomes animate when the ashes of the manual are sprinkled on it. It is under your control, and it understands and obeys your spoken commands."
       ]
@@ -5356,7 +5283,7 @@
       "wondrous": true,
       "weight": 5,
       "entries": [
-        "This tome contains information and incantations necessary to make a flesh golem. To decipher and use the manual, you must be a spellcaster with at least two 5th-level spell slots. A creature that can't use a {@i manual of golems} and attempts to read it takes {@damage 6d6} psychic damage.",
+        "This tome contains information and incantations necessary to make a {@creature flesh golem|XMM}. To decipher and use the manual, you must be a spellcaster with at least two 5th-level spell slots. A creature that can't use a {@i manual of golems} and attempts to read it takes {@damage 6d6} psychic damage.",
         "To create a flesh golem, you must spend 60 days, working without interruption with the manual at hand and resting no more than 8 hours per day. You must also pay 50,000 gp to purchase supplies.",
         "Once you finish creating the golem, the book is consumed in eldritch flames. The golem becomes animate when the ashes of the manual are sprinkled on it. It is under your control, and it understands and obeys your spoken commands."
       ]
@@ -5387,7 +5314,7 @@
       "wondrous": true,
       "weight": 5,
       "entries": [
-        "This tome contains information and incantations necessary to make a iron golem. To decipher and use the manual, you must be a spellcaster with at least two 5th-level spell slots. A creature that can't use a {@i manual of golems} and attempts to read it takes {@damage 6d6} psychic damage.",
+        "This tome contains information and incantations necessary to make a {@creature iron golem|XMM}. To decipher and use the manual, you must be a spellcaster with at least two 5th-level spell slots. A creature that can't use a {@i manual of golems} and attempts to read it takes {@damage 6d6} psychic damage.",
         "To create an iron golem, you must spend 120 days, working without interruption with the manual at hand and resting no more than 8 hours per day. You must also pay 100,000 gp to purchase supplies.",
         "Once you finish creating the golem, the book is consumed in eldritch flames. The golem becomes animate when the ashes of the manual are sprinkled on it. It is under your control, and it understands and obeys your spoken commands."
       ]
@@ -5418,7 +5345,7 @@
       "wondrous": true,
       "weight": 5,
       "entries": [
-        "This tome contains information and incantations necessary to make a stone golem. To decipher and use the manual, you must be a spellcaster with at least two 5th-level spell slots. A creature that can't use a {@i manual of golems} and attempts to read it takes {@damage 6d6} psychic damage.",
+        "This tome contains information and incantations necessary to make a {@creature stone golem|XMM}. To decipher and use the manual, you must be a spellcaster with at least two 5th-level spell slots. A creature that can't use a {@i manual of golems} and attempts to read it takes {@damage 6d6} psychic damage.",
         "To create a stone golem, you must spend 90 days, working without interruption with the manual at hand and resting no more than 8 hours per day. You must also pay 80,000 gp to purchase supplies.",
         "Once you finish creating the golem, the book is consumed in eldritch flames. The golem becomes animate when the ashes of the manual are sprinkled on it. It is under your control, and it understands and obeys your spoken commands."
       ]
@@ -5509,9 +5436,6 @@
       ],
       "poisonTypes": [
         "ingested"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -5786,9 +5710,6 @@
             "Oil serves as fuel for Lamps and Lanterns. Once lit, a flask of Oil burns for 6 hours in a Lamp or Lantern. That duration doesn't need to be consecutive; you can extinguish the burning Oil (as a {@action Utilize|XPHB} action) and rekindle it again until it has burned for a total of 6 hours."
           ]
         }
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -5806,9 +5727,6 @@
       ],
       "attachedSpells": [
         "etherealness|xphb"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -5824,9 +5742,6 @@
       "entries": [
         "One vial of this oil can coat one Melee weapon or twenty pieces of ammunition, but only ammunition and Melee weapons that are nonmagical and deal Slashing or Piercing damage are affected. Applying the oil takes 1 minute, after which the oil magically seeps into whatever it coats, turning the coated weapon into a +3 Weapon or the coated ammunition into +3 Ammunition.",
         "This clear, gelatinous oil sparkles with tiny, ultrathin silver shards."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -5845,9 +5760,6 @@
       ],
       "attachedSpells": [
         "freedom of movement|xphb"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -5865,9 +5777,6 @@
       ],
       "poisonTypes": [
         "contact"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -5995,9 +5904,6 @@
       ],
       "poisonTypes": [
         "ingested"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6055,9 +5961,6 @@
       "value": 500,
       "entries": [
         "Perfume comes in a 4-ounce vial. For 1 hour after applying Perfume to yourself, you have {@variantrule Advantage|XPHB} on Charisma ({@skill Persuasion|XPHB}) checks made to influence an Indifferent Humanoid within 5 feet of yourself."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6132,9 +6035,6 @@
       "entries": [
         "The next time you see a creature within 10 minutes after drinking this philter, you are {@condition charmed|XPHB} by that creature and have the {@condition Charmed|XPHB} condition for 1 hour.",
         "This rose-hued, effervescent liquid contains one easy-to-miss bubble shaped like a heart."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6165,8 +6065,8 @@
       "rechargeAmount": "{@dice 1d3}",
       "charges": 3,
       "entries": [
-        "While these pipes are on your person, ordinary rats and giant rats are {@variantrule Indifferent [Attitude]|XPHB|Indifferent} toward you and won't attack you unless you threaten or harm them.",
-        "The pipes have 3 charges and regain {@dice 1d3} expended charges daily at dawn. If you play the pipes as a {@action Magic|XPHB} action, you can take a {@variantrule Bonus Action|XPHB} to expend 1 to 3 charges, calling forth one Swarm of Rats with each expended charge if enough rats are within half a mile of you to be called in this fashion (as determined by the DM). If there aren't enough rats to form a swarm, the charge is wasted. Called swarms move toward the music by the shortest available route but aren't under your control otherwise.",
+        "While these pipes are on your person, ordinary {@creature rat|XMM|rats} and {@creature giant rat|XMM|giant rats} are {@variantrule Indifferent [Attitude]|XPHB|Indifferent} toward you and won't attack you unless you threaten or harm them.",
+        "The pipes have 3 charges and regain {@dice 1d3} expended charges daily at dawn. If you play the pipes as a {@action Magic|XPHB} action, you can take a {@variantrule Bonus Action|XPHB} to expend 1 to 3 charges, calling forth one {@creature Swarm of Rats|XMM} with each expended charge if enough rats are within half a mile of you to be called in this fashion (as determined by the DM). If there aren't enough rats to form a swarm, the charge is wasted. Called swarms move toward the music by the shortest available route but aren't under your control otherwise.",
         "Whenever a Swarm of Rats that isn't under another creature's control comes within 30 feet of you while you are playing the pipes, the swarm makes a {@dc 15} Wisdom saving throw. On a successful save, the swarm behaves as it normally would and can't be swayed by the pipes' music for the next 24 hours. On a failed save, the swarm is swayed by the pipes' music and becomes {@variantrule Friendly [Attitude]|XPHB|Friendly} to you and your allies for as long as you continue to play the pipes each round as a {@action Magic|XPHB} action. A {@variantrule Friendly [Attitude]|XPHB|Friendly} swarm obeys your commands. If you issue no commands to a {@variantrule Friendly [Attitude]|XPHB|Friendly} swarm, it defends itself but otherwise takes no actions. If a {@variantrule Friendly [Attitude]|XPHB|Friendly} swarm starts its turn more than 30 feet away from you, your control over that swarm ends, and the swarm behaves as it normally would and can't be swayed by the pipes' music for the next 24 hours."
       ]
     },
@@ -6312,9 +6212,6 @@
       "weight": 0.5,
       "entries": [
         "{#itemEntry Potion of Resistance|XDMG}"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6332,9 +6229,6 @@
       ],
       "attachedSpells": [
         "animal friendship|xphb"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6352,9 +6246,6 @@
       ],
       "attachedSpells": [
         "clairvoyance|xphb"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6374,9 +6265,6 @@
       "entries": [
         "When you drink this potion, you gain a {@variantrule Climb Speed|XPHB} equal to your {@variantrule Speed|XPHB} for 1 hour. During this time, you have {@variantrule Advantage|XPHB} on Strength ({@skill Athletics|XPHB}) checks to climb.",
         "This potion is separated into brown, silver, and gray layers resembling bands of stone. Shaking the bottle fails to mix the colors."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6396,9 +6284,6 @@
       "entries": [
         "When you drink this potion, your Strength score changes to 27 for 1 hour. The potion has no effect on you if your Strength is equal to or greater than that score.",
         "This potion's transparent liquid has floating in it a sliver of fingernail from a cloud giant."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6415,9 +6300,6 @@
       "weight": 0.5,
       "entries": [
         "{#itemEntry Potion of Resistance|XDMG}"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6435,9 +6317,6 @@
       ],
       "attachedSpells": [
         "enlarge/reduce|xphb"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6457,9 +6336,6 @@
       "entries": [
         "When you drink this potion, your Strength score changes to 25 for 1 hour. The potion has no effect on you if your Strength is equal to or greater than that score.",
         "This potion's transparent liquid has floating in it a sliver of fingernail from a fire giant."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6476,9 +6352,6 @@
       "weight": 0.5,
       "entries": [
         "{#itemEntry Potion of Resistance|XDMG}"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6498,9 +6371,6 @@
       "entries": [
         "When you drink this potion, you gain a {@variantrule Fly Speed|XPHB} equal to your {@variantrule Speed|XPHB} for 1 hour and can hover. If you're in the air when the potion wears off, you fall unless you have some other means of staying aloft.",
         "This potion's clear liquid floats at the top of its container and has cloudy white impurities drifting in it."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6517,9 +6387,6 @@
       "weight": 0.5,
       "entries": [
         "{#itemEntry Potion of Resistance|XDMG}"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6539,9 +6406,6 @@
       "entries": [
         "When you drink this potion, your Strength score changes to 23 for 1 hour. The potion has no effect on you if your Strength is equal to or greater than that score.",
         "This potion's transparent liquid has floating in it a sliver of fingernail from a frost giant."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6559,9 +6423,6 @@
       ],
       "attachedSpells": [
         "gaseous form|xphb"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6575,9 +6436,6 @@
       "weight": 0.5,
       "entries": [
         "You regain {@dice 4d4 + 4} {@variantrule Hit Points|XPHB} when you drink this potion. The potion's red liquid glimmers when agitated."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6595,9 +6453,6 @@
       ],
       "attachedSpells": [
         "enlarge/reduce|xphb"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6612,9 +6467,6 @@
       "value": 5000,
       "entries": [
         "This potion is a magic item. As a {@variantrule Bonus Action|XPHB}, you can drink it or administer it to another creature within 5 feet of yourself. The creature that drinks the magical red fluid in this vial regains {@dice 2d4 + 2} {@variantrule Hit Points|XPHB}. The potion's red liquid glimmers when agitated."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6632,9 +6484,6 @@
       ],
       "attachedSpells": [
         "bless|xphb"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6654,9 +6503,6 @@
       "entries": [
         "When you drink this potion, your Strength score changes to 21 for 1 hour. The potion has no effect on you if your Strength is equal to or greater than that score.",
         "This potion's transparent liquid has floating in it a sliver of fingernail from a hill giant."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6670,9 +6516,6 @@
       "weight": 0.5,
       "entries": [
         "This potion's container looks empty but feels as though it holds liquid. When you drink the potion, you have the {@condition Invisible|XPHB} condition for 1 hour. The effect ends early if you make an attack roll, deal damage, or cast a spell."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6702,9 +6545,6 @@
       "entries": [
         "For 1 minute after you drink this potion, you have {@variantrule Resistance|XPHB} to all damage.",
         "This potion's syrupy liquid looks like liquefied iron."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6721,9 +6561,6 @@
       "weight": 0.5,
       "entries": [
         "{#itemEntry Potion of Resistance|XDMG}"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6738,9 +6575,6 @@
       "entries": [
         "When you drink this potion, your physical age is reduced by {@dice 1d6 + 6} years, to a minimum of 13 years. Each time you subsequently drink a Potion of Longevity, there is 10 percent cumulative chance that you instead age by {@dice 1d6 + 6} years.",
         "Suspended in this amber liquid is a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6758,9 +6592,6 @@
       ],
       "attachedSpells": [
         "detect thoughts|xphb"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6777,9 +6608,6 @@
       "weight": 0.5,
       "entries": [
         "{#itemEntry Potion of Resistance|XDMG}"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6794,9 +6622,6 @@
       "entries": [
         "This concoction looks, smells, and tastes like a {@item Potion of Healing|XDMG} or another beneficial potion. However, it is actually poison masked by illusion magic. {@spell Identify|XPHB} reveals its true nature.",
         "If you drink this potion, you take {@damage 4d6} Poison damage and must succeed on a {@dc 13} Constitution saving throw or have the {@condition Poisoned|XPHB} condition for 1 hour."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6813,9 +6638,6 @@
       "weight": 0.5,
       "entries": [
         "{#itemEntry Potion of Resistance|XDMG}"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6832,9 +6654,6 @@
       "weight": 0.5,
       "entries": [
         "{#itemEntry Potion of Resistance|XDMG}"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6851,9 +6670,6 @@
       "weight": 0.5,
       "entries": [
         "{#itemEntry Potion of Resistance|XDMG}"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6871,9 +6687,6 @@
       ],
       "attachedSpells": [
         "haste|xphb"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6893,9 +6706,6 @@
       "entries": [
         "When you drink this potion, your Strength score changes to 23 for 1 hour. The potion has no effect on you if your Strength is equal to or greater than that score.",
         "This potion's transparent liquid has floating in it a sliver of fingernail from a stone giant."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6915,9 +6725,6 @@
       "entries": [
         "When you drink this potion, your Strength score changes to 29 for 1 hour. The potion has no effect on you if your Strength is equal to or greater than that score.",
         "This potion's transparent liquid has floating in it a sliver of fingernail from a storm giant."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6931,9 +6738,6 @@
       "weight": 0.5,
       "entries": [
         "You regain {@dice 8d4 + 8} {@variantrule Hit Points|XPHB} when you drink this potion. The potion's red liquid glimmers when agitated."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6947,9 +6751,6 @@
       "weight": 0.5,
       "entries": [
         "You regain {@dice 10d4 + 20} {@variantrule Hit Points|XPHB} when you drink this potion. The potion's red liquid glimmers when agitated."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6966,9 +6767,6 @@
       "weight": 0.5,
       "entries": [
         "{#itemEntry Potion of Resistance|XDMG}"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -6983,9 +6781,6 @@
       "entries": [
         "When you drink this potion, it removes any {@condition Exhaustion|XPHB} levels you have and ends the {@condition Poisoned|XPHB} condition on you. For the next 24 hours, you regain the maximum number of {@variantrule Hit Points|XPHB} for any {@variantrule Hit Point Dice|XPHB|Hit Point Die} you spend.",
         "This potion's crimson liquid regularly pulses with dull light, calling to mind a heartbeat."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -7000,9 +6795,6 @@
       "entries": [
         "You can breathe underwater for 24 hours after drinking this potion.",
         "This potion's cloudy green fluid smells of the sea and has a jellyfish-like bubble floating in it."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -7072,9 +6864,6 @@
       ],
       "poisonTypes": [
         "injury"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -7100,7 +6889,7 @@
       "wondrous": true,
       "entries": [
         "This object looks like a feather.",
-        "You can take a {@action Magic|XPHB} action to toss the token 5 feet into the air. The token disappears and an enormous, multicolored bird takes its place. The bird has the statistics of a Roc, but it can't attack. It obeys your simple commands and can carry up to 500 pounds while flying at its maximum speed (16 miles per hour for a maximum of 144 miles per day, with a 1-hour rest for every 3 hours of flying) or 1,000 pounds at half that speed. The bird disappears after flying its maximum distance for a day or if it drops to 0 {@variantrule Hit Points|XPHB}. You can dismiss the bird as a {@action Magic|XPHB} action."
+        "You can take a {@action Magic|XPHB} action to toss the token 5 feet into the air. The token disappears and an enormous, multicolored bird takes its place. The bird has the statistics of a {@creature Roc|XMM}, but it can't attack. It obeys your simple commands and can carry up to 500 pounds while flying at its maximum speed (16 miles per hour for a maximum of 144 miles per day, with a 1-hour rest for every 3 hours of flying) or 1,000 pounds at half that speed. The bird disappears after flying its maximum distance for a day or if it drops to 0 {@variantrule Hit Points|XPHB}. You can dismiss the bird as a {@action Magic|XPHB} action."
       ]
     },
     {
@@ -7279,9 +7068,6 @@
       "value": 50,
       "entries": [
         "Rations consist of travel-ready food, including jerky, dried fruit, hardtack, and nuts. See \"Malnutrition\" for the risks of not eating."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -7424,7 +7210,7 @@
       "rarity": "legendary",
       "reqAttune": true,
       "entries": [
-        "While wearing this ring, you can take a {@action Magic|XPHB} action to summon a particular Djinni from the Elemental Plane of Air. The djinni appears in an unoccupied space you choose within 120 feet of yourself. It remains as long as you maintain {@status Concentration|XPHB}, to a maximum of 1 hour, or until it drops to 0 {@variantrule Hit Points|XPHB}.",
+        "While wearing this ring, you can take a {@action Magic|XPHB} action to summon a particular {@creature Djinni|XMM} from the Elemental Plane of Air. The djinni appears in an unoccupied space you choose within 120 feet of yourself. It remains as long as you maintain {@status Concentration|XPHB}, to a maximum of 1 hour, or until it drops to 0 {@variantrule Hit Points|XPHB}.",
         "While summoned, the djinni is {@variantrule Friendly [Attitude]|XPHB|Friendly} to you and your allies, and it obeys your commands. If you fail to command it, the djinni defends itself against attackers but takes no other actions.",
         "After the djinni departs, it can't be summoned again for 24 hours, and the ring becomes nonmagical if the djinni dies.",
         "Rings of Djinni Summoning are often created by the djinn they summon and given to mortals as gifts of friendship or tokens of esteem."
@@ -8443,7 +8229,7 @@
             ],
             [
               "45-51",
-              "Riding Horse with a {@item Riding Saddle|XPHB}"
+              "{@creature Riding Horse|XMM} with a {@item Riding Saddle|XPHB}"
             ],
             [
               "52-59",
@@ -8463,7 +8249,7 @@
             ],
             [
               "84-90",
-              "2 Mastiffs"
+              "2 {@creature Mastiff|XMM|Mastiffs}"
             ],
             [
               "91-96",
@@ -8839,9 +8625,6 @@
             "You have {@variantrule Advantage|XPHB} on saving throws against spells."
           ]
         }
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -8950,9 +8733,6 @@
       ],
       "poisonTypes": [
         "injury"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -9116,10 +8896,7 @@
         "If the spell is on your spell list but of a higher level than you can normally cast, you make a {@dc 10} ability check using your spellcasting ability to determine whether you cast the spell. On a failed check, the spell disappears from the scroll with no other effect.",
         "If the spell requires a saving throw or an attack roll, the spell save DC is 13, and the attack bonus is {@hit 5}."
       ],
-      "spellScrollLevel": 0,
-      "miscTags": [
-        "CNS"
-      ]
+      "spellScrollLevel": 0
     },
     {
       "name": "Spell Scroll (Level 1)",
@@ -9142,10 +8919,7 @@
           ]
         }
       ],
-      "spellScrollLevel": 1,
-      "miscTags": [
-        "CNS"
-      ]
+      "spellScrollLevel": 1
     },
     {
       "name": "Spell Scroll (Level 2)",
@@ -9167,10 +8941,7 @@
           ]
         }
       ],
-      "spellScrollLevel": 2,
-      "miscTags": [
-        "CNS"
-      ]
+      "spellScrollLevel": 2
     },
     {
       "name": "Spell Scroll (Level 3)",
@@ -9192,10 +8963,7 @@
           ]
         }
       ],
-      "spellScrollLevel": 3,
-      "miscTags": [
-        "CNS"
-      ]
+      "spellScrollLevel": 3
     },
     {
       "name": "Spell Scroll (Level 4)",
@@ -9217,10 +8985,7 @@
           ]
         }
       ],
-      "spellScrollLevel": 4,
-      "miscTags": [
-        "CNS"
-      ]
+      "spellScrollLevel": 4
     },
     {
       "name": "Spell Scroll (Level 5)",
@@ -9242,10 +9007,7 @@
           ]
         }
       ],
-      "spellScrollLevel": 5,
-      "miscTags": [
-        "CNS"
-      ]
+      "spellScrollLevel": 5
     },
     {
       "name": "Spell Scroll (Level 6)",
@@ -9267,10 +9029,7 @@
           ]
         }
       ],
-      "spellScrollLevel": 6,
-      "miscTags": [
-        "CNS"
-      ]
+      "spellScrollLevel": 6
     },
     {
       "name": "Spell Scroll (Level 7)",
@@ -9292,10 +9051,7 @@
           ]
         }
       ],
-      "spellScrollLevel": 7,
-      "miscTags": [
-        "CNS"
-      ]
+      "spellScrollLevel": 7
     },
     {
       "name": "Spell Scroll (Level 8)",
@@ -9317,10 +9073,7 @@
           ]
         }
       ],
-      "spellScrollLevel": 8,
-      "miscTags": [
-        "CNS"
-      ]
+      "spellScrollLevel": 8
     },
     {
       "name": "Spell Scroll (Level 9)",
@@ -9342,10 +9095,7 @@
           ]
         }
       ],
-      "spellScrollLevel": 9,
-      "miscTags": [
-        "CNS"
-      ]
+      "spellScrollLevel": 9
     },
     {
       "name": "Spellguard Shield",
@@ -9414,9 +9164,6 @@
             }
           ]
         }
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -10317,7 +10064,7 @@
       "dmg2": "1d8",
       "staff": true,
       "entries": [
-        "As a {@action Magic|XPHB} action, you can throw this staff so that it lands in an unoccupied space within 10 feet of you, causing the staff to become a Giant Constrictor Snake in that space. The snake is under your control and shares your {@variantrule Initiative|XPHB} count, taking its turn immediately after yours.",
+        "As a {@action Magic|XPHB} action, you can throw this staff so that it lands in an unoccupied space within 10 feet of you, causing the staff to become a {@creature Giant Constrictor Snake|XMM} in that space. The snake is under your control and shares your {@variantrule Initiative|XPHB} count, taking its turn immediately after yours.",
         "On your turn, you can mentally command the snake (no action required) if it is within 60 feet of you and you don't have the {@condition Incapacitated|XPHB} condition. You decide what action the snake takes and where it moves during its turn, or you can issue it a general command, such as to attack your enemies or guard a location. Absent commands from you, the snake defends itself.",
         "As a {@variantrule Bonus Action|XPHB}, you can command the snake to revert to staff form in its current space, and you can't use the staff's property again for 1 hour. If the snake is reduced to 0 {@variantrule Hit Points|XPHB}, it dies and reverts to its staff form; the staff then shatters and is destroyed. If the snake reverts to staff form before losing all its {@variantrule Hit Points|XPHB}, it regains all of them."
       ]
@@ -10555,7 +10302,7 @@
       "rarity": "rare",
       "wondrous": true,
       "entries": [
-        "While touching this 5-pound stone to the ground, you can take a {@action Magic|XPHB} action to summon an Earth Elemental. The elemental appears in an unoccupied space you choose within 30 feet of yourself, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}. The stone can't be used this way again until the next dawn."
+        "While touching this 5-pound stone to the ground, you can take a {@action Magic|XPHB} action to summon an {@creature Earth Elemental|XMM}. The elemental appears in an unoccupied space you choose within 30 feet of yourself, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}. The stone can't be used this way again until the next dawn."
       ]
     },
     {
@@ -10673,9 +10420,6 @@
             "The talisman has 7 charges. While wearing or holding the talisman, you can take a {@action Magic|XPHB} action to expend 1 charge and target one creature you can see on the ground within 120 feet of yourself. A flaming fissure opens under the target, and the target makes a {@dc 20} Dexterity saving throw. If the target is a Fiend or an Undead, it has {@variantrule Disadvantage|XPHB} on the save. On a failed save, the target falls into the fissure and is destroyed, leaving no remains. On a successful save, the target isn't cast into the fissure but takes {@damage 4d6} Psychic damage from the ordeal. In either case, the fissure then closes, leaving no trace of its existence. When you expend the last charge, the talisman disperses into motes of golden light and is destroyed."
           ]
         }
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -10720,9 +10464,6 @@
             "The talisman has 6 charges. While wearing or holding the talisman, you can take a {@action Magic|XPHB} action to expend 1 charge and target one creature you can see on the ground within 120 feet of yourself. A flaming fissure opens under the target, and the target makes a {@dc 20} Dexterity saving throw. If the target is a Celestial, it has {@variantrule Disadvantage|XPHB} on the save. On a failed save, the target falls into the fissure and is destroyed, leaving no remains. On a successful save, the target isn't cast into the fissure but takes {@damage 4d6} Psychic damage from the ordeal. In either case, the fissure then closes, leaving no trace of its existence. When you expend the last charge, the talisman dissolves into foul-smelling slime and is destroyed."
           ]
         }
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -10923,9 +10664,6 @@
           "bright": 20,
           "dim": 40
         }
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -10943,9 +10681,6 @@
       ],
       "poisonTypes": [
         "ingested"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -11423,9 +11158,6 @@
             ]
           ]
         }
-      ],
-      "miscTags": [
-        "TT"
       ]
     },
     {
@@ -11443,9 +11175,6 @@
       ],
       "poisonTypes": [
         "ingested"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -11949,7 +11678,7 @@
             ],
             [
               "56-60",
-              "A magically formed creature appears in an unoccupied space as close to the chosen point of origin as possible. The creature isn't under your control, acts as it normally would, and disappears after 1 hour or when it drops to 0 {@variantrule Hit Points|XPHB}. Roll {@dice 1d4} to determine which creature appears. On a {@b 1}, a Rhinoceros appears; on a {@b 2}, an Elephant appears; and on a {@b 3-4}, a Rat appears."
+              "A magically formed creature appears in an unoccupied space as close to the chosen point of origin as possible. The creature isn't under your control, acts as it normally would, and disappears after 1 hour or when it drops to 0 {@variantrule Hit Points|XPHB}. Roll {@dice 1d4} to determine which creature appears. On a {@b 1}, a {@creature Rhinoceros|XMM} appears; on a {@b 2}, an {@creature Elephant|XMM} appears; and on a {@b 3-4}, a {@creature Rat|XMM} appears."
             ],
             [
               "61-64",
@@ -11981,7 +11710,7 @@
             ],
             [
               "93-97",
-              "You cast {@spell Polymorph|XPHB}, targeting the creature closest to the chosen point of origin. Roll {@dice 1d4} to determine the target's new form. On a {@b 1}, the new form is a Black Bear; on a {@b 2}, the new form is a Giant Wasp; on a {@b 3-4}, the new form is a Frog."
+              "You cast {@spell Polymorph|XPHB}, targeting the creature closest to the chosen point of origin. Roll {@dice 1d4} to determine the target's new form. On a {@b 1}, the new form is a {@creature Black Bear|XMM}; on a {@b 2}, the new form is a {@creature Giant Wasp|XMM}; on a {@b 3-4}, the new form is a {@creature Frog|XMM}."
             ],
             [
               "98-00",
@@ -12171,9 +11900,6 @@
       ],
       "poisonTypes": [
         "injury"
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -12849,9 +12575,6 @@
       "bulletFirearm": true,
       "entries": [
         "Firearm Bullets are destroyed upon use in a modern firearm."
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {
@@ -12874,9 +12597,6 @@
           "item": "firearm bullet|xphb",
           "quantity": 10
         }
-      ],
-      "miscTags": [
-        "CNS"
       ]
     },
     {

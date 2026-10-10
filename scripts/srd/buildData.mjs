@@ -16,7 +16,7 @@ export const LICENSES = {
 };
 
 // Tags linking to data we ship: kept when the target is in the same edition's files.
-const SHIPPED_TAGS = { spell: "spell", item: "item", feat: "feat", language: "language" };
+const SHIPPED_TAGS = { spell: "spell", item: "item", feat: "feat", language: "language", creature: "monster" };
 // Tags linking to data we don't ship, or to the books: their text only.
 const TEXT_ONLY_TAGS = new Set([
   "creature", "race", "background", "class", "subclass", "classFeature", "subclassFeature", "optfeature",
@@ -29,10 +29,14 @@ const FIRST_PART_TAGS = new Set(["book", "filter", "link", "adventure", "quickre
 
 // Books the SRD entries come from; a nested block from any other book is not SRD.
 const SRD_SOURCES = new Set(["PHB", "XPHB", "DMG", "XDMG", "MM", "XMM"]);
-// References to content we don't ship, at any depth.
+// References to content we don't ship (pages, sound, art, lair data), at any depth.
 const DROP_KEYS = new Set([
   "page", "classFeatures", "optionalfeatures", "seeAlsoVehicle", "seeAlsoDeck", "hasRefs", "fonts", "_versions",
+  "soundClip", "hasToken", "altArt", "foundryTokenScale", "legendaryGroup", "familiar",
 ]);
+// Search/filter tag lists of the source data; nothing in the addon reads them.
+const INTERNAL_TAG_KEYS = /^(traitTags|senseTags|actionTags|languageTags|miscTags|spellcastingTags)$|^(damageTags|conditionInflict|savingThrowForced)/;
+const isDropped = (key) => DROP_KEYS.has(key) || INTERNAL_TAG_KEYS.test(key);
 
 /** Innermost {@tag ...} links resolved: kept, or replaced by their text. */
 export const cleanText = (text, refs) =>
@@ -54,7 +58,7 @@ export const cleanValue = (value, refs) => {
   if (value && typeof value === "object") {
     const out = {};
     for (const [key, v] of Object.entries(value)) {
-      if (!DROP_KEYS.has(key)) out[key] = cleanValue(v, refs);
+      if (!isDropped(key)) out[key] = cleanValue(v, refs);
     }
     return out;
   }
@@ -65,7 +69,7 @@ const ofEdition = (list, edition) => (list ?? []).filter((e) => e.srdEditions?.i
 const names = (list) => new Set(list.map((e) => e.name.toLowerCase()));
 
 /**
- * The shipped files for one edition, from { items, baseItems, spells, feats, languages }
+ * The shipped files for one edition, from { items, baseItems, spells, feats, languages, monsters }
  * (SRD entries with srdEditions). Wrapper keys are the ones the cards read.
  */
 export const buildEdition = (edition, srd) => {
@@ -73,7 +77,8 @@ export const buildEdition = (edition, srd) => {
   const spells = ofEdition(srd.spells, edition);
   const feats = ofEdition(srd.feats, edition);
   const languages = ofEdition(srd.languages, edition);
-  const refs = { item: names(items), spell: names(spells), feat: names(feats), language: names(languages) };
+  const monsters = ofEdition(srd.monsters, edition);
+  const refs = { item: names(items), spell: names(spells), feat: names(feats), language: names(languages), monster: names(monsters) };
 
   const file = (key, list) => ({
     _meta: { license: LICENSES[edition], edition: `SRD ${edition}` },
@@ -84,5 +89,6 @@ export const buildEdition = (edition, srd) => {
     "spells.json": file("spell", spells),
     "feats.json": file("feat", feats),
     "languages.json": file("language", languages),
+    "monsters.json": file("monster", monsters),
   };
 };

@@ -77,8 +77,8 @@
       ],
       "type": "secret",
       "typicalSpeakers": [
-        "druids/druids",
-        "treants"
+        "druids/{@creature druid||druids}",
+        "{@creature treant||treants}"
       ],
       "entries": [
         "Druidic is the secret language of druids. It can be spoken or used to leave hidden messages. Creatures who know this language automatically spot such a message. Others spot the message's presence with a successful {@dc 15} Wisdom ({@skill Perception}) check but can't decipher it without magic."
@@ -122,7 +122,7 @@
       ],
       "type": "standard",
       "typicalSpeakers": [
-        "ogres",
+        "{@creature ogre||ogres}",
         "giants"
       ],
       "script": "Dwarvish"
@@ -237,7 +237,7 @@
       ],
       "type": "secret",
       "typicalSpeakers": [
-        "assassins",
+        "{@creature assassin||assassins}",
         "rogues"
       ],
       "entries": [
