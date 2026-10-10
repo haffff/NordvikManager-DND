@@ -37,11 +37,131 @@
   ],
   "assignableIcons": [
     {
+      "id": "blinded",
+      "label": "Blinded",
+      "iconPack": "gi",
+      "iconName": "GiBlindfold",
+      "dtoProperty": "status_blinded",
+      "source": "card"
+    },
+    {
+      "id": "charmed",
+      "label": "Charmed",
+      "iconPack": "gi",
+      "iconName": "GiCharm",
+      "dtoProperty": "status_charmed",
+      "source": "card"
+    },
+    {
+      "id": "deafened",
+      "label": "Deafened",
+      "iconPack": "gi",
+      "iconName": "GiHumanEar",
+      "dtoProperty": "status_deafened",
+      "source": "card"
+    },
+    {
+      "id": "exhaustion",
+      "label": "Exhaustion",
+      "iconPack": "gi",
+      "iconName": "GiTiredEye",
+      "dtoProperty": "status_exhaustion",
+      "source": "card"
+    },
+    {
+      "id": "frightened",
+      "label": "Frightened",
+      "iconPack": "gi",
+      "iconName": "GiScreaming",
+      "dtoProperty": "status_frightened",
+      "source": "card"
+    },
+    {
+      "id": "grappled",
+      "label": "Grappled",
+      "iconPack": "gi",
+      "iconName": "GiGrab",
+      "dtoProperty": "status_grappled",
+      "source": "card"
+    },
+    {
+      "id": "incapacitated",
+      "label": "Incapacitated",
+      "iconPack": "gi",
+      "iconName": "GiKnockout",
+      "dtoProperty": "status_incapacitated",
+      "source": "card"
+    },
+    {
+      "id": "invisible",
+      "label": "Invisible",
+      "iconPack": "gi",
+      "iconName": "GiInvisible",
+      "dtoProperty": "status_invisible",
+      "source": "card"
+    },
+    {
+      "id": "paralyzed",
+      "label": "Paralyzed",
+      "iconPack": "gi",
+      "iconName": "GiFrozenBody",
+      "dtoProperty": "status_paralyzed",
+      "source": "card"
+    },
+    {
+      "id": "petrified",
+      "label": "Petrified",
+      "iconPack": "gi",
+      "iconName": "GiStoneBust",
+      "dtoProperty": "status_petrified",
+      "source": "card"
+    },
+    {
       "id": "poisoned",
       "label": "Poisoned",
       "iconPack": "gi",
       "iconName": "GiPoisonBottle",
       "dtoProperty": "status_poisoned",
+      "source": "card"
+    },
+    {
+      "id": "prone",
+      "label": "Prone",
+      "iconPack": "gi",
+      "iconName": "GiFalling",
+      "dtoProperty": "status_prone",
+      "source": "card"
+    },
+    {
+      "id": "restrained",
+      "label": "Restrained",
+      "iconPack": "gi",
+      "iconName": "GiCrossedChains",
+      "dtoProperty": "status_restrained",
+      "source": "card"
+    },
+    {
+      "id": "stunned",
+      "label": "Stunned",
+      "iconPack": "gi",
+      "iconName": "GiKnockedOutStars",
+      "dtoProperty": "status_stunned",
+      "source": "card"
+    },
+    {
+      "id": "unconscious",
+      "label": "Unconscious",
+      "iconPack": "gi",
+      "iconName": "GiSleepy",
+      "dtoProperty": "status_unconscious",
+      "source": "card"
+    },
+    {
+      "id": "concentration",
+      "label": "Concentration",
+      "iconPack": "gi",
+      "iconName": "GiConcentrationOrb",
+      "dtoProperty": "status_concentration",
       "source": "card"
     }
   ],
@@ -182,10 +302,873 @@
             "ClientMediatorAction": {
               "panel": "Game",
               "command": "CreateNewPanel",
-              "data": { "type": "CardPanel", "props": { "id": "{{cardId}}" } }
+              "data": {
+                "type": "CardPanel",
+                "props": {
+                  "id": "{{cardId}}"
+                }
+              }
             }
           }
         }
+      }
+    },
+    {
+      "name": "counter_icon_rage",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiAngryEyes",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(232,184,75,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_rage",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_flame",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiFlame",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(232,184,75,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_flame",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_shield",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiShield",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(232,184,75,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_shield",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_bolt",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiLightningTrio",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(232,184,75,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_bolt",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_skull",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiDeathSkull",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(232,184,75,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_skull",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_heart",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiHearts",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(232,184,75,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_heart",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_eye",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiEyeball",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(232,184,75,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_eye",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_moon",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiMoon",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(232,184,75,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_moon",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_sun",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiSun",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(232,184,75,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_sun",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_sword",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiBroadsword",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(232,184,75,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_sword",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_fist",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiFist",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(232,184,75,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_fist",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_holy",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiHolySymbol",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(232,184,75,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_holy",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_music",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiMusicalNotes",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(232,184,75,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_music",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_leaf",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiOakLeaf",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(232,184,75,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_leaf",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_hourglass",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiSandsOfTime",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(232,184,75,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_hourglass",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_sparkles",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiSparkles",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(232,184,75,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_sparkles",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "status_blinded",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiBlindfold",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(90,90,90,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "conditions",
+        "label": "Conditions",
+        "propDeps": [
+          {
+            "dtoProperty": "status_blinded",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "status_charmed",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiCharm",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(230,110,170,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "conditions",
+        "label": "Conditions",
+        "propDeps": [
+          {
+            "dtoProperty": "status_charmed",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "status_deafened",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiHumanEar",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(150,150,150,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "conditions",
+        "label": "Conditions",
+        "propDeps": [
+          {
+            "dtoProperty": "status_deafened",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "status_exhaustion",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiTiredEye",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(170,120,60,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "conditions",
+        "label": "Conditions",
+        "propDeps": [
+          {
+            "dtoProperty": "status_exhaustion",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "status_frightened",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiScreaming",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(200,60,60,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "conditions",
+        "label": "Conditions",
+        "propDeps": [
+          {
+            "dtoProperty": "status_frightened",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "status_grappled",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiGrab",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(190,140,70,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "conditions",
+        "label": "Conditions",
+        "propDeps": [
+          {
+            "dtoProperty": "status_grappled",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "status_incapacitated",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiKnockout",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(120,120,160,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "conditions",
+        "label": "Conditions",
+        "propDeps": [
+          {
+            "dtoProperty": "status_incapacitated",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "status_invisible",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiInvisible",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(160,200,230,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "conditions",
+        "label": "Conditions",
+        "propDeps": [
+          {
+            "dtoProperty": "status_invisible",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "status_paralyzed",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiFrozenBody",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(120,190,230,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "conditions",
+        "label": "Conditions",
+        "propDeps": [
+          {
+            "dtoProperty": "status_paralyzed",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "status_petrified",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiStoneBust",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(140,130,120,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "conditions",
+        "label": "Conditions",
+        "propDeps": [
+          {
+            "dtoProperty": "status_petrified",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
       }
     },
     {
@@ -209,9 +1192,176 @@
         "anchor": "right-top",
         "offsetX": 0,
         "offsetY": 0,
+        "maskGroup": "conditions",
+        "label": "Conditions",
         "propDeps": [
           {
             "dtoProperty": "status_poisoned",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "status_prone",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiFalling",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(180,130,80,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "conditions",
+        "label": "Conditions",
+        "propDeps": [
+          {
+            "dtoProperty": "status_prone",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "status_restrained",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiCrossedChains",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(110,110,110,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "conditions",
+        "label": "Conditions",
+        "propDeps": [
+          {
+            "dtoProperty": "status_restrained",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "status_stunned",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiKnockedOutStars",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(240,210,70,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "conditions",
+        "label": "Conditions",
+        "propDeps": [
+          {
+            "dtoProperty": "status_stunned",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "status_unconscious",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiSleepy",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(90,90,140,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "conditions",
+        "label": "Conditions",
+        "propDeps": [
+          {
+            "dtoProperty": "status_unconscious",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "status_concentration",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiConcentrationOrb",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(120,170,255,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "conditions",
+        "label": "Conditions",
+        "propDeps": [
+          {
+            "dtoProperty": "status_concentration",
             "objectProperty": "visible",
             "type": "bool",
             "source": "card"

@@ -7,7 +7,8 @@
     "pack": "node scripts/pack-cards.mjs",
     "test": "node --test \"scripts/**/*.test.mjs\" \"card_sources/*/src/**/*.test.mjs\"",
     "srd": "node scripts/srd/extract-srd.mjs",
-    "srd:build": "node scripts/srd/build-data.mjs"
+    "srd:build": "node scripts/srd/build-data.mjs",
+    "tokens:build": "node scripts/tokens/build-tokens.mjs"
   },
   "devDependencies": {
     "archiver": "^7.0.1"

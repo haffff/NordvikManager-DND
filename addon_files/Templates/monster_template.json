@@ -3,8 +3,15 @@
   "description": "A template for fifth edition monsters.",
   "key": "monster",
   "mainResource": "dnd5e_index.html",
-  "additionalResources": ["dnd5e_dnd5e-monstercard.js", "dnd5e_shared.css"],
+  "additionalResources": [
+    "dnd5e_dnd5e-monstercard.js",
+    "dnd5e_shared.css"
+  ],
   "properties": [
-    { "name": "token", "value": "dnd5e_token_character.json" }
-  ]
+    {
+      "name": "token",
+      "value": "dnd5e_token_monster.json"
+    }
+  ],
+  "token": "dnd5e_token_monster.json"
 }
