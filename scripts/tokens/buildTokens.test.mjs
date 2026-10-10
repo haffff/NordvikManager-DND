@@ -55,3 +55,10 @@ test("the monster token labels with the monster's name; the character token with
   assert.equal(label(buildToken(current, "character")), "character_name");
   assert.equal(label(buildToken(current, "monster")), "monster_name");
 });
+
+test("counter icons with their own colour (the status dots) keep it on the token", () => {
+  const token = buildToken(current, "character");
+  for (const icon of COUNTER_ICONS.filter((i) => i.fill)) {
+    assert.equal(token.additions.find((a) => a.name === `counter_icon_${icon.key}`).fill, icon.fill, icon.key);
+  }
+});

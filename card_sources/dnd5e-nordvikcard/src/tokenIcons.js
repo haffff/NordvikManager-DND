@@ -4,7 +4,8 @@
 // "dnd5e_icon_<key>" property is "true". The sheet and the Turn Changed action write
 // those properties from the counters (tokenIconProps).
 
-/** Icons a counter can show on the token (react-icons/gi, the token icon pack). */
+/** Icons a counter can show on the token (react-icons/gi, the token icon pack). Changing
+ * this list: run `pnpm tokens:build` (token parts and the Turn Changed action's steps). */
 export const COUNTER_ICONS = [
   { key: "rage", label: "Rage", iconName: "GiAngryEyes" },
   { key: "flame", label: "Flame", iconName: "GiFlame" },
@@ -22,6 +23,11 @@ export const COUNTER_ICONS = [
   { key: "leaf", label: "Leaf", iconName: "GiOakLeaf" },
   { key: "hourglass", label: "Hourglass", iconName: "GiSandsOfTime" },
   { key: "sparkles", label: "Sparkles", iconName: "GiSparkles" },
+  // Plain coloured dots, for anything the themed icons don't fit (fill: their colour).
+  { key: "dot_yellow", label: "Status: yellow", iconName: "GiPlainCircle", fill: "rgba(240,200,40,0.95)" },
+  { key: "dot_red", label: "Status: red", iconName: "GiPlainCircle", fill: "rgba(210,50,50,0.95)" },
+  { key: "dot_blue", label: "Status: blue", iconName: "GiPlainCircle", fill: "rgba(60,130,230,0.95)" },
+  { key: "dot_green", label: "Status: green", iconName: "GiPlainCircle", fill: "rgba(60,170,80,0.95)" },
 ];
 
 /** SRD conditions (and Concentration), toggled from the token's icon picker. */

@@ -842,6 +842,138 @@
       }
     },
     {
+      "name": "counter_icon_dot_yellow",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiPlainCircle",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(240,200,40,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_dot_yellow",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_dot_red",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiPlainCircle",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(210,50,50,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_dot_red",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_dot_blue",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiPlainCircle",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(60,130,230,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_dot_blue",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
+      "name": "counter_icon_dot_green",
+      "type": "reactIcon",
+      "iconPack": "gi",
+      "iconName": "GiPlainCircle",
+      "left": 0,
+      "top": 0,
+      "width": 18,
+      "height": 18,
+      "originX": "center",
+      "originY": "top",
+      "fill": "rgba(60,170,80,0.95)",
+      "scaleX": 1,
+      "scaleY": 1,
+      "angle": 0,
+      "opacity": 1,
+      "visible": false,
+      "tokenData": {
+        "anchor": "right-top",
+        "offsetX": 0,
+        "offsetY": 0,
+        "maskGroup": "counters",
+        "label": "Counter icons",
+        "propDeps": [
+          {
+            "dtoProperty": "dnd5e_icon_dot_green",
+            "objectProperty": "visible",
+            "type": "bool",
+            "source": "card"
+          }
+        ]
+      }
+    },
+    {
       "name": "status_blinded",
       "type": "reactIcon",
       "iconPack": "gi",

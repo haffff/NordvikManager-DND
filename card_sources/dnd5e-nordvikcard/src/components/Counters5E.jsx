@@ -97,25 +97,12 @@ const CounterEditor = ({ counter, feats, onChange, onRemove, onDone }) => {
           />
         </label>
       </div>
-      <div className="dnd5e_ctr_field">
+      <label className="dnd5e_ctr_field">
         <span>Refills</span>
-        <div className="dnd5e_ctr_segmented" role="radiogroup">
-          {Object.entries(RESETS).map(([value, label]) => {
-            const Icon = RESET_ICON[value];
-            return (
-              <button
-                key={value}
-                role="radio"
-                aria-checked={counter.reset === value}
-                className={counter.reset === value ? "active" : ""}
-                onClick={() => onChange({ ...counter, reset: value })}
-              >
-                <Icon /> {label}
-              </button>
-            );
-          })}
-        </div>
-      </div>
+        <select value={counter.reset} onChange={(e) => onChange({ ...counter, reset: e.target.value })}>
+          {Object.entries(RESETS).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+        </select>
+      </label>
       <div className="dnd5e_ctr_field">
         <span>Token icon</span>
         <div className="dnd5e_ctr_icon_grid" role="radiogroup" aria-label="Token icon">
@@ -145,22 +132,12 @@ const CounterEditor = ({ counter, feats, onChange, onRemove, onDone }) => {
         </div>
       </div>
       {counter.icon && (
-        <div className="dnd5e_ctr_field">
+        <label className="dnd5e_ctr_field">
           <span>Show on token</span>
-          <div className="dnd5e_ctr_segmented three" role="radiogroup">
-            {Object.entries(SHOW_ON_TOKEN).map(([value, label]) => (
-              <button
-                key={value}
-                role="radio"
-                aria-checked={iconOf(counter).showOnToken === value}
-                className={iconOf(counter).showOnToken === value ? "active" : ""}
-                onClick={() => onChange({ ...counter, showOnToken: value })}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-        </div>
+          <select value={iconOf(counter).showOnToken} onChange={(e) => onChange({ ...counter, showOnToken: e.target.value })}>
+            {Object.entries(SHOW_ON_TOKEN).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+          </select>
+        </label>
       )}
       <label className="dnd5e_ctr_field">
         <span>Feat</span>
@@ -262,11 +239,14 @@ const CounterTile = ({ counter, feat, feats, apply, focused, onShowFeat }) => {
   );
 };
 
-// Adds a counter: pick a preset (grouped by when it refills) or name your own, then its max.
+const CUSTOM = "__custom";
+
+// Adds a counter: a preset (grouped by when it refills) or one of your own, and its max.
 const AddCounter = ({ onAdd, onClose }) => {
-  const [preset, setPreset] = React.useState(null);
+  const [choice, setChoice] = React.useState(PRESETS[0].name);
   const [name, setName] = React.useState("");
   const [max, setMax] = React.useState(1);
+  const preset = PRESETS.find((p) => p.name === choice);
   const groups = Object.keys(RESETS)
     .map((reset) => [reset, PRESETS.filter((p) => p.reset === reset)])
     .filter(([, list]) => list.length);
@@ -279,33 +259,39 @@ const AddCounter = ({ onAdd, onClose }) => {
 
   return (
     <div className="dnd5e_ctr_add">
-      {groups.map(([reset, list]) => (
-        <div key={reset} className="dnd5e_ctr_add_group">
-          <ResetBadge reset={reset} />
-          <div className="dnd5e_ctr_chips">
-            {list.map((p) => (
-              <button
-                key={p.name}
-                className={`dnd5e_ctr_chip${preset?.name === p.name ? " active" : ""}`}
-                onClick={() => { setPreset(p); setName(""); }}
-              >
-                {p.name}
-              </button>
+      <div className="dnd5e_ctr_add_title">New counter</div>
+      <div className="dnd5e_ctr_add_grid">
+        <label className="dnd5e_ctr_field">
+          <span>Counter</span>
+          <select value={choice} onChange={(e) => setChoice(e.target.value)}>
+            {groups.map(([reset, list]) => (
+              <optgroup key={reset} label={RESETS[reset]}>
+                {list.map((p) => <option key={p.name} value={p.name}>{p.name}</option>)}
+              </optgroup>
             ))}
-          </div>
-        </div>
-      ))}
-      <div className="dnd5e_ctr_add_row">
-        <input
-          placeholder="…or a name of your own"
-          value={name}
-          onChange={(e) => { setName(e.target.value); setPreset(null); }}
-        />
-        <label className="dnd5e_ctr_inline">
-          Max <input type="number" min={0} value={max} onChange={(e) => setMax(e.target.value)} />
+            <option value={CUSTOM}>Custom…</option>
+          </select>
         </label>
-        <button className="dnd5e_ctr_primary" disabled={!preset && !name.trim()} onClick={add}><FaPlus /> Add</button>
+        {!preset && (
+          <label className="dnd5e_ctr_field">
+            <span>Name</span>
+            <input value={name} placeholder="e.g. Hunter's Mark" onChange={(e) => setName(e.target.value)} autoFocus />
+          </label>
+        )}
+        <label className="dnd5e_ctr_field dnd5e_ctr_field_narrow">
+          <span>Max</span>
+          <input type="number" min={0} value={max} onChange={(e) => setMax(e.target.value)} />
+        </label>
+      </div>
+      {preset && (
+        <div className="dnd5e_ctr_add_hint">
+          <ResetBadge reset={preset.reset} />
+          {preset.durationRounds ? <span>Lasts {preset.durationRounds} rounds when activated</span> : null}
+        </div>
+      )}
+      <div className="dnd5e_ctr_add_actions">
         <button className="dnd5e_ctr_ghost" onClick={onClose}>Cancel</button>
+        <button className="dnd5e_ctr_primary" disabled={!preset && !name.trim()} onClick={add}><FaPlus /> Add</button>
       </div>
     </div>
   );

@@ -66,8 +66,8 @@ export const buildToken = (base, kind) => {
     })),
     additions: [
       ...parts,
-      ...COUNTER_ICONS.map(({ key, iconName }) => iconPart({
-        name: `${COUNTER_PREFIX}${key}`, iconName, fill: COUNTER_FILL, property: iconProperty(key),
+      ...COUNTER_ICONS.map(({ key, iconName, fill }) => iconPart({
+        name: `${COUNTER_PREFIX}${key}`, iconName, fill: fill ?? COUNTER_FILL, property: iconProperty(key),
         maskGroup: "counters", label: "Counter icons",
       })),
       ...CONDITIONS.map(({ id, iconName, dtoProperty }) => iconPart({

@@ -69,3 +69,12 @@ test("the sheet has a component for every palette icon", async () => {
   for (const { key } of COUNTER_ICONS) assert.equal(typeof counterIconComponent(key), "function", key);
   assert.equal(counterIconComponent(""), undefined);
 });
+
+test("four coloured status dots anyone can give a counter", () => {
+  const dots = COUNTER_ICONS.filter((i) => i.key.startsWith("dot_"));
+  assert.deepEqual(dots.map((d) => d.key), ["dot_yellow", "dot_red", "dot_blue", "dot_green"]);
+  for (const dot of dots) {
+    assert.equal(dot.iconName, "GiPlainCircle");
+    assert.match(dot.fill, /^rgba?\(/);
+  }
+});
