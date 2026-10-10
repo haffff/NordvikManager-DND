@@ -1,0 +1,39 @@
+{
+  "name": "create_monster_from_srd",
+  "hook": 0,
+  "prefix": "dnd5e",
+  "isEnabled": false,
+  "content": [
+    {
+      "id": "37151ff4-cd9f-4695-9fec-eb9f6a81dce2",
+      "Data": {
+        "Label": "Create monster card from template",
+        "Name": "%name%",
+        "TemplateId": "%qn:card-\"5E Monster Template\".id%",
+        "Owner": "%playerId%",
+        "Output": "newCardId"
+      },
+      "Type": "CreateCard"
+    },
+    {
+      "id": "c091abce-feaa-4e23-b43c-77b6f5cf8643",
+      "Data": {
+        "Label": "Fill in the stat block (props sent by the monster creator)",
+        "Collection": "props",
+        "ItemName": "prop",
+        "Action": "dnd5e/set_card_prop"
+      },
+      "Type": "ForEach"
+    },
+    {
+      "id": "b2701379-3d05-4a33-bcea-162d780bc1b2",
+      "Data": {
+        "Label": "Place its token when opened from the map",
+        "Condition": "'%hasMapContext%' = 'true'",
+        "ActionTrue": "dnd5e/create_monster_spawn_token"
+      },
+      "Type": "If"
+    }
+  ],
+  "gmPermission": 31
+}

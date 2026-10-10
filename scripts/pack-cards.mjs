@@ -19,6 +19,7 @@ const microFrontends = [
     'dnd5e-itemcard',
     'dnd5e-itemcreator',
     'dnd5e-monstercard',
+    'dnd5e-monstercreator',
     'dnd5e-nordvikcard',
     'dnd5e-template_settings',
 ];

@@ -1,0 +1,108 @@
+/* 5E Monster Creator. Colours come from the addon's shared.css tokens where present. */
+.mc_app {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 14px;
+}
+.mc_header h1 {
+  margin: 0;
+  font-size: 18px;
+}
+.mc_filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.mc_filters input {
+  flex: 1;
+  min-width: 160px;
+}
+.mc_app input,
+.mc_app select {
+  background: #fff;
+  color: var(--dnd-ink, #1a1209);
+  border: 1px solid var(--dnd-border-light, #c4a882);
+  border-radius: var(--radius-sm, 4px);
+  padding: 4px 6px;
+  font-family: inherit;
+  font-size: 14px;
+}
+.mc_app input:focus,
+.mc_app select:focus {
+  outline: none;
+  border-color: var(--dnd-crimson, #8b1a1a);
+}
+.mc_body {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  min-height: 0;
+}
+.mc_list {
+  width: 45%;
+  min-width: 200px;
+  overflow-y: auto;
+  border-right: 1px solid var(--dnd-border-light, #c4a882);
+  padding-right: 8px;
+}
+.mc_list_row {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.mc_list_row:hover,
+.mc_list_row.active {
+  background: rgba(139, 26, 26, 0.08);
+}
+.mc_detail {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+}
+.mc_preview h2 {
+  margin: 0 0 2px;
+  font-size: 17px;
+}
+.mc_muted {
+  font-size: 12px;
+  opacity: 0.75;
+}
+.mc_error {
+  color: var(--dnd-crimson, #8b1a1a);
+}
+.mc_stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 8px 0;
+}
+.mc_abilities {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 4px;
+  text-align: center;
+  margin-bottom: 8px;
+  border-top: 1px solid var(--dnd-border-light, #c4a882);
+  border-bottom: 1px solid var(--dnd-border-light, #c4a882);
+  padding: 4px 0;
+}
+.mc_ability_name {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--dnd-crimson, #8b1a1a);
+}
+.mc_row {
+  margin: 3px 0;
+}
+.mc_create {
+  margin-top: 12px;
+  padding: 6px 14px;
+  font-weight: 600;
+  cursor: pointer;
+}

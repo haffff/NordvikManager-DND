@@ -1,0 +1,20 @@
+{
+  "name": "create_monster_spawn_token",
+  "hook": 0,
+  "prefix": "dnd5e",
+  "isEnabled": false,
+  "content": [
+    {
+      "id": "dcf98280-cdcc-4bac-b231-f718006f24dd",
+      "Data": {
+        "Label": "Spawn token for the new monster card",
+        "Panel": "BattleMap_token",
+        "Command": "CreateToken",
+        "Player": "%playerId%",
+        "Data": "{\"contextId\": \"%battleMapId%\", \"cardId\": \"%newCardId%\", \"position\": %position%}"
+      },
+      "Type": "RunClientCommand"
+    }
+  ],
+  "gmPermission": 31
+}

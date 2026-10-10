@@ -1,0 +1,12 @@
+{
+  "name": "5E Monster Creator",
+  "description": "Search the bestiary sources and create a filled-in monster card.",
+  "key": "monster_creator",
+  "mainResource": "dnd5e_index.html",
+  "additionalResources": [
+    "dnd5e_dnd5e-monstercreator.js",
+    "dnd5e_dnd5e-monstercreator.css",
+    "dnd5e_shared.css"
+  ],
+  "properties": []
+}

@@ -1,0 +1,11 @@
+/* Light page: the addon's parchment theme (shared.css), with native inputs drawn light. */
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--dnd-parchment, #f5f0e8);
+  color: var(--dnd-ink, #1a1209);
+  font-family: var(--font-body, Georgia, serif);
+}

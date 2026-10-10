@@ -52,8 +52,34 @@
       "UiName": "Create Item Card",
       "Action": "dnd5e/open_item_creator",
       "SubMenuId": "dnd5e_tools",
-      "SubMenuName": "5E Items",
+      "SubMenuName": "5E Create",
       "Icon": "FaBoxOpen"
+    },
+    "Type": "AddMenuItem"
+  },
+  {
+    "id": "6e1f4b2a-9c3d-4e5f-8a7b-1c2d3e4f5a61",
+    "Data": {
+      "Label": "5E Create monster card",
+      "Location": "addons",
+      "Name": "create_monster_card",
+      "UiName": "Create Monster Card",
+      "Action": "dnd5e/open_monster_creator",
+      "SubMenuId": "dnd5e_tools",
+      "SubMenuName": "5E Create",
+      "Icon": "FaDragon"
+    },
+    "Type": "AddMenuItem"
+  },
+  {
+    "id": "7f2a5c3b-0d4e-4f6a-9b8c-2d3e4f5a6b72",
+    "Data": {
+      "Label": "5E Add Monster",
+      "Location": "battlemap_add",
+      "Name": "add_dnd_monster",
+      "UiName": "Monster",
+      "Action": "dnd5e/open_monster_creator",
+      "Icon": "FaDragon"
     },
     "Type": "AddMenuItem"
   },
