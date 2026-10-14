@@ -6,6 +6,7 @@ import {
   KINDS, WEAPON_TYPES, ARMOR_TYPES, ABILITIES, SPEEDS, ACTION_KINDS, newAction,
   newForm, toEntry, toForm, validate, upsertEntry, removeEntry, exportFile, importFile,
 } from "./homebrew.js";
+import { visibleEntries, viewerIsGM } from "../../dnd5e-nordvikcard/src/sourceKeys.js";
 import "./App.css";
 
 const RARITIES = ["none", "common", "uncommon", "rare", "very rare", "legendary", "artifact"];
@@ -265,7 +266,7 @@ const FORMS = { item: ItemForm, spell: SpellForm, feat: FeatForm, language: Lang
 
 // ── One kind: list + editor ───────────────────────────────────────────────────
 
-const KindEditor = ({ kind, list, onSaveList }) => {
+const KindEditor = ({ kind, list, isGM, onSaveList }) => {
   const [query, setQuery] = React.useState("");
   const [form, setForm] = React.useState(null);
   const [errors, setErrors] = React.useState({});
@@ -273,7 +274,8 @@ const KindEditor = ({ kind, list, onSaveList }) => {
   const original = form?.hbId ? list.find((e) => e.hbId === form.hbId) : undefined;
   const FormFields = FORMS[kind];
 
-  const shown = list
+  // Only the list shown is filtered: saving always writes the whole list, hidden entries included.
+  const shown = visibleEntries(list, isGM)
     .filter((e) => e.name.toLowerCase().includes(query.trim().toLowerCase()))
     .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -307,6 +309,7 @@ const KindEditor = ({ kind, list, onSaveList }) => {
             onClick={() => open(toForm(kind, e))}
           >
             {e.name}
+            {e.hidden && <span className="hb_badge" title="Hidden from players">Hidden</span>}
           </div>
         ))}
       </div>
@@ -317,6 +320,7 @@ const KindEditor = ({ kind, list, onSaveList }) => {
           <>
             <div className="hb_form">
               <Field label="Name" error={errors.name} wide><Text form={form} set={set} name="name" autoFocus /></Field>
+              <Check form={form} set={set} name="hidden" label="Hidden from players (the GM still sees it in lists)" />
               <FormFields form={form} set={set} errors={errors} />
             </div>
             <div className="hb_actions">
@@ -397,6 +401,9 @@ export default function App({ Api }) {
   const [lists, setLists] = React.useState(null);
   const [tab, setTab] = React.useState("item");
   const [status, setStatus] = React.useState(null);
+  const [isGM, setIsGM] = React.useState(false);
+
+  React.useEffect(() => { viewerIsGM(Api).then(setIsGM); }, [Api]);
 
   React.useEffect(() => {
     (async () => {
@@ -454,6 +461,7 @@ export default function App({ Api }) {
           key={kind}
           kind={kind}
           list={lists[listKey]}
+          isGM={isGM}
           onSaveList={(list) => saveLists({ ...lists, [listKey]: list })}
         />
       ))}

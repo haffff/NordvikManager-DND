@@ -3,6 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { usePropertyList } from "../../hooks/usePropertyList";
 import { useResourceData } from "../../hooks/useResourceData";
 import { mkId } from "../srdHelpers";
+import { visibleEntries, viewerIsGM } from "../sourceKeys";
 
 const LanguageSearchPanel = ({ langData, loading, onAdd, onClose }) => {
   const [query, setQuery] = React.useState("");
@@ -93,9 +94,14 @@ export const ProficienciesLanguages5E = ({ Api }) => {
   const sourceLangs = useResourceData(Api, "dnd5e_languages", (d) => d.language ?? d.item ?? d);
   // The game's own languages, made in the 5E Homebrew view.
   const homebrewLangs = useResourceData(Api, "dnd5e_languages_homebrew", (d) => d.language ?? []);
+  // Hidden homebrew languages are the GM's.
+  const [isGM, setIsGM] = React.useState(false);
+  React.useEffect(() => { viewerIsGM(Api).then(setIsGM); }, [Api]);
   const langData = React.useMemo(
-    () => (sourceLangs.items || homebrewLangs.items ? [...(sourceLangs.items ?? []), ...(homebrewLangs.items ?? [])] : null),
-    [sourceLangs.items, homebrewLangs.items]
+    () => (sourceLangs.items || homebrewLangs.items
+      ? visibleEntries([...(sourceLangs.items ?? []), ...(homebrewLangs.items ?? [])], isGM)
+      : null),
+    [sourceLangs.items, homebrewLangs.items, isGM]
   );
   const loading = sourceLangs.loading || homebrewLangs.loading;
   const load = () => { sourceLangs.load(); homebrewLangs.load(); };

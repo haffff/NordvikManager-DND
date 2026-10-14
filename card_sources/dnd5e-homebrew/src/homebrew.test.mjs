@@ -240,3 +240,16 @@ test("monster actions written by the form are what the card reads", () => {
   assert.equal(parseAction(entry.action[0]).type, "attack");
   assert.equal(entry.reaction[0].name, "Submerge");
 });
+
+test("every kind can be hidden from players; the flag round-trips and is left off otherwise", () => {
+  for (const { kind } of KINDS) {
+    assert.equal(newForm(kind).hidden, false);
+    const hidden = toEntry(kind, { ...newForm(kind), name: "Secret", hidden: true });
+    assert.equal(hidden.hidden, true, kind);
+    assert.equal(toForm(kind, hidden).hidden, true, kind);
+
+    const shown = toEntry(kind, { ...newForm(kind), name: "Open" }, hidden); // unhiding an edited entry
+    assert.equal("hidden" in shown, false, kind);
+    assert.equal(toForm(kind, shown).hidden, false, kind);
+  }
+});
