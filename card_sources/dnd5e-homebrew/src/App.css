@@ -64,6 +64,14 @@
 .hb_list_row.active {
   background: rgba(255, 255, 255, 0.08);
 }
+.hb_badge {
+  margin-left: 6px;
+  padding: 0 5px;
+  border-radius: 3px;
+  font-size: 0.75em;
+  opacity: 0.75;
+  border: 1px solid currentColor;
+}
 .hb_editor {
   flex: 1;
   min-width: 0;

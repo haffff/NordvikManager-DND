@@ -1,5 +1,5 @@
 import React from "react";
-import { sourceKeys } from "../src/sourceKeys.js";
+import { sourceKeys, visibleEntries, viewerIsGM } from "../src/sourceKeys.js";
 
 /**
  * Loads and merges every source of one kind configured in the game's shared
@@ -7,7 +7,8 @@ import { sourceKeys } from "../src/sourceKeys.js";
  * Each source is synced by the settings card as a resource keyed
  * `{resourcePrefix}{slug}`; this hook fetches all of them in parallel, plus the
  * game's homebrew (`{resourcePrefix}homebrew`, see src/sourceKeys.js), and
- * concatenates the lists `extract` picks out of each file.
+ * concatenates the lists `extract` picks out of each file. Entries marked hidden
+ * (GM-only homebrew) are left out unless the viewer is the GM.
  *
  * @param {string} configKey       - e.g. "spellSources"
  * @param {string} resourcePrefix  - e.g. "dnd5e_spells_"
@@ -26,7 +27,10 @@ export const useSourceData = (Api, configKey, resourcePrefix, extract) => {
       setError(null);
       try {
         const gameId = await Api.ClientMediator.sendCommandAsync("Game", "GetGameId");
-        const configProp = await Api.Properties.Global.Get(gameId, "dnd5e_config");
+        const [configProp, isGM] = await Promise.all([
+          Api.Properties.Global.Get(gameId, "dnd5e_config"),
+          viewerIsGM(Api),
+        ]);
 
         let config;
         try {
@@ -51,7 +55,7 @@ export const useSourceData = (Api, configKey, resourcePrefix, extract) => {
           }
         }));
 
-        setData(results.flat());
+        setData(visibleEntries(results.flat(), isGM));
       } catch (e) {
         console.error(`useSourceData: failed to load ${configKey}:`, e);
         setError(e.message ?? "Load failed");

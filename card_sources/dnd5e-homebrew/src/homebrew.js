@@ -69,7 +69,8 @@ const MANAGED = {
 };
 
 // Fresh lists each time, so two new monster forms never share their traits/actions arrays.
-export const newForm = (kind) => ({ ...FORMS[kind], ...(kind === "monster" ? { traits: [], actions: [] } : {}) });
+// `hidden` (every kind): kept out of players' lists; the GM still sees it.
+export const newForm = (kind) => ({ ...FORMS[kind], hidden: false, ...(kind === "monster" ? { traits: [], actions: [] } : {}) });
 
 const paragraphs = (text) => (text ?? "").split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
 const num = (value) => (String(value ?? "").trim() === "" ? undefined : Number(value));
@@ -178,7 +179,7 @@ const OMIT_EMPTY = new Set([
 
 /** The data entry for a form. `original` (when editing) keeps the fields the form doesn't show. */
 export const toEntry = (kind, form, original = {}) => {
-  const entry = Object.fromEntries(Object.entries(original).filter(([k]) => !MANAGED[kind].includes(k)));
+  const entry = Object.fromEntries(Object.entries(original).filter(([k]) => !MANAGED[kind].includes(k) && k !== "hidden"));
   entry.name = form.name.trim();
   entry.source = HOMEBREW_SOURCE;
   entry.hbId = form.hbId || original.hbId || mkId();
@@ -190,6 +191,7 @@ export const toEntry = (kind, form, original = {}) => {
     if (form.ritual) meta.ritual = true; else delete meta.ritual;
     if (Object.keys(meta).length) entry.meta = meta; else delete entry.meta;
   }
+  if (form.hidden) entry.hidden = true;
   return entry;
 };
 
@@ -281,7 +283,9 @@ const FORM = {
 };
 
 /** The form for an existing entry (to edit it). */
-export const toForm = (kind, entry) => ({ ...newForm(kind), ...FORM[kind](entry), hbId: entry.hbId ?? "", name: entry.name ?? "" });
+export const toForm = (kind, entry) => ({
+  ...newForm(kind), ...FORM[kind](entry), hbId: entry.hbId ?? "", name: entry.name ?? "", hidden: !!entry.hidden,
+});
 
 const notANumber = (value) => {
   if (String(value ?? "").trim() === "") return false;
