@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/haffff/NordvikManager-Addons/refs/heads/main/schemas/card.json",
   "name": "5E Item Template",
   "description": "A template for fifth edition items and notes.",
   "key": "item",

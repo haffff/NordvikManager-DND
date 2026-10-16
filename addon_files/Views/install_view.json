@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/haffff/NordvikManager-Addons/refs/heads/main/schemas/card.json",
   "name": "5E Installation",
   "description": "Settings for fifth edition installation.",
   "key": "dnd5e_installation",

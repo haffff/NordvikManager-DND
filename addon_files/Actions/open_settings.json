@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/haffff/NordvikManager-Addons/refs/heads/main/schemas/action.json",
   "name": "open_settings",
   "hook": 0,
   "prefix": "dnd5e",

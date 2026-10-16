@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/haffff/NordvikManager-Addons/refs/heads/main/schemas/card.json",
   "name": "5E Homebrew",
   "description": "Create, edit, export and import this game's homebrew items, spells, feats and languages.",
   "key": "homebrew",

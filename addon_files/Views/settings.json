@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/haffff/NordvikManager-Addons/refs/heads/main/schemas/card.json",
   "name": "5E Card settings",
   "description": "Settings for fifth edition character cards.",
   "key": "dnd5e_character_card_settings",
