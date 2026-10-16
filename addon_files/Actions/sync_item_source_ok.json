@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/haffff/NordvikManager-Addons/refs/heads/main/schemas/action.json",
   "name": "sync_item_source_ok",
   "hook": 0,
   "prefix": "dnd5e",
